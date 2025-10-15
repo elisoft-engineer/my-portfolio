@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faArrowDown, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
+
 
 import Navbar from "./Navbar";
 import profileImg from "../assets/images/profile.webp";
+import codingImg from "../assets/images/programming-developer.svg"
 
 const Home = () => {
-  const skills = ['Software Engineer', 'Web Developer', 'UI/UX Designer', 'Data Analyst'];
+  const skills = ['Software Engineer', 'Full-Stack Developer', 'Machine Learning Engineer', 'System Architect'];
   const [currentText, setCurrentText] = useState("");
   const skillIndexRef = useRef(0);
   const isDeletingRef = useRef(false);
@@ -59,85 +61,58 @@ const Home = () => {
     <>
       <Navbar />
       <section className="home" id="home">
-        <div className="background" aria-hidden>
-          <svg className="home-blobs" viewBox="0 0 1200 600" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#ec80ff" />
-                <stop offset="100%" stopColor="#0087ff" />
-              </linearGradient>
+        <div className="hero">
+          <div className="background" aria-hidden>
+            <svg className="hero-blobs" viewBox="0 0 1200 600" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ec80ff" />
+                  <stop offset="100%" stopColor="#0087ff" />
+                </linearGradient>
 
-              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#ff6ec7" />
-                <stop offset="100%" stopColor="#ffa800" />
-              </linearGradient>
-            </defs>
+                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ff6ec7" />
+                  <stop offset="100%" stopColor="#ffa800" />
+                </linearGradient>
+              </defs>
 
-            <path className="blob-left" d="" />
-            <path className="blob-right" d="" />
-          </svg>
-        </div>
-
-        <div className="content">
-          <div className="left">
-            <div className="medium">Hello, I'm</div>
-            <h1 className="name">Elkana Maina</h1>
-            <div className="medium">
-              And I'm a{" "}
-              <span className="skill" aria-live="polite" aria-atomic="true">
-                {currentText}
-              </span>
-            </div>
-
-            <div className="links" aria-label="social links">
-              <a
-                href="https://www.linkedin.com/in/elkana-maina-ab54851a0/"
-                className="link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FontAwesomeIcon icon={faLinkedin} className="icon" />
-              </a>
-
-              <a
-                href="https://github.com/elisoft-engineer/"
-                className="link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <FontAwesomeIcon icon={faGithub} className="icon" />
-              </a>
-
-              <a href="mailto:elisoft.engineer@gmail.com" className="link" aria-label="Email">
-                <FontAwesomeIcon icon={faEnvelope} className="icon" />
-              </a>
-
-              <a
-                href="https://wa.me/+254757241621?text=Hello!%20I%20would%20like%20to%20inquire%20about..."
-                className="link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-              >
-                <FontAwesomeIcon icon={faWhatsapp} className="icon" />
-              </a>
-            </div>
-
-            <button type="button" className="cv" id="cv" onClick={() => {}} aria-label="Download CV">
-              Download CV
-            </button>
-
-            <div className="scroll-down" aria-hidden>
-              <span className="scroller">
-                <FontAwesomeIcon icon={faArrowDown} className="icon" />
-              </span>
-            </div>
+              <path className="blob-left" d="" />
+              <path className="blob-right" d="" />
+            </svg>
           </div>
 
-          <div className="right">
-            <img src={profileImg} alt="Image - Elkana Maina" className="image" />
+          <div className="content">
+            <div className="left">
+              <div className="medium">Hello, I'm</div>
+              <h1 className="name">Elkana Maina</h1>
+              <div className="medium">
+                And I'm a{" "}
+                <span className="skill" aria-live="polite" aria-atomic="true">
+                  {currentText}
+                </span>
+              </div>
+
+              <div className="scroll-down" aria-hidden>
+                <span className="scroller">
+                  <FontAwesomeIcon icon={faArrowDown} className="icon" />
+                </span>
+              </div>
+            </div>
+
+            <div className="right">
+              <img src={profileImg} alt="Image - Elkana Maina" className="image" />
+            </div>
+          </div>
+        </div>
+
+        <div className="about">
+          <div className="left">
+            <img src={codingImg} alt="Coding Image" className="image" />
+          </div>
+          <div className="description">
+            I am a passionate Software Engineer who loves turning ideas into powerful, 
+            user-friendly digital experiences. From dynamic websites and APIs to complete business 
+            systems, I enjoy building tools that make everyday work simpler, faster, and smarter.
           </div>
         </div>
       </section>
