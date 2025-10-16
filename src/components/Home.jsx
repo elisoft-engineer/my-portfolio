@@ -1,12 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faArrowDown, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faArrowDown, faCircleQuestion, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
 
 
 import Navbar from "./Navbar";
 import profileImg from "../assets/images/profile.webp";
-import codingImg from "../assets/images/programming-developer.svg"
+import codingImg from "../assets/images/programming-developer.svg";
+import falcosendImg from "../assets/images/falcosend.svg";
+import Footer from "./Footer";
+import services from "../constants/services";
+import skillsConstant from "../constants/skills";
 
 const Home = () => {
   const skills = ['Software Engineer', 'Full-Stack Developer', 'Machine Learning Engineer', 'System Architect'];
@@ -55,7 +60,12 @@ const Home = () => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, []); 
+  }, []);
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
@@ -91,6 +101,13 @@ const Home = () => {
                   {currentText}
                 </span>
               </div>
+              <div
+                className="hero-cta"
+                onClick={() => scrollTo("about")}
+                aria-label="Scroll to about section"
+              >
+                <FontAwesomeIcon icon={faSearch} /> Get to know me
+              </div>
 
               <div className="scroll-down" aria-hidden>
                 <span className="scroller">
@@ -105,16 +122,91 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="about">
+        <div className="about" id="about">
           <div className="left">
             <img src={codingImg} alt="Coding Image" className="image" />
           </div>
-          <div className="description">
-            I am a passionate Software Engineer who loves turning ideas into powerful, 
-            user-friendly digital experiences. From dynamic websites and APIs to complete business 
-            systems, I enjoy building tools that make everyday work simpler, faster, and smarter.
+          <div className="right">
+            <div className="heading">
+              Who am I {" "}
+              <FontAwesomeIcon icon={faCircleQuestion} className="icon" />
+            </div>
+            <div className="description">
+              I am a passionate Software Engineer who loves turning ideas into powerful, 
+              user-friendly digital experiences. From dynamic websites and APIs to complete business 
+              systems, I enjoy building tools that make everyday work simpler, faster, and smarter.
+            </div>
           </div>
         </div>
+
+        {/* ----- Services / What I Build ----- */}
+        <div className="services" id="services" aria-labelledby="services-heading">
+          <h2 id="services-heading" className="title">What I build</h2>
+
+          <div className="grid">
+            {services.map((s, i) => (
+              <article className="card" key={i}>
+                <div className="icon">
+                  <FontAwesomeIcon icon={s.icon} className="icon large" />
+                </div>
+                <h3 className="title">{s.title}</h3>
+                <p className="description">{s.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* ----- Projects Preview ----- */}
+        <div className="projects-preview" id="projects-preview">
+          <h2 className="title">My Project Catalogue</h2>
+
+          <div className="projects-grid">
+            <div className="card">
+              <div className="image">
+                <img src={falcosendImg} alt="Falcosend Logo" />
+              </div>
+              <div className="project-meta">
+                <h4>Falcosend</h4>
+                <p>Falcosend is a Multi-Tenant API for form submissions in static and serverless websites and applications</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ----- Skills Preview ----- */}
+        <div className="skills-preview" id="skills">
+          <h2 className="section-title">Skills & Tech</h2>
+
+          <div className="skills-grid">
+            {skillsConstant.map((s, i) => (
+              <div className="skill-badge" key={i} role="group" aria-label={`${s.name} proficiency`}>
+                <div className="skill-row">
+                  <span className="skill-name">{s.name}</span>
+                  <span className="skill-percent">{s.level}%</span>
+                </div>
+                <div className="skill-bar" aria-hidden>
+                  <div className="skill-fill" style={{ width: `${s.level}%` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ----- CTA ----- */}
+        <div className="cta" id="cta">
+          <div className="cta-inner">
+            <div>
+              <h3>Like what you see?</h3>
+              <p>Check out my projects or get in touch to build something great together.</p>
+            </div>
+
+            <div className="cta-buttons">
+              <a href="/projects" className="btn btn-primary">See Projects</a>
+              <a href="/contact" className="btn btn-ghost">Hire Me</a>
+            </div>
+          </div>
+        </div>
+      <Footer />
       </section>
     </>
   );
