@@ -14,7 +14,6 @@ const Navbar = () => {
         <div class="nav-links">
           <NavLink className="link" to="/">Home</NavLink>
           <NavLink className="link" to="/projects">Projects</NavLink>
-          <NavLink className="link" to="/experience">Experience</NavLink>
           <NavLink className="link" to="/skills">Skills</NavLink>
           <NavLink className="link" to="/certificates">Certificates</NavLink>
           <ThemeToggle className="theme-toggler" />
