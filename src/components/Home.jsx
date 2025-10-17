@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faArrowDown, faCircleQuestion, faSearch, faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faCircleQuestion, faSearch, faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 
 import Navbar from "./Navbar";
@@ -9,11 +9,11 @@ import codingImg from "../assets/images/programming-developer.svg";
 import falcosendImg from "../assets/images/falcosend.svg";
 import ellypadImg from "../assets/images/ellypad.svg";
 import Footer from "./Footer";
-import services from "../constants/services";
-import skillsConstant from "../constants/skills";
+import BallCanvas from "./BallCanvas";
+import { skills, services, technologies } from '../constants';
 
 const Home = () => {
-  const skills = ['Software Engineer', 'Full-Stack Developer', 'Machine Learning Engineer', 'System Architect'];
+  const typingAnimationSkills = ['Software Engineer', 'Full-Stack Developer', 'Machine Learning Engineer', 'System Architect'];
   const [currentText, setCurrentText] = useState("");
   const skillIndexRef = useRef(0);
   const isDeletingRef = useRef(false);
@@ -27,7 +27,7 @@ const Home = () => {
 
     function tick() {
       const idx = skillIndexRef.current;
-      const fullText = skills[idx];
+      const fullText = typingAnimationSkills[idx];
 
       let newText;
       if (isDeletingRef.current) {
@@ -47,7 +47,7 @@ const Home = () => {
         delay = FULL_PAUSE;
       } else if (isDeletingRef.current && newText === "") {
         isDeletingRef.current = false;
-        skillIndexRef.current = (skillIndexRef.current + 1) % skills.length;
+        skillIndexRef.current = (skillIndexRef.current + 1) % typingAnimationSkills.length;
         delay = EMPTY_PAUSE;
       }
 
@@ -156,21 +156,16 @@ const Home = () => {
         </div>
 
         {/* ----- Tools & Technologies ----- */}
-        {/* <div className="technologies" id="technologies" aria-labelledby="technologies-heading">
-          <h2 id="technologies-heading" className="title">Tools and Technologies</h2>
-
-          <div className="grid">
-            {technologies.map((s, i) => (
-              <article className="card" key={i}>
-                <div className="icon">
-                  <FontAwesomeIcon icon={s.icon} className="icon large" />
-                </div>
-                <h3 className="title">{s.title}</h3>
-                <p className="description">{s.text}</p>
-              </article>
-            ))}
+        <div className="technologies-section">
+          <h2 className="title">Technologies</h2>
+          <div className="technologies">
+            {technologies.map((technology) => {
+              return <div className="technology" key={technology.name}>
+                <BallCanvas icon={technology.icon} />
+              </div>
+            })}
           </div>
-        </div> */}
+        </div>
 
         {/* ----- Projects Preview ----- */}
         <div className="projects-preview" id="projects-preview">
@@ -239,7 +234,7 @@ const Home = () => {
           <h2 className="section-title">Skills & Tech</h2>
 
           <div className="skills-grid">
-            {skillsConstant.map((s, i) => (
+            {skills.map((s, i) => (
               <div className="skill-badge" key={i} role="group" aria-label={`${s.name} proficiency`}>
                 <div className="skill-row">
                   <span className="skill-name">{s.name}</span>
