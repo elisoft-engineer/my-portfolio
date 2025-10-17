@@ -4,14 +4,14 @@ import ThemeToggle from "./ThemeToggler";
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <nav class="navbar">
-        <div class="brand">
-          <a class="name" href="index.html">
-            <span class="first">Elkana</span>
-            <span class="last">Maina</span>
+      <nav className="navbar">
+        <div className="brand">
+          <a className="name" href="index.html">
+            <span className="first">Elkana</span>
+            <span className="last">Maina</span>
           </a>
         </div>
-        <div class="nav-links">
+        <div className="nav-links">
           <NavLink className="link" to="/">Home</NavLink>
           <NavLink className="link" to="/projects">Projects</NavLink>
           <NavLink className="link" to="/skills">Skills</NavLink>
