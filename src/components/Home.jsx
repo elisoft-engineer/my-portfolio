@@ -1,14 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faArrowDown, faCircleQuestion, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faArrowDown, faCircleQuestion, faSearch, faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 
 import Navbar from "./Navbar";
 import profileImg from "../assets/images/profile.webp";
 import codingImg from "../assets/images/programming-developer.svg";
 import falcosendImg from "../assets/images/falcosend.svg";
+import ellypadImg from "../assets/images/ellypad.svg";
 import Footer from "./Footer";
 import services from "../constants/services";
 import skillsConstant from "../constants/skills";
@@ -156,18 +155,80 @@ const Home = () => {
           </div>
         </div>
 
+        {/* ----- Tools & Technologies ----- */}
+        {/* <div className="technologies" id="technologies" aria-labelledby="technologies-heading">
+          <h2 id="technologies-heading" className="title">Tools and Technologies</h2>
+
+          <div className="grid">
+            {technologies.map((s, i) => (
+              <article className="card" key={i}>
+                <div className="icon">
+                  <FontAwesomeIcon icon={s.icon} className="icon large" />
+                </div>
+                <h3 className="title">{s.title}</h3>
+                <p className="description">{s.text}</p>
+              </article>
+            ))}
+          </div>
+        </div> */}
+
         {/* ----- Projects Preview ----- */}
         <div className="projects-preview" id="projects-preview">
-          <h2 className="title">My Project Catalogue</h2>
-
-          <div className="projects-grid">
+          <h2 className="projects-title">My Project Catalog</h2>
+          <div className="projects">
             <div className="card">
               <div className="image">
                 <img src={falcosendImg} alt="Falcosend Logo" />
               </div>
-              <div className="project-meta">
-                <h4>Falcosend</h4>
-                <p>Falcosend is a Multi-Tenant API for form submissions in static and serverless websites and applications</p>
+              <div className="meta">
+                <h2 className="title">Falcosend</h2>
+                <p className="description">
+                  Falcosend is a developer-focused platform that bridges static websites with powerful backend features
+                  such as form handling, data storage, analytics, and real-time alerts without writing server code. 
+                  It's built for simplicity, speed, and seamless integration, empowering developers to create dynamic 
+                  experiences while keeping their sites lightweight and easy to manage.
+                </p>
+                <div className="skills">
+                  <span className="skill">Python</span>
+                  <span className="skill">Django</span>
+                  <span className="skill">Django REST Framework</span>
+                  <span className="skill">React</span>
+                  <span className="skill">CSS 3</span>
+                </div>
+                <div className="links">
+                  <a href="#" target="_blank" className="link">
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="icon" />
+                    Visit Website
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="card">
+              <div className="image">
+                <img src={ellypadImg} alt="Ellypad Logo" />
+              </div>
+              <div className="meta">
+                <h2 className="title">Ellypad</h2>
+                <p className="description">
+                  Ellypad is a collaborative project management platform built to streamline software development 
+                  workflows. It empowers teams to plan projects, assign and track tasks, and manage proposals all 
+                  in one intuitive interface. With secure user authentication and a clean, responsive design, Ellypad 
+                  brings structure, clarity, and efficiency to every stage of your development process.
+                </p>
+                <div className="skills">
+                  <span className="skill">Python</span>
+                  <span className="skill">Django</span>
+                  <span className="skill">Django REST Framework</span>
+                  <span className="skill">Next Js</span>
+                  <span className="skill">CSS 3</span>
+                </div>
+                <div className="links">
+                  <a href="#" target="_blank" className="link">
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="icon" />
+                    Visit Website
+                  </a>
+                </div>
               </div>
             </div>
           </div>
