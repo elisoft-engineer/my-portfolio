@@ -1,72 +1,106 @@
 import { faLaptopCode, faServer, faCloud, faCogs } from "@fortawesome/free-solid-svg-icons";
-import pythonIcon from '../assets/icons/python.svg';
-import djangoIcon from '../assets/icons/django.svg';
-import fastapiIcon from '../assets/icons/fastapi.svg';
-import flutterIcon from '../assets/icons/flutter.svg';
-import javascriptIcon from '../assets/icons/javascript.svg';
-import reactIcon from '../assets/icons/react.svg';
-import nodejsIcon from '../assets/icons/nodejs.svg';
 
-const skills = [
-  { name: "Django", level: 90 },
-  { name: "Python", level: 92 },
-  { name: "PostgreSQL", level: 86 },
-  { name: "Docker / CI", level: 85 },
-  { name: "REST APIs", level: 90 },
-  { name: "React / Static Sites", level: 80 }
-]
+import css from '../assets/icons/css.svg';
+import dart from '../assets/icons/dart.svg';
+import django from '../assets/icons/django.svg';
+import docker from '../assets/icons/docker.svg';
+import fastapi from '../assets/icons/fastapi.svg';
+import flutter from '../assets/icons/flutter.svg';
+import html from '../assets/icons/html.svg';
+import javascript from '../assets/icons/javascript.svg';
+import nextjs from '../assets/icons/nextjs.svg';
+import nodejs from '../assets/icons/nodejs.svg';
+import python from '../assets/icons/python.svg';
+import react from '../assets/icons/react.svg';
+import sqlalchemy from '../assets/icons/sqlalchemy.svg';
+import swagger from '../assets/icons/swagger.svg';
+import vite from '../assets/icons/vite.svg';
+
+
 
 const technologies = [
   {
     name: "Python",
-    icon: pythonIcon,
+    icon: python,
   },
   {
     name: "Django",
-    icon: djangoIcon,
+    icon: django,
   },
   {
     name: "FastAPI",
-    icon: fastapiIcon,
-  },
-  {
-    name: "Flutter",
-    icon: flutterIcon,
+    icon: fastapi,
   },
   {
     name: "JavaScript",
-    icon: javascriptIcon,
+    icon: javascript,
+  },
+  {
+    name: "HTML5",
+    icon: html,
+  },
+  {
+    name: "CSS3",
+    icon: css,
+  },
+  {
+    name: "Dart",
+    icon: dart,
+  },
+  {
+    name: "Flutter",
+    icon: flutter,
   },
   {
     name: "React",
-    icon: reactIcon,
+    icon: react,
+  },
+  {
+    name: "NextJS",
+    icon: nextjs,
   },
   {
     name: "Node Js",
-    icon: nodejsIcon,
+    icon: nodejs,
+  },
+  {
+    name: "SQLAlchemy",
+    icon: sqlalchemy,
+  },
+  {
+    name: "Swagger",
+    icon: swagger,
+  },
+  {
+    name: "Docker",
+    icon: docker,
+  },
+  {
+    name: "Vite",
+    icon: vite,
   },
 ]
 
 const services = [
   {
     icon: faLaptopCode,
-    title: "Web Applications",
-    text: "Interactive websites and admin dashboards that are fast, accessible and mobile-friendly."
-  },
-  {
-    icon: faServer,
-    title: "APIs & Integrations",
-    text: "Robust APIs and integrations for payments, mobile apps and internal tools."
+    title: "Business Websites",
+    description: "Interactive websites for businesses and institutions. They ensure 24/7 online presence and expand the market beyoud physical location."
   },
   {
     icon: faCogs,
-    title: "Business Systems",
-    text: "Inventory, billing and workflow systems that automate repetitive work and reduce errors."
+    title: "Enterprise Software",
+    description: "Inventory, billing and workflow systems that automate repetitive work and reduce errors. They are integrated with fine-tuned dashboards."
+  },
+  {
+    icon: faServer,
+    title: "Backend & API Development",
+    description: "Development of robust and secure application servers for enterprise software as well as web applications."
   },
   {
     icon: faCloud,
     title: "Deployment & DevOps",
-    text: "Containerized deployments, CI/CD and monitoring so your app runs reliably in production."
+    description: "Enterprise software deployments (on-premise and web) and maintainance and monitoring services."
   }
 ]
 
@@ -91,4 +125,4 @@ const projects = [
   }
 ]
 
-export { skills, technologies, services, projects }
+export { technologies, services, projects }
