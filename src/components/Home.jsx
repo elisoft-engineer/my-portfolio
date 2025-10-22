@@ -10,7 +10,8 @@ import falcosendImg from "../assets/images/falcosend.svg";
 import ellypadImg from "../assets/images/ellypad.svg";
 import Footer from "./Footer";
 import BallCanvas from "./BallCanvas";
-import { skills, services, technologies } from '../constants';
+import { services, technologies } from '../constants';
+import ServiceCard from "./ServiceCard";
 
 const Home = () => {
   const typingAnimationSkills = ['Software Engineer', 'Full-Stack Developer', 'Machine Learning Engineer', 'System Architect'];
@@ -144,13 +145,7 @@ const Home = () => {
 
           <div className="grid">
             {services.map((s, i) => (
-              <article className="card" key={i}>
-                <div className="icon">
-                  <FontAwesomeIcon icon={s.icon} className="icon large" />
-                </div>
-                <h3 className="title">{s.title}</h3>
-                <p className="description">{s.text}</p>
-              </article>
+              <ServiceCard index={i} key={s.title} {...s} />
             ))}
           </div>
         </div>
@@ -226,25 +221,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* ----- Skills Preview ----- */}
-        <div className="skills-preview" id="skills">
-          <h2 className="section-title">Skills & Tech</h2>
-
-          <div className="skills-grid">
-            {skills.map((s, i) => (
-              <div className="skill-badge" key={i} role="group" aria-label={`${s.name} proficiency`}>
-                <div className="skill-row">
-                  <span className="skill-name">{s.name}</span>
-                  <span className="skill-percent">{s.level}%</span>
-                </div>
-                <div className="skill-bar" aria-hidden>
-                  <div className="skill-fill" style={{ width: `${s.level}%` }} />
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 
