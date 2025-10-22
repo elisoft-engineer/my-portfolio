@@ -349,13 +349,13 @@ h4 {
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      gap: 1.5rem;
       margin: 1.25rem 0 2rem;
 
       .card {
         padding: 1.25rem;
         border-radius: 12px;
-        background: rgba(255,255,255,0.03);
+        background: var(--background);
         box-shadow: 0 6px 18px rgba(3,8,20,0.18);
         transition: transform .22s ease, box-shadow .22s ease;
 
@@ -366,16 +366,12 @@ h4 {
 
         .title {
           opacity: 0.9;
+          margin: 1rem 0rem;
         }
 
         .description {
           opacity: 0.8;
         }
-      }
-
-      .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 28px rgba(3,8,20,0.25);
       }
 
     }
@@ -486,10 +482,12 @@ h4 {
     }
 
     .technologies {
+      width: 50%;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
+      justify-content: center;
 
       .technology {
         width: 7rem;
