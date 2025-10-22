@@ -17,7 +17,7 @@
     "@fortawesome/react-fontawesome": "^3.1.0",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.4.0",
-    "maath": "^0.10.8",
+    "framer-motion": "^12.23.24",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.4",
