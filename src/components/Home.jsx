@@ -5,6 +5,7 @@ import { faArrowDown, faCircleQuestion, faSearch, faArrowUpRightFromSquare } fro
 
 import Navbar from "./Navbar";
 import profileImg from "../assets/images/profile.webp";
+import tshirtImg from "../assets/images/me.webp";
 import codingImg from "../assets/images/programming-developer.svg";
 import falcosendImg from "../assets/images/falcosend.svg";
 import ellypadImg from "../assets/images/ellypad.svg";
@@ -226,7 +227,11 @@ const Home = () => {
 
         {/* ----- CTA ----- */}
         <div className="cta" id="cta">
-          <div className="cta-inner">
+          <div className="image-section">
+            <div className="background"></div>
+            <img src={tshirtImg} alt="Elkana's Image" className="image" />
+          </div>
+          <div className="cta-content">
             <div>
               <h3>Like what you see?</h3>
               <p>Check out my projects or get in touch to build something great together.</p>
