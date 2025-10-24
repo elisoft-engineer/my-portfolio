@@ -4,12 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ServiceCard = ({index, icon, title, description }) => {
 	return (
-		<Tilt className="service-card">
+		<Tilt className="service-card" options={{max: 45, scale: 1, speed: 450}}>
 			<motion.div>
 				<article
 					className="card"
 					key={index}
-					options={{max: 45, scale: 1, speed: 450}}
 				>
 					<div className="icon">
 						<FontAwesomeIcon icon={icon} className="icon large" />
