@@ -351,11 +351,22 @@ h4 {
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
       margin: 1.25rem 0 2rem;
+      overflow: visible;
+
+      .service-card {
+        overflow: visible;
+        will-change: transform;
+        z-index: 0;
+        transition: z-index .12s ease;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+      }
 
       .card {
+        overflow: visible;
         padding: 1.25rem;
         border-radius: 12px;
-        background: var(--background);
+        background: linear-gradient(-45deg, var(--glass-primary), var(--glass-secondary));
         box-shadow: 0 6px 18px rgba(3,8,20,0.18);
         transition: transform .22s ease, box-shadow .22s ease;
 
