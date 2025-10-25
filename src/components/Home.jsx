@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown, faCircleQuestion, faSearch, faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-
+import { faArrowDown, faCircleQuestion, faSearch, faArrowUpRightFromSquare, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin, faWhatsapp, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import Navbar from "./Navbar";
 import profileImg from "../assets/images/profile.webp";
@@ -233,14 +233,70 @@ const Home = () => {
           </div>
           <div className="cta-content">
             <div>
-              <h3>Like what you see?</h3>
+              <h3 className="question">
+                Like what you see {" "}
+                <FontAwesomeIcon icon={faCircleQuestion} className="icon" />
+              </h3>
               <p>Check out my projects or get in touch to build something great together.</p>
             </div>
 
             <div className="cta-buttons">
               <a href="/projects" className="btn btn-primary">See Projects</a>
-              <a href="/contact" className="btn btn-ghost">Hire Me</a>
+              <span className="separator">Or</span>
+              <div
+                className="btn btn-contact"
+                onClick={() => scrollTo("contacts")}
+                aria-label="Scroll to contact section"
+              >
+                <FontAwesomeIcon icon={faPhone} /> Contact Me
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* ----- CONTACT ----- */}
+        <div className="contacts" id="contacts">
+          <h2 className="heading">Get in touch</h2>
+          <div className="links">
+            <a
+              href="https://wa.me/+254757241621?text=Hello!%20I%20would%20like%20to%20inquire%20about..."
+              className="link whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} className="icon" />
+              <span className="text">Whatsapp</span>
+            </a>
+            <a
+              href="mailto:elisoft.engineer@gmail.com"
+              className="link email"
+              aria-label="Email"
+            >
+              <FontAwesomeIcon icon={faEnvelope} className="icon" />
+              <span className="text">Email</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/elkana-maina-ab54851a0/"
+              className="link linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FontAwesomeIcon icon={faLinkedin} className="icon" />
+              <span className="text">LinkedIn</span>
+            </a>
+
+            <a
+              href="https://github.com/elisoft-engineer/"
+              className="link github"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <FontAwesomeIcon icon={faGithub} className="icon" />
+              <span className="text">GitHub</span>
+            </a>
           </div>
         </div>
       <Footer />
