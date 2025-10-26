@@ -35,6 +35,9 @@
 
 #root {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .home {
@@ -80,18 +83,15 @@ h4 {
 
   .brand {
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 
-    .name {
-        font-size: 1.5rem;
-      .first {
-        color: var(--primary);
-      }
+    .first {
+      color: var(--primary);
+    }
 
-      .last {
-        color: var(--on-background);
-        margin-left: 0.25rem;
-      }
+    .last {
+      color: var(--on-background);
+      margin-left: 0.25rem;
     }
   }
 
@@ -581,6 +581,7 @@ h4 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 6rem;
 
     .heading {
       width: fit-content;
@@ -697,18 +698,22 @@ h4 {
 
 /* Footer */
 .footer {
-  width: 95%;
-  margin-top: 4rem;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(255,255,255,0.03);
-  color: rgba(255,255,255,0.7);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
 
   .content {
+    width: 95%;
     display:flex;
     justify-content:space-between;
-    gap:1rem;
     align-items:center;
+    gap:1rem;
     flex-wrap:wrap;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.7);
 
     .links {
       display: flex;
