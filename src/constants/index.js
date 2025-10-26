@@ -16,6 +16,9 @@ import sqlalchemy from '../assets/icons/sqlalchemy.svg';
 import swagger from '../assets/icons/swagger.svg';
 import vite from '../assets/icons/vite.svg';
 
+import falcosendImg from '../assets/images/falcosend.svg';
+import ellypadImg from '../assets/images/ellypad.svg';
+import mystudynetImg from '../assets/images/mystudynet.svg';
 
 
 const technologies = [
@@ -106,22 +109,22 @@ const services = [
 
 const projects = [
   {
-    title: "Hardware Store Manager",
-    desc: "Django-based POS & inventory system with MPESA integration and reporting.",
-    img: "/images/project-hardware.png",
-    link: "/projects/hardware-store"
+    title: "Falcosend",
+    description: "A developer-focused platform that bridges static websites with powerful backend features such as form handling, data storage, analytics, and real-time alerts.  It enables developers to handle form submissions in static websites and applications without writing server code.",
+    image: falcosendImg,
+    technologies: ["Python", "Django", "Django REST Framework", "JavaScript", "React", "CSS"]
   },
   {
-    title: "Developer Tools Platform",
-    desc: "Static-site friendly integrations for forms, webhooks and notifications.",
-    img: "/images/project-devtools.png",
-    link: "/projects/dev-tools"
+    title: "Ellypad",
+    description: "A project management software that tracks software projects in all stages of development. It facilitates project proposal submissions by clients. It also offers project team management tools as well as task assignment and management tools",
+    image: ellypadImg,
+    technologies: ["Python", "Django", "Django REST Framework", "JavaScript", "Next JS", "CSS"]
   },
   {
-    title: "Analytics Dashboard",
-    desc: "Real-time dashboards and exports for business insights.",
-    img: "/images/project-analytics.png",
-    link: "/projects/analytics"
+    title: "My Study Net",
+    description: "An E-Learning platform that facilitates creation of courses from PDFs. The platform enables users to register to various courses and also enables them to create their own courses by uploading PDF documents from which the platform generates a course.",
+    image: mystudynetImg,
+    technologies: ["Python", "FastAPI", "SQLAlchemy", "JavaScript", "React", "CSS"]
   }
 ]
 
