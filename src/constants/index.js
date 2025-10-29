@@ -18,6 +18,8 @@ import vite from '../assets/icons/vite.svg';
 
 import falcosendImg from '../assets/images/falcosend.svg';
 import ellypadImg from '../assets/images/ellypad.svg';
+import emsImg from '../assets/images/ems.webp';
+import yummypointImg from '../assets/images/yummypoint.webp';
 import mystudynetImg from '../assets/images/mystudynet.svg';
 
 
@@ -119,6 +121,18 @@ const projects = [
     description: "A project management software that tracks software projects in all stages of development. It facilitates project proposal submissions by clients. It also offers project team management tools as well as task assignment and management tools",
     image: ellypadImg,
     technologies: ["Python", "Django", "Django REST Framework", "JavaScript", "Next JS", "CSS"]
+  },
+  {
+    title: "Ellypad EMS (Enterprise Management Software)",
+    description: "The EMS is designed to facilitate activities carried out within any enterprise store. It comes with the following features: Inventory Management, Product management, Stock Level Alerts, User Authentication, and Customer Relationship Management.",
+    image: emsImg,
+    technologies: ["Dart", "Python", "Django REST Framework", "Flutter", "Docker", "NGINX"]
+  },
+  {
+    title: "YummyPoint",
+    description: "A demo food ordering platform. It facilitates major actions taken in a food ordering platform such as creation and modification of menus and categories. It also features user authentication and admin dashboard.",
+    image: yummypointImg,
+    technologies: ["Python", "Django", "JavaScript", "Jinja", "CSS"]
   },
   {
     title: "My Study Net",
