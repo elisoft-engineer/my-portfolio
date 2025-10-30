@@ -16,11 +16,11 @@ import sqlalchemy from '../assets/icons/sqlalchemy.svg';
 import swagger from '../assets/icons/swagger.svg';
 import vite from '../assets/icons/vite.svg';
 
-import falcosendImg from '../assets/images/falcosend.svg';
-import ellypadImg from '../assets/images/ellypad.svg';
+import falcosendImg from '../assets/images/falcosend.webp';
+import ellypadImg from '../assets/images/ellypad.webp';
 import emsImg from '../assets/images/ems.webp';
 import yummypointImg from '../assets/images/yummypoint.webp';
-import mystudynetImg from '../assets/images/mystudynet.svg';
+import mystudynetImg from '../assets/images/mystudynet.webp';
 
 
 const technologies = [
