@@ -707,6 +707,7 @@ h4 {
 
   .card {
     width: 38rem;
+    position: relative;
     display: flex;
     flex-direction: column;
     background: rgba(255,255,255,0.03);
@@ -716,21 +717,20 @@ h4 {
 
     .image {
       width: 100%;
-      background-color: var(--glass-primary);
-      border-radius: 1rem 0rem 0rem 1rem;
+      border-radius: 1rem 1rem 0rem 0rem;
       
       img {
         display: block;
         width: 100%;
+        border-radius: inherit;
       }
     }
 
     .meta {
-      width: 49%;
       padding: 1rem;
 
       .title {
-        font-size: 2rem;
+        margin: 0.3rem 0rem;
       }
 
       .description {
