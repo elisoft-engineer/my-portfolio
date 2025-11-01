@@ -1,4 +1,4 @@
-import { faLaptopCode, faServer, faCloud, faCogs } from "@fortawesome/free-solid-svg-icons";
+import { faLaptopCode, faServer, faCloud, faCode, faCogs, faRobot } from "@fortawesome/free-solid-svg-icons";
 
 import css from '../assets/icons/css.svg';
 import dart from '../assets/icons/dart.svg';
@@ -86,6 +86,69 @@ const technologies = [
   },
 ]
 
+const expertise = [
+  {
+    name: "Programming Languages",
+    icon: faCode,
+    skills: [
+      {name: "Python", percentage: 95},
+      {name: "JavaScript", percentage: 90},
+      {name: "TypeScript", percentage: 85},
+      {name: "Dart", percentage: 90},
+      {name: "Kotlin", percentage: 85},
+      {name: "C++", percentage: 90},
+      {name: "HTML5", percentage: 95},
+      {name: "CSS3", percentage: 95},
+    ]
+  },
+  {
+    name: "Frontend Technologies",
+    icon: faLaptopCode,
+    skills: [
+      {name: "React", percentage: 90},
+      {name: "Next.js", percentage: 85},
+      {name: "Tailwind CSS", percentage: 85},
+      {name: "Flutter", percentage: 90},
+      {name: "Material UI", percentage: 90},
+    ]
+  },
+  {
+    name: "Backend Technologies",
+    icon: faServer,
+    skills: [
+      {name: "Django", percentage: 95},
+      {name: "FastAPI", percentage: 95},
+      {name: "SQLAlchemy", percentage: 90},
+      {name: "Node.js", percentage: 90},
+      {name: "Express.js", percentage: 90},
+      {name: "PostgresSQL", percentage: 90},
+      {name: "MongoDB", percentage: 85}
+    ]
+  },
+  {
+    name: "AI & Machine Learning",
+    icon: faRobot,
+    skills: [
+      {name: "TensorFlow", percentage: 85},
+      {name: "Keras", percentage: 85},
+      {name: "ScikitLearn", percentage: 85},
+      {name: "Pandas", percentage: 90},
+      {name: "Numpy", percentage: 90},
+    ]
+  },
+  {
+    name: "DevOps",
+    icon: faCloud,
+    skills: [
+      {name: "Git", percentage: 90},
+      {name: "Docker", percentage: 85},
+      {name: "GHCR", percentage: 85},
+      {name: "CI/CD", percentage: 85},
+      {name: "NGINX", percentage: 85},
+    ]
+  },
+]
+
 const services = [
   {
     icon: faLaptopCode,
@@ -142,4 +205,4 @@ const projects = [
   }
 ]
 
-export { technologies, services, projects }
+export { technologies, expertise, services, projects }
