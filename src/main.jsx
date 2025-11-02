@@ -3,11 +3,16 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import ThemeProvider from './context/ThemeContext.jsx'
+import { DialogProvider } from "./context/DialogContext";
+import Dialog from "./components/Dialog";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
-      <App />
+      <DialogProvider>
+        <App />
+        <Dialog />
+      </DialogProvider>
     </ThemeProvider>
   </StrictMode>,
 )
