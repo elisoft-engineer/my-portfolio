@@ -1,5 +1,9 @@
 import { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+
+
 import { useDialog } from "../context/DialogContext";
 
 /**
@@ -92,13 +96,13 @@ const Dialog = () => {
           {content}
         </div>
 
-        <button
+        <div
           className="dialog-close"
           aria-label="Close dialog"
           onClick={() => close()}
         >
-          ×
-        </button>
+          <FontAwesomeIcon icon={faTimes} className="icon" />
+        </div>
       </div>
     </div>,
     document.body
