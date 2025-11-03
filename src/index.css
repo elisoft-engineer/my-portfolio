@@ -881,7 +881,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(8, 12, 20, 0.6);
+  background: #080c1499;
   z-index: 1200;
   padding: 1.5rem;
 }
@@ -890,27 +890,26 @@ h4 {
   position: relative;
   width: 100%;
   max-width: 720px;
-  outline: none; /* we manage focus */
+  outline: none;
 }
 
 .dialog-panel {
-  background: var(--surface, #0b1220);
-  border-radius: 12px;
+  background: var(--background);
+  border-radius: 1rem;
   padding: 1.25rem;
   box-shadow: 0 12px 40px rgba(2, 6, 20, 0.6);
-  color: var(--text, #fff);
   transform-origin: center;
 }
 
 /* simple close button */
 .dialog-close {
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 0.7rem;
+  top: 0.7rem;
   background: transparent;
   border: none;
   color: var(--muted, #bbb);
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   cursor: pointer;
 }
 
@@ -918,11 +917,57 @@ h4 {
 .dialog-panel {
   animation: dialogIn 220ms cubic-bezier(.2,.9,.2,1);
 }
+
 @keyframes dialogIn {
   from { transform: translateY(8px) scale(0.995); opacity: 0; }
   to   { transform: translateY(0) scale(1); opacity: 1; }
 }
 
+.skills-dialog {
+  .expertise {
+    margin: 0rem 0rem 1rem 0rem;
+    border-bottom: 1px solid var(--glass);
+    padding-bottom: 0.5rem;
+  }
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 24rem;
+    overflow-y: auto;
+
+    .skill {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 1rem;
+
+      .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+      }
+
+      .bar {
+        background-color: var(--glass-secondary-dense);
+        height: 0.8rem;
+        border-radius: 1rem;
+
+        .inner {
+          height: inherit;
+          background: linear-gradient(to right, var(--secondary), var(--primary));
+          border-radius: 1rem 0rem 0rem 1rem;
+        }
+      }
+    }
+  }
+
+  .skills::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 /* Footer */
 .footer {
