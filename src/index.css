@@ -925,9 +925,9 @@ h4 {
 
 .skills-dialog {
   .expertise {
-    margin: 0rem 0rem 1rem 0rem;
+    margin: 0rem 0rem 2rem 0rem;
     border-bottom: 1px solid var(--glass);
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
   }
 
   .skills {
