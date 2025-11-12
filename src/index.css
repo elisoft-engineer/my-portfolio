@@ -874,7 +874,6 @@ h4 {
   }
 }
 
-/* Dialog / modal styles */
 .dialog-overlay {
   position: fixed;
   inset: 0;
@@ -901,7 +900,6 @@ h4 {
   transform-origin: center;
 }
 
-/* simple close button */
 .dialog-close {
   position: absolute;
   right: 0.7rem;
@@ -913,7 +911,6 @@ h4 {
   cursor: pointer;
 }
 
-/* small animation (optional) */
 .dialog-panel {
   animation: dialogIn 220ms cubic-bezier(.2,.9,.2,1);
 }
