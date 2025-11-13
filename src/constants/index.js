@@ -254,6 +254,56 @@ const certifications = [
     url: "https://www.credly.com/badges/150e4072-5a5f-4be4-82a9-20fc7e607a9c/public_url",
   },
   {
+    title: "Introduction to Generative AI",
+    institution: {
+      name: "Google Cloud",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4954381",
+  },
+  {
+    title: "Introduction to Large Language Models",
+    institution: {
+      name: "Google Cloud",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI", "Large Language Models"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4955141",
+  },
+  {
+    title: "Introduction to Responsible AI",
+    institution: {
+      name: "Google Cloud",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI", "Large Language Models"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4955540",
+  },
+  {
+    title: "Generative AI Fundamentals",
+    institution: {
+      name: "Google Cloud",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4956000",
+  },
+  {
+    title: "Applying AI Principles with Google Cloud",
+    institution: {
+      name: "Google Cloud",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI", "Responsible AI Principles"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4961991",
+  },
+  {
     title: "Python Essentials 2",
     institution: {
       name: "Cisco",
