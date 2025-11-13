@@ -214,34 +214,14 @@ const projects = [
 
 const certifications = [
   {
-    title: "Object Oriented Programming in C++",
+    title: "Operating Systems Basics",
     institution: {
-      name: "London University",
-      logo: uolIcon,
+      name: "Cisco",
+      logo: ciscoIcon,
     },
-    skills: ["C++ (Programming Language)", "Object-Oriented Programming", "Programming Principles"],
-    obtainedOn: "June 2023",
-    url: "https://coursera.org/verify/GXPRQWDG56EC",
-  },
-  {
-    title: "Django Web Framework",
-    institution: {
-      name: "Meta",
-      logo: metaIcon,
-    },
-    skills: ["Django", "Web Servers", "Model View Controller", "Back-End Development", "Object-Relational Mapping"],
-    obtainedOn: "January 2024",
-    url: "https://coursera.org/verify/4QC76KYF8VXH",
-  },
-  {
-    title: "HTML, CSS, and Javascript for Web Developers",
-    institution: {
-      name: "John Hopkins University",
-      logo: jhuIcon,
-    },
-    skills: ["Web Development", "Front-End Development", "HTML & CSS", "JavaScript", "Ajax", "Bootstrap"],
-    obtainedOn: "October 2023",
-    url: "https://coursera.org/verify/8NS8YVRGR5PD",
+    skills: ["Android", "Linux", "Windows", "Operating Systems Security"],
+    obtainedOn: "February 2023",
+    url: "https://www.credly.com/badges/809c322e-fd64-4663-a0ec-48dcf7b4a105/public_url",
   },
   {
     title: "Python Basics",
@@ -254,64 +234,14 @@ const certifications = [
     url: "https://coursera.org/verify/4QC76KYF8VXH",
   },
   {
-    title: "Introduction to Data Science",
+    title: "Object Oriented Programming in C++",
     institution: {
-      name: "Cisco",
-      logo: ciscoIcon,
+      name: "London University",
+      logo: uolIcon,
     },
-    skills: ["Data Analysis", "Data Collection", "Data Validation"],
-    obtainedOn: "October 2024",
-    url: "https://www.credly.com/badges/56feae9f-b2d9-4346-b4e6-ae85b22ba268/public_url",
-  },
-  {
-    title: "Network Addressing and Basic Troubleshooting",
-    institution: {
-      name: "Cisco",
-      logo: ciscoIcon,
-    },
-    skills: ["Network Troubleshooting", "Cisco Routers", "Cisco Switches"],
-    obtainedOn: "March 2025",
-    url: "https://www.credly.com/badges/2e9d1c15-a68e-40b5-bff5-d6ed4c395b06/public_url",
-  },
-  {
-    title: "Networking Basics",
-    institution: {
-      name: "Cisco",
-      logo: ciscoIcon,
-    },
-    skills: ["Application Layer Services", "IPV4 Addresses", "Protocol Standards"],
-    obtainedOn: "March 2025",
-    url: "https://www.credly.com/badges/4db1f5b9-41a9-4f5c-8d0e-b97a0440dc63/public_url",
-  },
-  {
-    title: "Networking Devices and Initial Configuration",
-    institution: {
-      name: "Cisco",
-      logo: ciscoIcon,
-    },
-    skills: ["Cisco IOS", "ARP", "Cisco Devices", "DNS", "DHCP"],
-    obtainedOn: "January 2025",
-    url: "https://www.credly.com/badges/140ba71b-1286-47ce-b2ff-2ce132e10bd2/public_url",
-  },
-  {
-    title: "Network Support Security",
-    institution: {
-      name: "Cisco",
-      logo: ciscoIcon,
-    },
-    skills: ["Network Troubleshooting", "Documentation", "User Support"],
-    obtainedOn: "April 2025",
-    url: "https://www.credly.com/badges/c65f2ea0-9a93-4048-8f78-d8dbab5e40f8/public_url",
-  },
-  {
-    title: "Operating Systems Basics",
-    institution: {
-      name: "Cisco",
-      logo: ciscoIcon,
-    },
-    skills: ["Android", "Linux", "Windows", "Operating Systems Security"],
-    obtainedOn: "February 2023",
-    url: "https://www.credly.com/badges/809c322e-fd64-4663-a0ec-48dcf7b4a105/public_url",
+    skills: ["C++ (Programming Language)", "Object-Oriented Programming", "Programming Principles"],
+    obtainedOn: "June 2023",
+    url: "https://coursera.org/verify/GXPRQWDG56EC",
   },
   {
     title: "Python Essentials 1",
@@ -332,6 +262,76 @@ const certifications = [
     skills: ["Python", "Object-Oriented Programming", "Generators", "Modules", "Package Management"],
     obtainedOn: "October 2023",
     url: "https://www.credly.com/badges/150e4072-5a5f-4be4-82a9-20fc7e607a9c/public_url",
+  },
+  {
+    title: "HTML, CSS, and Javascript for Web Developers",
+    institution: {
+      name: "John Hopkins University",
+      logo: jhuIcon,
+    },
+    skills: ["Web Development", "Front-End Development", "HTML & CSS", "JavaScript", "Ajax", "Bootstrap"],
+    obtainedOn: "October 2023",
+    url: "https://coursera.org/verify/8NS8YVRGR5PD",
+  },
+  {
+    title: "Django Web Framework",
+    institution: {
+      name: "Meta",
+      logo: metaIcon,
+    },
+    skills: ["Django", "Web Servers", "Model View Controller", "Back-End Development", "Object-Relational Mapping"],
+    obtainedOn: "January 2024",
+    url: "https://coursera.org/verify/4QC76KYF8VXH",
+  },
+  {
+    title: "Introduction to Data Science",
+    institution: {
+      name: "Cisco",
+      logo: ciscoIcon,
+    },
+    skills: ["Data Analysis", "Data Collection", "Data Validation"],
+    obtainedOn: "October 2024",
+    url: "https://www.credly.com/badges/56feae9f-b2d9-4346-b4e6-ae85b22ba268/public_url",
+  },
+  {
+    title: "Networking Devices and Initial Configuration",
+    institution: {
+      name: "Cisco",
+      logo: ciscoIcon,
+    },
+    skills: ["Cisco IOS", "ARP", "Cisco Devices", "DNS", "DHCP"],
+    obtainedOn: "January 2025",
+    url: "https://www.credly.com/badges/140ba71b-1286-47ce-b2ff-2ce132e10bd2/public_url",
+  },
+  {
+    title: "Networking Basics",
+    institution: {
+      name: "Cisco",
+      logo: ciscoIcon,
+    },
+    skills: ["Application Layer Services", "IPV4 Addresses", "Protocol Standards"],
+    obtainedOn: "March 2025",
+    url: "https://www.credly.com/badges/4db1f5b9-41a9-4f5c-8d0e-b97a0440dc63/public_url",
+  },
+  {
+    title: "Network Addressing and Basic Troubleshooting",
+    institution: {
+      name: "Cisco",
+      logo: ciscoIcon,
+    },
+    skills: ["Network Troubleshooting", "Cisco Routers", "Cisco Switches"],
+    obtainedOn: "March 2025",
+    url: "https://www.credly.com/badges/2e9d1c15-a68e-40b5-bff5-d6ed4c395b06/public_url",
+  },
+  {
+    title: "Network Support Security",
+    institution: {
+      name: "Cisco",
+      logo: ciscoIcon,
+    },
+    skills: ["Network Troubleshooting", "Documentation", "User Support"],
+    obtainedOn: "April 2025",
+    url: "https://www.credly.com/badges/c65f2ea0-9a93-4048-8f78-d8dbab5e40f8/public_url",
   },
 ]
 
