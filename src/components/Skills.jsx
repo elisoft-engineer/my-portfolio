@@ -12,23 +12,23 @@ const SkillsPage = () => {
 				key={index}
 				onClick={() => {
 					open(
-					<div className="skills-dialog">
-						<h3 className="expertise">{category.name}</h3>
-						<div className="skills">
-							{category.skills.map((skill, index) => {
-								return <div className="skill" key={index}>
-									<div className="top">
-										<div className="name">{skill.name}</div>
-										<div className="percentage">{skill.percentage}%</div>
+						<div className="skills-dialog">
+							<h3 className="expertise">{category.name}</h3>
+							<div className="skills">
+								{category.skills.map((skill, index) => {
+									return <div className="skill" key={index}>
+										<div className="top">
+											<div className="name">{skill.name}</div>
+											<div className="percentage">{skill.percentage}%</div>
+										</div>
+										<div className="bar">
+											<div className="inner" style={{width: skill.percentage.toString() + "%"}}></div>
+										</div>
 									</div>
-									<div className="bar">
-										<div className="inner" style={{width: skill.percentage.toString() + "%"}}></div>
-									</div>
-								</div>
-							})}
-						</div>
-					</div>,
-				);
+								})}
+							</div>
+						</div>,
+					);
 				}}>
 				<div className="background">
 					<div className="blobs">
