@@ -213,106 +213,7 @@ const projects = [
 ]
 
 const certifications = [
-  {
-    title: "Operating Systems Basics",
-    institution: {
-      name: "Cisco",
-      logo: ciscoIcon,
-    },
-    skills: ["Android", "Linux", "Windows", "Operating Systems Security"],
-    obtainedOn: "February 2023",
-    url: "https://www.credly.com/badges/809c322e-fd64-4663-a0ec-48dcf7b4a105/public_url",
-  },
-  {
-    title: "Python Basics",
-    institution: {
-      name: "University of Michigan",
-      logo: umIcon,
-    },
-    skills: ["Python (Programming Language)", "Data Structures", "Programming Principles"],
-    obtainedOn: "April 2023",
-    url: "https://coursera.org/verify/4QC76KYF8VXH",
-  },
-  {
-    title: "Object Oriented Programming in C++",
-    institution: {
-      name: "London University",
-      logo: uolIcon,
-    },
-    skills: ["C++ (Programming Language)", "Object-Oriented Programming", "Programming Principles"],
-    obtainedOn: "June 2023",
-    url: "https://coursera.org/verify/GXPRQWDG56EC",
-  },
-  {
-    title: "Python Essentials 1",
-    institution: {
-      name: "Cisco",
-      logo: ciscoIcon,
-    },
-    skills: ["Computer Programming", "Python", "Algorithmic Thinking", "Procedural Programming"],
-    obtainedOn: "September 2023",
-    url: "https://www.credly.com/badges/150e4072-5a5f-4be4-82a9-20fc7e607a9c/public_url",
-  },
-  {
-    title: "Introduction to Generative AI",
-    institution: {
-      name: "Google Cloud",
-      logo: googleIcon,
-    },
-    skills: ["AI", "Generative AI"],
-    obtainedOn: "September 2023",
-    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4954381",
-  },
-  {
-    title: "Introduction to Large Language Models",
-    institution: {
-      name: "Google Cloud",
-      logo: googleIcon,
-    },
-    skills: ["AI", "Generative AI", "Large Language Models"],
-    obtainedOn: "September 2023",
-    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4955141",
-  },
-  {
-    title: "Introduction to Responsible AI",
-    institution: {
-      name: "Google Cloud",
-      logo: googleIcon,
-    },
-    skills: ["AI", "Generative AI", "Large Language Models"],
-    obtainedOn: "September 2023",
-    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4955540",
-  },
-  {
-    title: "Generative AI Fundamentals",
-    institution: {
-      name: "Google Cloud",
-      logo: googleIcon,
-    },
-    skills: ["AI", "Generative AI"],
-    obtainedOn: "September 2023",
-    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4956000",
-  },
-  {
-    title: "Applying AI Principles with Google Cloud",
-    institution: {
-      name: "Google Cloud",
-      logo: googleIcon,
-    },
-    skills: ["AI", "Generative AI", "Responsible AI Principles"],
-    obtainedOn: "September 2023",
-    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4961991",
-  },
-  {
-    title: "Python Essentials 2",
-    institution: {
-      name: "Cisco",
-      logo: ciscoIcon,
-    },
-    skills: ["Python", "Object-Oriented Programming", "Generators", "Modules", "Package Management"],
-    obtainedOn: "October 2023",
-    url: "https://www.credly.com/badges/150e4072-5a5f-4be4-82a9-20fc7e607a9c/public_url",
-  },
+  
   {
     title: "HTML, CSS, and Javascript for Web Developers",
     institution: {
@@ -334,6 +235,46 @@ const certifications = [
     url: "https://coursera.org/verify/4QC76KYF8VXH",
   },
   {
+    title: "Python Essentials 1",
+    institution: {
+      name: "Cisco",
+      logo: ciscoIcon,
+    },
+    skills: ["Computer Programming", "Python", "Algorithmic Thinking", "Procedural Programming"],
+    obtainedOn: "September 2023",
+    url: "https://www.credly.com/badges/150e4072-5a5f-4be4-82a9-20fc7e607a9c/public_url",
+  },
+  {
+    title: "Python Essentials 2",
+    institution: {
+      name: "Cisco",
+      logo: ciscoIcon,
+    },
+    skills: ["Python", "Object-Oriented Programming", "Generators", "Modules", "Package Management"],
+    obtainedOn: "October 2023",
+    url: "https://www.credly.com/badges/150e4072-5a5f-4be4-82a9-20fc7e607a9c/public_url",
+  },
+  {
+    title: "Python Basics",
+    institution: {
+      name: "University of Michigan",
+      logo: umIcon,
+    },
+    skills: ["Python (Programming Language)", "Data Structures", "Programming Principles"],
+    obtainedOn: "April 2023",
+    url: "https://coursera.org/verify/4QC76KYF8VXH",
+  },
+  {
+    title: "Applying AI Principles with Google Cloud",
+    institution: {
+      name: "Google",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI", "Responsible AI Principles"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4961991",
+  },
+  {
     title: "Introduction to Data Science",
     institution: {
       name: "Cisco",
@@ -343,6 +284,71 @@ const certifications = [
     obtainedOn: "October 2024",
     url: "https://www.credly.com/badges/56feae9f-b2d9-4346-b4e6-ae85b22ba268/public_url",
   },
+  
+  {
+    title: "Operating Systems Basics",
+    institution: {
+      name: "Cisco",
+      logo: ciscoIcon,
+    },
+    skills: ["Android", "Linux", "Windows", "Operating Systems Security"],
+    obtainedOn: "February 2023",
+    url: "https://www.credly.com/badges/809c322e-fd64-4663-a0ec-48dcf7b4a105/public_url",
+  },
+  
+  {
+    title: "Object Oriented Programming in C++",
+    institution: {
+      name: "University of London",
+      logo: uolIcon,
+    },
+    skills: ["C++ (Programming Language)", "Object-Oriented Programming", "Programming Principles"],
+    obtainedOn: "June 2023",
+    url: "https://coursera.org/verify/GXPRQWDG56EC",
+  },
+  
+  {
+    title: "Introduction to Generative AI",
+    institution: {
+      name: "Google",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4954381",
+  },
+  {
+    title: "Introduction to Large Language Models",
+    institution: {
+      name: "Google",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI", "Large Language Models"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4955141",
+  },
+  {
+    title: "Introduction to Responsible AI",
+    institution: {
+      name: "Google",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI", "Large Language Models"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4955540",
+  },
+  {
+    title: "Generative AI Fundamentals",
+    institution: {
+      name: "Google",
+      logo: googleIcon,
+    },
+    skills: ["AI", "Generative AI"],
+    obtainedOn: "September 2023",
+    url: "https://www.skills.google/public_profiles/93e7128c-3e45-4599-b1ab-d1d28d546933/badges/4956000",
+  },
+  
+  
   {
     title: "Networking Devices and Initial Configuration",
     institution: {
