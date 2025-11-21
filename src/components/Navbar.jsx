@@ -13,7 +13,7 @@ const Navbar = () => {
           <NavLink className="link" to="/">Home</NavLink>
           <NavLink className="link" to="/projects">Projects</NavLink>
           <NavLink className="link" to="/skills">Skills</NavLink>
-          <NavLink className="link" to="/certificates">Certificates</NavLink>
+          <NavLink className="link" to="/certifications">Certificates</NavLink>
           <ThemeToggle className="theme-toggler" />
         </div>
       </nav>
