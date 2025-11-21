@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProjectsPage from './components/Projects';
 import SkillsPage from './components/Skills';
+import CertificationsPage from './components/Certifications';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home/>}></Route>
         <Route path='/projects' element={<ProjectsPage/>}></Route>
         <Route path='/skills' element={<SkillsPage/>}></Route>
+        <Route path='/certifications' element={<CertificationsPage/>}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
