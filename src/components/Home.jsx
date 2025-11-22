@@ -6,8 +6,8 @@ import { faLinkedin, faWhatsapp, faGithub } from "@fortawesome/free-brands-svg-i
 import profileImg from "../assets/images/profile.webp";
 import tshirtImg from "../assets/images/me.webp";
 import codingImg from "../assets/images/programming-developer.svg";
-import falcosendImg from "../assets/images/falcosend.svg";
-import ellypadImg from "../assets/images/ellypad.svg";
+import falcosendImg from "../assets/images/falcosend.webp";
+import ellypadImg from "../assets/images/ellypad.webp";
 import BallCanvas from "./BallCanvas";
 import { services, technologies } from '../constants';
 import ServiceCard from "./ServiceCard";
@@ -170,10 +170,10 @@ const Home = () => {
             <div className="meta">
               <h2 className="title">Falcosend</h2>
               <p className="description">
-                Falcosend is a developer-focused platform that bridges static websites with powerful backend features
-                such as form handling, data storage, analytics, and real-time alerts without writing server code. 
-                It's built for simplicity, speed, and seamless integration, empowering developers to create dynamic 
-                experiences while keeping their sites lightweight and easy to manage.
+                A developer-focused platform that bridges static websites with powerful backend features 
+                such as form handling, data storage, analytics, and real-time alerts.  It enables 
+                developers to handle form submissions in static websites and applications without writing 
+                server code. The interface for the API is currently in development.
               </p>
               <div className="skills">
                 <span className="skill">Python</span>
@@ -183,10 +183,10 @@ const Home = () => {
                 <span className="skill">CSS 3</span>
               </div>
               <div className="links">
-                <a href="#" target="_blank" className="link">
+                <div className="link">
                   <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="icon" />
                   Visit Website
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -198,10 +198,10 @@ const Home = () => {
             <div className="meta">
               <h2 className="title">Ellypad</h2>
               <p className="description">
-                Ellypad is a collaborative project management platform built to streamline software development 
-                workflows. It empowers teams to plan projects, assign and track tasks, and manage proposals all 
-                in one intuitive interface. With secure user authentication and a clean, responsive design, Ellypad 
-                brings structure, clarity, and efficiency to every stage of your development process.
+                A project management software that tracks software projects in all stages of development. 
+                It facilitates project proposal submissions by clients. It also offers project team management
+                tools as well as task assignment and management tools. The interface for the platform is 
+                currently in development.
               </p>
               <div className="skills">
                 <span className="skill">Python</span>
