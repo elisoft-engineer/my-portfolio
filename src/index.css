@@ -1251,4 +1251,8 @@ h4 {
       width: 95vw;
     }
   }
+
+  .skills-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
