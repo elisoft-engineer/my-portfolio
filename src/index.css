@@ -474,7 +474,6 @@ h4 {
         flex-direction: row-reverse;
 
         .image {
-          background-color: var(--glass-secondary);
           border-radius: 0rem 1rem 1rem 0rem;
         }
       }
@@ -1082,6 +1081,62 @@ h4 {
 
       .link:hover .icon {
         color: var(--primary);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .home {
+    .about {
+      width: 95%;
+    }
+
+    .services {
+      width: 95%;
+
+      .grid {
+        gap: 1rem;
+      }
+    }
+
+    .technologies-section {
+      .technologies {
+        width: 80%;
+
+        .technology {
+          width: 6rem;
+        }
+      }
+    }
+
+    .projects-preview {
+      .projects {
+        flex-direction: row;
+        gap: 1rem;
+
+        .card {
+          flex: 1;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+
+          .image, .meta {
+            width: 100%;
+          }
+
+          .image {
+            border-radius: 1rem 1rem 0rem 0rem;
+          }
+        }
+
+        .card:nth-of-type(2n) {
+          flex-direction: column;
+
+          .image {
+            border-radius: 1rem 1rem 0rem 0rem;
+          }
+        }
       }
     }
   }
