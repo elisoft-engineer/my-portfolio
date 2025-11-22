@@ -736,6 +736,9 @@ h4 {
 
       .skills {
         margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
 
         .skill {
           color: var(--primary);
@@ -743,7 +746,6 @@ h4 {
           font-size: 0.9rem;
           padding: 0.4rem 0.6rem;
           border-radius: 1rem;
-          margin-right: 0.6rem;
         }
       }
 
@@ -1241,6 +1243,12 @@ h4 {
     .cta {
       flex-direction: column;
       width: 95%;
+    }
+  }
+
+  .projects-section {
+    .card {
+      width: 95vw;
     }
   }
 }
