@@ -587,8 +587,11 @@ h4 {
     }
 
     .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+
       .link {
-        margin: 0rem 1rem;
         padding: 0.5rem 0.7rem;
         display: inline-flex;
         align-items: center;
@@ -1237,6 +1240,7 @@ h4 {
 
     .cta {
       flex-direction: column;
+      width: 95%;
     }
   }
 }
