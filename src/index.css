@@ -856,13 +856,15 @@ h4 {
       .skills {
         margin-top: 1.5rem;
         margin-bottom: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
 
         .skill {
           background-color: var(--glass);
           font-size: 0.9rem;
           padding: 0.4rem 0.6rem;
           border-radius: 1rem;
-          margin-right: 0.6rem;
         }
       }
     }
