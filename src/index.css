@@ -1142,4 +1142,8 @@ h4 {
       }
     }
   }
+
+  .certifications-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
