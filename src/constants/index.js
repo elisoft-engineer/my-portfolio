@@ -252,7 +252,7 @@ const certifications = [
     },
     skills: ["Python", "Object-Oriented Programming", "Generators", "Modules", "Package Management"],
     obtainedOn: "October 2023",
-    url: "https://www.credly.com/badges/150e4072-5a5f-4be4-82a9-20fc7e607a9c/public_url",
+    url: "https://www.credly.com/badges/e00863c6-3d77-47cc-8fb2-d185499b1fb1/public_url",
   },
   {
     title: "Python Basics",
@@ -262,7 +262,7 @@ const certifications = [
     },
     skills: ["Python (Programming Language)", "Data Structures", "Programming Principles"],
     obtainedOn: "April 2023",
-    url: "https://coursera.org/verify/4QC76KYF8VXH",
+    url: "https://coursera.org/verify/S8WPGT8HB3MK",
   },
   {
     title: "Applying AI Principles with Google Cloud",
