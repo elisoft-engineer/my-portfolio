@@ -257,20 +257,6 @@ h4 {
         }
       }
 
-      .cv {
-        color: var(--background);
-        background-color: var(--secondary);
-        padding: 10px;
-        border-radius: 20px;
-        font-weight: 600;
-        border: none;
-      }
-
-      .cv:hover{
-        background-color: var(--text);
-        transition: background-color 0.25s ease;
-      }
-
       .right {
         display: flex;
         justify-content: space-around;
@@ -580,7 +566,7 @@ h4 {
         gap:.6rem;
         align-items:center;
         cursor:pointer;
-        border:1px solid rgba(255,255,255,0.08); color:#fff; background:transparent;
+        border:1px solid var(--on-background); background:transparent;
       }
     }
   }
@@ -1193,5 +1179,64 @@ h4 {
 
   .skills-section {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .home {
+    .hero {
+      .content {
+        .left {
+          width: 90%;
+
+          .medium {
+            font-size: 1.1rem;
+          }
+
+          .name {
+            font-size: 2rem;
+          }
+
+          .scroll-down {
+            .scroller {
+              .icon {
+                font-size: 1.5rem;
+              }
+            }
+          }
+        }
+
+        .right {
+          width: 90%;
+
+          .image {
+            width: 80%;
+          }
+        }
+      }
+    }
+
+    .about {
+      padding: 0.5rem;
+      flex-direction: column;
+
+      .left, .right {
+        width: 100%;
+      }
+
+      .left {
+        .image {
+          width: 50%;
+        }
+      }
+
+      .right {
+        margin-left: 0rem;
+      }
+    }
+
+    .cta {
+      flex-direction: column;
+    }
   }
 }
