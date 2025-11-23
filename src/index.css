@@ -83,6 +83,8 @@ h4 {
   width: 95%;
   align-items: center;
   padding: 10px 0px;
+  position: relative;
+  box-sizing: border-box;
 
   .brand {
     font-weight: 600;
@@ -101,40 +103,78 @@ h4 {
   .nav-links {
     display: flex;
     flex-direction: row;
+    gap: 0.5rem;
     justify-content: space-between;
     align-items: center;
     font-family: system-ui, sans-serif;
+  }
 
-    a {
-      color: var(--on-background);
-      font-size: 0.85rem;
-      margin-left: 0.5rem;
-      font-weight: 500;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: all 0.25s ease-in-out;
-    }
+  .link {
+    color: var(--on-background);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.25s ease-in-out;
+  }
 
-    a:hover {
-      color: var(--primary);
-    }
+  .link:hover {
+    color: var(--primary);
+  }
 
-    a.active {
-      color: var(--primary);
-      background-color: var(--glass-primary);
-    }
+  .link.active {
+    color: var(--primary);
+    background-color: var(--glass-primary);
+  }
+
+  .theme-toggler {
+    margin-left: 1rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .theme-toggler:hover {
+    background-color: var(--primary);
+  }
+
+  .nav-toggler, .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 3rem;
+    right: 0rem;
+    width: 14rem;
+    left: auto;
+    max-width: calc(100vw - 2rem);
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--background);
+    box-shadow: 0 6px 18px rgba(3,8,20,0.18);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
 
     .theme-toggler {
-      margin-left: 1rem;
-      cursor: pointer;
-      padding: 0.2rem 0.4rem;
-      border-radius: 50%;
-      transition: background-color 0.3s ease-in-out;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin-left: 0rem;
     }
+  }
 
-    .theme-toggler:hover {
-      background-color: var(--primary);
-    }
+  .dropdown-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0px);
   }
 }
 
@@ -425,6 +465,9 @@ h4 {
 
           .skills {
             margin-top: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
 
             .skill {
               color: var(--primary);
@@ -432,7 +475,6 @@ h4 {
               font-size: 0.8rem;
               padding: 0.4rem 0.6rem;
               border-radius: 1rem;
-              margin-right: 0.6rem;
             }
           }
 
@@ -941,7 +983,7 @@ h4 {
   }
 
   .card:hover {
-    scale: 1.05;
+    scale: 1.03;
   }
 }
 
@@ -1152,6 +1194,28 @@ h4 {
 }
 
 @media screen and (max-width: 768px) {
+  .navbar {
+    .brand {
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .nav-toggler {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: flex;
+    }
+
+    .theme-toggler:hover {
+      background-color: var(--background);
+    }
+  }
+
   .home {
     .hero {
       .content {
@@ -1178,6 +1242,20 @@ h4 {
     .projects-preview {
       .projects {
         flex-direction: column;
+      }
+    }
+  }
+
+  .projects-section {
+    .card {
+      width: 95vw;
+
+      .image {
+        overflow: hidden;
+
+        img {
+          object-fit: cover;
+        }
       }
     }
   }
@@ -1243,12 +1321,6 @@ h4 {
     .cta {
       flex-direction: column;
       width: 95%;
-    }
-  }
-
-  .projects-section {
-    .card {
-      width: 95vw;
     }
   }
 
