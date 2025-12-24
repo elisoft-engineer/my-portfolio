@@ -6,10 +6,12 @@ import Footer from './components/Footer';
 import ProjectsPage from './components/Projects';
 import SkillsPage from './components/Skills';
 import CertificationsPage from './components/Certifications';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path='/' element={<Home/>}></Route>
