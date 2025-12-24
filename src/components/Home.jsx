@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faCircleQuestion, faSearch, faArrowUpRightFromSquare, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faWhatsapp, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -237,7 +238,7 @@ const Home = () => {
           </div>
 
           <div className="cta-buttons">
-            <a href="/projects" className="btn btn-primary">See Projects</a>
+            <Link className="btn btn-primary" to="/projects">See Projects</Link>
             <span className="separator">Or</span>
             <div
               className="btn btn-contact"
