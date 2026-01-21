@@ -1,36 +1,76 @@
-import { faLaptopCode, faServer, faCloud, faCode, faCogs, faRobot } from "@fortawesome/free-solid-svg-icons";
+import css from '../../assets/icons/css.svg';
+import dart from '../../assets/icons/dart.svg';
+import django from '../../assets/icons/django.svg';
+import docker from '../../assets/icons/docker.svg';
+import fastapi from '../../assets/icons/fastapi.svg';
+import flutter from '../../assets/icons/flutter.svg';
+import html from '../../assets/icons/html.svg';
+import javascript from '../../assets/icons/javascript.svg';
+import nextjs from '../../assets/icons/nextjs.svg';
+import nodejs from '../../assets/icons/nodejs.svg';
+import python from '../../assets/icons/python.svg';
+import react from '../../assets/icons/react.svg';
+import sqlalchemy from '../../assets/icons/sqlalchemy.svg';
+import swagger from '../../assets/icons/swagger.svg';
+import vite from '../../assets/icons/vite.svg';
 
-import css from '../assets/icons/css.svg';
-import dart from '../assets/icons/dart.svg';
-import django from '../assets/icons/django.svg';
-import docker from '../assets/icons/docker.svg';
-import fastapi from '../assets/icons/fastapi.svg';
-import flutter from '../assets/icons/flutter.svg';
-import html from '../assets/icons/html.svg';
-import javascript from '../assets/icons/javascript.svg';
-import nextjs from '../assets/icons/nextjs.svg';
-import nodejs from '../assets/icons/nodejs.svg';
-import python from '../assets/icons/python.svg';
-import react from '../assets/icons/react.svg';
-import sqlalchemy from '../assets/icons/sqlalchemy.svg';
-import swagger from '../assets/icons/swagger.svg';
-import vite from '../assets/icons/vite.svg';
+import falcosendImg from '../../assets/images/falcosend.webp';
+import ellypadImg from '../../assets/images/ellypad.webp';
+import emsImg from '../../assets/images/ems.webp';
+import yummypointImg from '../../assets/images/yummypoint.webp';
+import mystudynetImg from '../../assets/images/mystudynet.webp';
 
-import falcosendImg from '../assets/images/falcosend.webp';
-import ellypadImg from '../assets/images/ellypad.webp';
-import emsImg from '../assets/images/ems.webp';
-import yummypointImg from '../assets/images/yummypoint.webp';
-import mystudynetImg from '../assets/images/mystudynet.webp';
+import ciscoIcon from "../../assets/icons/cisco.svg";
+import googleIcon from "../../assets/icons/google.svg";
+import jhuIcon from "../../assets/icons/john-hopkins-university.svg";
+import metaIcon from "../../assets/icons/meta.svg";
+import uolIcon from "../../assets/icons/university-of-london.svg";
+import umIcon from "../../assets/icons/university-of-michigan.webp";
 
-import ciscoIcon from "../assets/icons/cisco.svg";
-import googleIcon from "../assets/icons/google.svg";
-import jhuIcon from "../assets/icons/john-hopkins-university.svg";
-import metaIcon from "../assets/icons/meta.svg";
-import uolIcon from "../assets/icons/university-of-london.svg";
-import umIcon from "../assets/icons/university-of-michigan.webp";
+import { Bot, Cloud, CodeXml, LucideIcon, MonitorSmartphone, Server, Settings } from "lucide-react";
+import { StaticImageData } from "next/image";
 
+interface Technology {
+  name: string;
+  icon: StaticImageData | string;
+}
 
-const technologies = [
+interface Skill {
+  name: string;
+  percentage: number;
+}
+
+interface Expertise {
+  name: string;
+  icon: LucideIcon;
+  skills: Skill[];
+}
+
+interface Service {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+interface Project {
+  title: string;
+  description: string;
+  image: StaticImageData | string;
+  technologies: string[];
+}
+
+interface Certification {
+  title: string;
+  institution: {
+    name: string;
+    logo: StaticImageData | string;
+  };
+  skills: string[];
+  obtainedOn: string;
+  url: string;
+}
+
+const technologies: Technology[] = [
   {
     name: "Python",
     icon: python,
@@ -93,10 +133,10 @@ const technologies = [
   },
 ]
 
-const expertise = [
+const expertise: Expertise[] = [
   {
     name: "Programming Languages",
-    icon: faCode,
+    icon: CodeXml,
     skills: [
       {name: "Python", percentage: 95},
       {name: "JavaScript", percentage: 90},
@@ -110,7 +150,7 @@ const expertise = [
   },
   {
     name: "Frontend Technologies",
-    icon: faLaptopCode,
+    icon: MonitorSmartphone,
     skills: [
       {name: "React", percentage: 90},
       {name: "Next.js", percentage: 85},
@@ -121,7 +161,7 @@ const expertise = [
   },
   {
     name: "Backend Technologies",
-    icon: faServer,
+    icon: Server,
     skills: [
       {name: "Django", percentage: 95},
       {name: "FastAPI", percentage: 95},
@@ -134,7 +174,7 @@ const expertise = [
   },
   {
     name: "AI & Machine Learning",
-    icon: faRobot,
+    icon: Bot,
     skills: [
       {name: "TensorFlow", percentage: 85},
       {name: "Keras", percentage: 85},
@@ -145,7 +185,7 @@ const expertise = [
   },
   {
     name: "DevOps",
-    icon: faCloud,
+    icon: Cloud,
     skills: [
       {name: "Git", percentage: 90},
       {name: "Docker", percentage: 85},
@@ -156,30 +196,30 @@ const expertise = [
   },
 ]
 
-const services = [
+const services: Service[] = [
   {
-    icon: faLaptopCode,
+    icon: MonitorSmartphone,
     title: "Business Websites",
     description: "Interactive websites for businesses and institutions. They ensure 24/7 online presence and expand the market beyoud physical location."
   },
   {
-    icon: faCogs,
+    icon: Settings,
     title: "Enterprise Software",
     description: "Inventory, billing and workflow systems that automate repetitive work and reduce errors. They are integrated with fine-tuned dashboards."
   },
   {
-    icon: faServer,
+    icon: Server,
     title: "Backend & API Development",
     description: "Development of robust and secure application servers for enterprise software as well as web applications."
   },
   {
-    icon: faCloud,
+    icon: Cloud,
     title: "Deployment & DevOps",
     description: "Enterprise software deployments (on-premise and web) and maintainance and monitoring services."
   }
 ]
 
-const projects = [
+const projects: Project[] = [
   {
     title: "Falcosend",
     description: "A developer-focused platform that bridges static websites with powerful backend features such as form handling, data storage, analytics, and real-time alerts.  It enables developers to handle form submissions in static websites and applications without writing server code.",
@@ -212,7 +252,7 @@ const projects = [
   }
 ]
 
-const certifications = [
+const certifications: Certification[] = [
   
   {
     title: "HTML, CSS, and Javascript for Web Developers",
