@@ -17,11 +17,11 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="WhatsApp"
           >
-            <FontAwesomeIcon icon={faWhatsapp} className="icon" />
+            <FontAwesomeIcon icon={faWhatsapp} size="xl" className={styles.icon} />
           </a>
 
           <a href="mailto:elisoft.engineer@gmail.com" className={styles.link} aria-label="Email">
-            <Mail size={20} className={styles.icon} />
+            <Mail size={24} className={styles.icon} />
           </a>
           
           <a
@@ -31,7 +31,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            <FontAwesomeIcon icon={faLinkedin} className="icon" />
+            <FontAwesomeIcon icon={faLinkedin} size="xl" className={styles.icon} />
           </a>
 
           <a
@@ -41,7 +41,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="GitHub"
           >
-            <FontAwesomeIcon icon={faGithub} className="icon" />
+            <FontAwesomeIcon icon={faGithub} size="xl" className={styles.icon} />
           </a>
           
           
