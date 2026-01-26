@@ -30,8 +30,8 @@ const NavLink = ({ href, children, onClick }: NavLinkProps) => {
 }
 
 const Navbar = () => {
-  const dropdownRef = useRef(null);
-  const togglerRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const togglerRef = useRef<HTMLButtonElement>(null);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { theme, setTheme } = useTheme();
 
@@ -39,9 +39,9 @@ const Navbar = () => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
-        !dropdownRef.current.contains(event.target) &&
+        !dropdownRef.current.contains(event.target as Node) &&
         togglerRef.current &&
-        !togglerRef.current.contains(event.target)
+        !togglerRef.current.contains(event.target as Node)
       ) {
         setIsCollapsed(true); // collapse menu
       }
