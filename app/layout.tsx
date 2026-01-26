@@ -12,8 +12,25 @@ import { DialogProvider } from "./providers/Dialog";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
-  title: "Ellypad",
-  description: "A software project management platform",
+  title: "Elkana Maina | Software Engineer & Digital Architect",
+  description: "Building smarter business systems and high-performance web applications. Specialized in Next.js, Django, and Enterprise automation.",
+  keywords: ["Elkana Maina", "Software Engineer", "Business Automation", "Web Development Kenya", "Enterprise Software", "Ellypad", "Falcosend"],
+  openGraph: {
+    title: "Elkana Maina | Software Engineer",
+    description: "Turning complex ideas into powerful, user-friendly digital experiences.",
+    url: "https://elkana.ellypad.com",
+    siteName: "Elkana Maina Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Elkana Maina Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
