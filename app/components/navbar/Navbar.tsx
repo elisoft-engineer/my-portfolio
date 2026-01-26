@@ -82,10 +82,10 @@ const Navbar = () => {
           {isCollapsed ? <Menu size={24} /> : <X size={24} />}
         </button>
         <div ref={dropdownRef} className={`${styles.dropdownMenu} ${!isCollapsed ? styles.open : ""}`}>
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/projects">Projects</NavLink>
-          <NavLink href="/skills">Skills</NavLink>
-          <NavLink href="/certifications">Certificates</NavLink>
+          <NavLink href="/" onClick={() => setIsCollapsed(true)}>Home</NavLink>
+          <NavLink href="/projects" onClick={() => setIsCollapsed(true)}>Projects</NavLink>
+          <NavLink href="/skills" onClick={() => setIsCollapsed(true)}>Skills</NavLink>
+          <NavLink href="/certifications" onClick={() => setIsCollapsed(true)}>Certificates</NavLink>
           <div className={styles.themeToggler} onClick={() => {setTheme(theme === "dark" ? "light" : "dark")}}>
             { theme === "light" ? <SunMedium size={20} /> : <MoonStar size={20} /> }
           </div>
