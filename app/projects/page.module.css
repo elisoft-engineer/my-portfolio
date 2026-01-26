@@ -1,0 +1,68 @@
+.projectSection {
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 4rem;
+  justify-self: center;
+
+  .card {
+    width: 38rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.03);
+    box-shadow: 0 6px 18px rgba(3,8,20,0.18);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+
+    .meta {
+      padding: 1rem;
+
+      .title {
+        margin: 0.3rem 0rem;
+      }
+
+      .description {
+        opacity: 0.9;
+      }
+
+      .skills {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        .skill {
+          color: var(--primary);
+          background-color: var(--glass-primary);
+          font-size: 0.9rem;
+          padding: 0.4rem 0.6rem;
+          border-radius: 1rem;
+        }
+      }
+
+      .links {
+        margin-top: 2rem;
+
+        .link {
+          padding: 0.7rem;
+          background-color: var(--secondary);
+          color: var(--on-background);
+          border-radius: 0.5rem;
+          font-size: 0.9rem;
+          display: flex;
+          gap: .5rem;
+          width: fit-content;
+          align-items: center;
+
+          .icon {
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
