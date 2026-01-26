@@ -5,6 +5,7 @@
   gap: 2rem;
   justify-content: center;
   margin-top: 4rem;
+  margin-bottom: 2rem;
   justify-self: center;
 
   .card {
@@ -15,7 +16,6 @@
     background: rgba(255,255,255,0.03);
     box-shadow: 0 6px 18px rgba(3,8,20,0.18);
     border-radius: 1rem;
-    margin-bottom: 2rem;
     overflow: hidden;
 
     .meta {
@@ -61,6 +61,22 @@
           .icon {
             margin-right: 0.5rem;
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projectsSection {
+    .card {
+      width: 95vw;
+
+      .image {
+        overflow: hidden;
+
+        img {
+          object-fit: cover;
         }
       }
     }
