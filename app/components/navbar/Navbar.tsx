@@ -88,6 +88,7 @@ const Navbar = () => {
           <NavLink href="/certifications" onClick={() => setIsCollapsed(true)}>Certificates</NavLink>
           <div className={styles.themeToggler} onClick={() => {setTheme(theme === "dark" ? "light" : "dark")}}>
             { theme === "light" ? <SunMedium size={20} /> : <MoonStar size={20} /> }
+            <span>{theme} theme</span>
           </div>
         </div>
       </nav>
