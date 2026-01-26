@@ -57,6 +57,7 @@ interface Project {
   description: string;
   image: StaticImageData | string;
   technologies: string[];
+  link?: string;
 }
 
 interface Certification {
@@ -230,7 +231,8 @@ const projects: Project[] = [
     title: "Ellypad",
     description: "A project management software that tracks software projects in all stages of development. It facilitates project proposal submissions by clients. It also offers project team management tools as well as task assignment and management tools",
     image: ellypadImg,
-    technologies: ["Python", "Django", "Django REST Framework", "JavaScript", "Next JS", "CSS"]
+    technologies: ["Python", "Django", "Django REST Framework", "JavaScript", "Next JS", "CSS"],
+    link: "https://ellypad.com"
   },
   {
     title: "Ellypad EMS (Enterprise Management Software)",
