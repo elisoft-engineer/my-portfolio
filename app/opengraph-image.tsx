@@ -22,13 +22,13 @@ export default async function Image() {
           Elkana Maina
         </div>
         <div style={{ fontSize: 30, color: '#94a3b8' }}>
-          Software Engineer & Digital Architect
+          Software Engineer & Systems Architect
         </div>
         <div style={{ marginTop: 40, display: 'flex', gap: '20px' }}>
           {/* Simple branding dots or icons */}
-          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#38bdf8' }} />
+          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#16d196' }} />
           <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#818cf8' }} />
-          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#c084fc' }} />
+          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#f47057' }} />
         </div>
       </div>
     ),
