@@ -40,11 +40,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ index, icon: Icon, title, des
         transition={{ delay: index * 0.1, duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <article className="card">
-          <div className="icon">
-            {/* 2. Render Lucide icon as a component (note the capital 'I' in Icon) */}
-            <Icon size={36} className="icon large" strokeWidth={1.5} />
-          </div>
+        <article className={styles.card}>
+          <Icon size={36} className={`${styles.icon} ${styles.large}`} strokeWidth={1.5} />
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.description}>{description}</p>
         </article>
@@ -161,7 +158,7 @@ const Home = () => {
 
       <div className={styles.about} id="about">
         <div className={styles.left}>
-          <Image src={codingImg} alt="Coding" className={styles.image} />
+          <Image src={codingImg} width={256} alt="Coding" className={styles.image} />
         </div>
         <div className={styles.right}>
           <div className={styles.heading}>
@@ -196,12 +193,10 @@ const Home = () => {
       </div>
 
       <div className={styles.projectsPreview} id="projects-preview">
-        <h2 className={styles.projectsTitle}>My Project Catalog</h2>
+        <h2 className={styles.projectsTitle}>Featured</h2>
         <div className={styles.projects}>
           <div className={styles.card}>
-            <div className={styles.projectImage}>
-              <Image src={ellypadImg} alt="Ellypad" />
-            </div>
+            <Image src={ellypadImg} width={600} alt="Ellypad" />
             <div className={styles.meta}>
               <h2 className={styles.title}>Ellypad</h2>
               <p className={styles.description}>
@@ -218,18 +213,16 @@ const Home = () => {
                 <span className={styles.skill}>CSS 3</span>
               </div>
               <div className={styles.links}>
-                <div className={styles.link}>
+                <a href="https://ellypad.com" target="_blank" className={styles.link}>
                   <ExternalLink size={16} className={styles.icon} />
                   Visit Website
-                </div>
+                </a>
               </div>
             </div>
           </div>
 
           <div className={styles.card}>
-            <div className={styles.projectImage}>
-              <Image src={falcosendImg} alt="Falcosend" />
-            </div>
+            <Image src={falcosendImg} height={337} alt="Falcosend" />
             <div className={styles.meta}>
               <h2 className={styles.title}>Falcosend</h2>
               <p className={styles.description}>
@@ -258,7 +251,8 @@ const Home = () => {
 
       <div className={styles.cta} id="cta">
         <div className={styles.imageSection}>
-          <Image src={tshirtImg} alt="Elkana" className={styles.image} />
+          <div className={styles.background} />
+          <Image src={tshirtImg} width={256} alt="Elkana" className={styles.image} />
         </div>
         <div className={styles.ctaContent}>
           <h3 className={styles.question}>
@@ -268,12 +262,12 @@ const Home = () => {
             <Link href="/projects" className={`${styles.btn} ${styles.btnPrimary}`}>
               See Projects
             </Link>
-            <button
+            <div
               className={`${styles.btn} ${styles.btnContact}`}
               onClick={() => scrollTo("contacts")}
             >
               <Phone size={18} /> Contact Me
-            </button>
+            </div>
           </div>
         </div>
       </div>
@@ -289,16 +283,16 @@ const Home = () => {
             rel="noopener noreferrer"
             aria-label="WhatsApp"
           >
-            <FontAwesomeIcon icon={faWhatsapp} className="icon" />
-            <span className="text">Whatsapp</span>
+            <FontAwesomeIcon icon={faWhatsapp} className={styles.icon} />
+            <span className={styles.text}>Whatsapp</span>
           </a>
           <a
             href="mailto:elisoft.engineer@gmail.com"
             className={`${styles.link} ${styles.email}`}
             aria-label="Email"
           >
-            <Mail size={20} /> <span>Email</span>
-            <span className="text">Email</span>
+            <Mail size={20} className={styles.icon} />
+            <span className={styles.text}>Email</span>
           </a>
           <a
             href="https://www.linkedin.com/in/elkana-maina-ab54851a0/"
@@ -307,8 +301,8 @@ const Home = () => {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            <FontAwesomeIcon icon={faLinkedin} className="icon" />
-            <span className="text">LinkedIn</span>
+            <FontAwesomeIcon icon={faLinkedin} className={styles.icon} />
+            <span className={styles.text}>LinkedIn</span>
           </a>
 
           <a
@@ -318,8 +312,8 @@ const Home = () => {
             rel="noopener noreferrer"
             aria-label="GitHub"
           >
-            <FontAwesomeIcon icon={faGithub} className="icon" />
-            <span className="text">GitHub</span>
+            <FontAwesomeIcon icon={faGithub} className={styles.icon} />
+            <span className={styles.text}>GitHub</span>
           </a>
         </div>
       </div>
