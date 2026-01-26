@@ -115,3 +115,27 @@
   pointer-events: auto;
   transform: translateY(0px);
 }
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    .brand {
+      font-size: 1.2rem;
+    }
+
+    .navLinks {
+      display: none;
+    }
+
+    .navToggler {
+      display: block;
+    }
+
+    .dropdownMenu {
+      display: flex;
+    }
+
+    .themeToggler:hover {
+      background-color: var(--background);
+    }
+  }
+}
