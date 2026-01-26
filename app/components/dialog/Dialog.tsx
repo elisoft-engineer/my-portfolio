@@ -5,6 +5,8 @@ import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import { useDialog } from "@/app/providers/Dialog";
 
+import styles from './dialog.module.css';
+
 const Dialog = () => {
   const { content, close } = useDialog();
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -69,7 +71,7 @@ const Dialog = () => {
 
   return createPortal(
     <div
-      className="dialog-overlay"
+      className={styles.dialogOverlay}
       role="presentation"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) close();
@@ -77,17 +79,17 @@ const Dialog = () => {
     >
       <div
         ref={overlayRef}
-        className="dialog-container"
+        className={styles.dialogContainer}
         role="dialog"
         aria-modal="true"
         tabIndex={-1}
       >
-        <div className="dialog-panel" onMouseDown={(e) => e.stopPropagation()}>
+        <div className={styles.dialogPanel} onMouseDown={(e) => e.stopPropagation()}>
           {content}
         </div>
 
         <button
-          className="dialog-close"
+          className={styles.dialogClose}
           aria-label="Close dialog"
           onClick={() => close()}
           type="button"
