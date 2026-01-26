@@ -134,6 +134,10 @@
       display: flex;
     }
 
+    .themeToggler {
+      border: 1px solid var(--glass-primary);
+    }
+
     .themeToggler:hover {
       background-color: var(--background);
     }
