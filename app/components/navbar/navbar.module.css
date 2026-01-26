@@ -1,4 +1,6 @@
-.navbar-container {
+.navbarContainer {
+  top: 0;
+  left: 0;
   width: 100%;
   background-color: transparent;
   backdrop-filter: blur(50px);
@@ -11,8 +13,6 @@
 }
 
 .navbar {
-  top: 0;
-  left: 0;
   background-color: transparent;
   backdrop-filter: blur(50px);
   display: flex;
@@ -74,7 +74,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.themeTsoggler:hover {
+.themeToggler:hover {
   background-color: var(--primary);
 }
 
@@ -102,13 +102,13 @@
 }
 
 .themeToggler {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    border-radius: 4px;
-    padding: 8px 12px;
-    margin-left: 0rem;
-  }
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-left: 0rem;
+}
 
 .dropdownMenu.open {
   opacity: 1;
