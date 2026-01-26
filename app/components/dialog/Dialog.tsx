@@ -88,14 +88,13 @@ const Dialog = () => {
           {content}
         </div>
 
-        <button
+        <div
           className={styles.dialogClose}
           aria-label="Close dialog"
           onClick={() => close()}
-          type="button"
         >
           <X size={24} className="icon" />
-        </button>
+        </div>
       </div>
     </div>,
     document.body
