@@ -812,52 +812,6 @@ h4 {
   }
 }
 
-.dialog-overlay {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #080c1499;
-  z-index: 1200;
-  padding: 1.5rem;
-}
-
-.dialog-container {
-  position: relative;
-  width: 100%;
-  max-width: 720px;
-  outline: none;
-}
-
-.dialog-panel {
-  background: var(--background);
-  border-radius: 1rem;
-  padding: 1.25rem;
-  box-shadow: 0 12px 40px rgba(2, 6, 20, 0.6);
-  transform-origin: center;
-}
-
-.dialog-close {
-  position: absolute;
-  right: 0.7rem;
-  top: 0.7rem;
-  background: transparent;
-  border: none;
-  color: var(--muted, #bbb);
-  font-size: 1.3rem;
-  cursor: pointer;
-}
-
-.dialog-panel {
-  animation: dialogIn 220ms cubic-bezier(.2,.9,.2,1);
-}
-
-@keyframes dialogIn {
-  from { transform: translateY(8px) scale(0.995); opacity: 0; }
-  to   { transform: translateY(0) scale(1); opacity: 1; }
-}
-
 .skills-dialog {
   .expertise {
     margin: 0rem 0rem 2rem 0rem;
