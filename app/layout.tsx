@@ -20,14 +20,6 @@ export const metadata: Metadata = {
     description: "Turning complex ideas into powerful, user-friendly digital experiences.",
     url: "https://elkana.ellypad.com",
     siteName: "Elkana Maina Portfolio",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Elkana Maina Portfolio",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
