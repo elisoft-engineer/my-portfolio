@@ -201,22 +201,22 @@ const services: Service[] = [
   {
     icon: MonitorSmartphone,
     title: "Business Websites",
-    description: "Interactive websites for businesses and institutions. They ensure 24/7 online presence and expand the market beyoud physical location."
+    description: "Creating a 24/7 digital storefront for your brand, ensuring your business is accessible to a global market through fast, responsive web design."
   },
   {
     icon: Settings,
     title: "Enterprise Software",
-    description: "Inventory, billing and workflow systems that automate repetitive work and reduce errors. They are integrated with fine-tuned dashboards."
+    description: "Custom-built systems for inventory, billing, and workflow. I help organizations reduce human error and save time through automated dashboards."
   },
   {
     icon: Server,
     title: "Backend & API Development",
-    description: "Development of robust and secure application servers for enterprise software as well as web applications."
+    description: "Designing the 'brain' of your application—secure, high-performance servers that ensure your data stays safe and your software runs smoothly."
   },
   {
     icon: Cloud,
     title: "Deployment & DevOps",
-    description: "Enterprise software deployments (on-premise and web) and maintainance and monitoring services."
+    description: "Handling the technical heavy lifting of taking software live, ensuring your systems are monitored, maintained, and always available."
   }
 ]
 
