@@ -6,6 +6,8 @@ import "./globals.css";
 import ThemeProvider from "./providers/Theme";
 import Navbar from "@/app/components/navbar/Navbar";
 import Footer from "@/app/components/footer/Footer";
+import Dialog from "./components/dialog/Dialog";
+import { DialogProvider } from "./providers/Dialog";
 
 config.autoAddCss = false;
 
@@ -23,9 +25,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          <main className="main">{children}</main>
-          <Footer />
+          <DialogProvider>
+            <Navbar />
+            <main className="main">{children}</main>
+            <Dialog />
+            <Footer />
+          </DialogProvider>
         </ThemeProvider>
       </body>
     </html>
