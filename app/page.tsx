@@ -165,9 +165,10 @@ const Home = () => {
             Who am I <HelpCircle className={styles.icon} />
           </div>
           <div className={styles.description}>
-            I am a passionate Software Engineer who loves turning ideas into powerful, 
-            user-friendly digital experiences. From dynamic websites and APIs to complete business 
-            systems, I enjoy building tools that make everyday work simpler, faster, and smarter.
+            I am a Software Engineer driven by a simple goal: making technology work better for people. 
+            I specialize in crafting seamless digital experiences, ranging from interactive web platforms 
+            to robust enterprise software. My focus is on building tools that automate the tedious, simplify 
+            the complex, and help businesses scale through smart engineering.
           </div>
         </div>
       </div>
