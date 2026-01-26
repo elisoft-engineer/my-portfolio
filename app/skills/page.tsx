@@ -41,7 +41,7 @@ const Skills = () => {
 					</div>
 					<div className={styles.content}>
 						<h2 className={styles.heading}>
-							<category.icon size={20} />
+							<category.icon size={20} className={styles.icon} />
 							{category.name}
 						</h2>
 						<div className={styles.mute}>{category.skills.length} Skills</div>
