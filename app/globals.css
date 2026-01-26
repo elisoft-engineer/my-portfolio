@@ -48,5 +48,5 @@
   z-index: 1; /* Keeps content below fixed navbar */
   width: 100%;
   /* This prevents 3D children from expanding the container */
-  contain: paint; 
+  contain: paint;
 }
