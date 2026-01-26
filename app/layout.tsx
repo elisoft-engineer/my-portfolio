@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Elkana Maina Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Elkana Maina Portfolio",
