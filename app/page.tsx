@@ -199,12 +199,22 @@ const Home = () => {
           <div className={styles.card}>
             <Image src={ellypadImg} width={600} alt="Ellypad" />
             <div className={styles.meta}>
+              <div className={styles.top}>
+                <div className={styles.statusBadge}>
+                  <span className={styles.statusDot}></span>
+                  <span className={styles.statusText}>Systems Operational</span>
+                </div>
+                <a href="https://ellypad.com" target="_blank" className={styles.link}>
+                  <ExternalLink size={16} className={styles.icon} />
+                  Visit Website
+                </a>
+              </div>
               <h2 className={styles.title}>Ellypad</h2>
               <p className={styles.description}>
-                A project management software that tracks software projects in all stages of development. 
-                It facilitates project proposal submissions by clients. It also offers project team management
-                tools as well as task assignment and management tools. The interface for the platform is 
-                currently in development.
+                Ellypad is a software development firm that builds high-integrity systems to simplify business 
+                operations. By replacing manual processes with scalable digital architecture, they ensure software 
+                mirrors an organization’s unique workflow. From enterprise automation to intuitive dashboards, 
+                Ellypad delivers operational clarity through smart engineering and collaborative partnership.
               </p>
               <div className={styles.skills}>
                 <span className={styles.skill}>Python</span>
@@ -212,12 +222,6 @@ const Home = () => {
                 <span className={styles.skill}>Django REST Framework</span>
                 <span className={styles.skill}>Next Js</span>
                 <span className={styles.skill}>CSS 3</span>
-              </div>
-              <div className={styles.links}>
-                <a href="https://ellypad.com" target="_blank" className={styles.link}>
-                  <ExternalLink size={16} className={styles.icon} />
-                  Visit Website
-                </a>
               </div>
             </div>
           </div>
