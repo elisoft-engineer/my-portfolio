@@ -229,6 +229,12 @@ const Home = () => {
           <div className={styles.card}>
             <Image src={falcosendImg} height={337} alt="Falcosend" />
             <div className={styles.meta}>
+              <div className={styles.top}>
+                <div className={styles.statusBadge}>
+                  <span className={styles.statusDot}></span>
+                  <span className={styles.statusText}>Launching Soon</span>
+                </div>
+              </div>
               <h2 className={styles.title}>Falcosend</h2>
               <p className={styles.description}>
                 A developer-focused platform that bridges static websites with powerful backend features 
@@ -242,12 +248,6 @@ const Home = () => {
                 <span className={styles.skill}>Django REST Framework</span>
                 <span className={styles.skill}>Next Js</span>
                 <span className={styles.skill}>CSS 3</span>
-              </div>
-              <div className={styles.links}>
-                <div className={styles.link}>
-                  <ExternalLink size={16} className={styles.icon} />
-                  Visit Website
-                </div>
               </div>
             </div>
           </div>
