@@ -3,7 +3,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Status](https://img.shields.io/badge/Status-Systems%20Operational-10b981)](#)
-[![Deployment](https://img.shields.io/badge/Deployed%20on-Netlify-00C7B7?logo=netlify)](https://www.netlify.com/)
+[![Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel)](https://vercel.com/)
 
 Welcome to my professional portfolio. I am a **Software Engineer** focused on building high-integrity systems that simplify complex business operations. This site serves as both my professional resume and a live demonstration of modern web architecture.
 
@@ -19,7 +19,7 @@ I don't just "build websites"—I engineer digital systems. This portfolio is bu
 ## 🚀 Featured Project: Ellypad
 **Ellypad** is my flagship software development firm. It is the primary engine where I bridge the gap between business needs and technical architecture.
 
-* **Role:** Lead Engineer & Full-stack Developer.
+* **Role:** Lead Architect & Full-stack Developer.
 * **The Problem:** Organizations struggle with disconnected systems and rigid, manual workflows.
 * **The Solution:** A unified platform that mirrors unique business workflows, featuring real-time project tracking, proposal management, and high-performance dashboards.
 * **Tech Stack:** Django REST Framework, Python, Next.js 15, PostgreSQL.
@@ -34,4 +34,4 @@ I don't just "build websites"—I engineer digital systems. This portfolio is bu
 | **Styling** | SCSS Modules, Flexbox/Grid, CSS Keyframes |
 | **SEO/Social** | Dynamic `opengraph-image.tsx`, `sitemap.ts`, `robots.ts` |
 | **Tooling** | pnpm, Turbopack, ESLint, Prettier |
-| **DevOps** | GitHub Webhooks, Netlify Deploy Hooks |
+| **DevOps** | GitHub Webhooks, Vercel Deploy Hooks |
