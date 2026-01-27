@@ -251,8 +251,7 @@ const projects: Project[] = [
     description: "A demo food ordering platform. It facilitates major actions taken in a food ordering platform such as creation and modification of menus and categories. It also features user authentication and admin dashboard.",
     image: yummypointImg,
     technologies: ["Python", "Django", "JavaScript", "Jinja", "CSS"],
-    active: false,
-    launchingSoon: true,
+    active: true,
   },
   {
     title: "My Study Net",
