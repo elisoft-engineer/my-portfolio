@@ -59,6 +59,7 @@ interface Project {
   technologies: string[];
   link?: string;
   active: boolean;
+  launchingSoon?: boolean;
 }
 
 interface Certification {
@@ -227,7 +228,8 @@ const projects: Project[] = [
     description: "A developer-focused platform that bridges static websites with powerful backend features such as form handling, data storage, analytics, and real-time alerts.  It enables developers to handle form submissions in static websites and applications without writing server code.",
     image: falcosendImg,
     technologies: ["Python", "Django", "Django REST Framework", "JavaScript", "React", "CSS"],
-    active: false,
+    active: true,
+    launchingSoon: true,
   },
   {
     title: "Ellypad",
@@ -250,6 +252,7 @@ const projects: Project[] = [
     image: yummypointImg,
     technologies: ["Python", "Django", "JavaScript", "Jinja", "CSS"],
     active: false,
+    launchingSoon: true,
   },
   {
     title: "My Study Net",
@@ -257,6 +260,7 @@ const projects: Project[] = [
     image: mystudynetImg,
     technologies: ["Python", "FastAPI", "SQLAlchemy", "JavaScript", "React", "CSS"],
     active: true,
+    launchingSoon: true,
   }
 ]
 
