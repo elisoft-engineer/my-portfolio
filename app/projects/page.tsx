@@ -25,6 +25,11 @@ const Projects = () => {
                 <span className={styles.statusDot}></span>
                 <span className={styles.statusText}>Systems Operational</span>
               </div>}
+              {project.launchingSoon && 
+              <div className={styles.statusBadge}>
+                <span className={styles.statusDot}></span>
+                <span className={styles.statusText}>Launching Soon</span>
+              </div>}
               {project.link && 
               <a href={project.link} target="_blank" className={styles.link}>
                 <ExternalLink size={20} />
