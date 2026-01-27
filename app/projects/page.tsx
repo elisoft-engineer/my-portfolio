@@ -20,10 +20,16 @@ const Projects = () => {
               
             </div>
             <div className={styles.links}>
-              <a href={project.link ?? "#"} target="_blank" className={styles.link}>
+              {project.active && 
+              <div className={styles.statusBadge}>
+                <span className={styles.statusDot}></span>
+                <span className={styles.statusText}>Systems Operational</span>
+              </div>}
+              {project.link && 
+              <a href={project.link} target="_blank" className={styles.link}>
                 <ExternalLink size={20} />
                 Visit Website
-              </a>
+              </a>}
             </div>
           </div>
         </div>
