@@ -2,7 +2,23 @@ import { projects } from '../constants';
 import styles from './page.module.css';
 import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'Projects | Elkana Maina - Full-Stack Engineer',
+  description: 'A showcase of technical projects ranging from developer tools to scalable web applications. Explore the architecture and code behind my latest builds.',
+  keywords: [
+    'Elkana Maina Projects', 
+    'Full Stack Portfolio', 
+    'Backend Developer',
+    'Django Developer',
+    'Flutter Developer',
+    'React Next.js Developer', 
+    'BaaS Development', 
+    'Software Architecture',
+    'Static Site Backend Tools'
+  ],
+}
 
 const Projects = () => {
   return (
