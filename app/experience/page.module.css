@@ -1,0 +1,184 @@
+.pageWrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--background);
+}
+
+/* 3D DOT MATRIX CANVAS */
+.canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  perspective: 1200px; /* This creates the 3D depth */
+  overflow: hidden;
+}
+
+.gridPerspective {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image: 
+    radial-gradient(var(--primary) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: rotateX(55deg) translateY(0);
+  opacity: 0.15;
+  animation: gridMove 30s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: rotateX(55deg) translateY(0); }
+  100% { transform: rotateX(55deg) translateY(40px); }
+}
+
+.spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, var(--glass-primary-dense), transparent 60%);
+  pointer-events: none;
+}
+
+/* CONTENT BOXES */
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.accent {
+  background: linear-gradient(to right, var(--primary), var(--other-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.timelineSection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* GLASSMORPHISM CARDS */
+.experienceCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+
+.experienceCard:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.cardGlow {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at top left, var(--glass-primary-dense), var(--glass) 50%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.logoContainer {
+  padding: 12px;
+  background: var(--background);
+  border-radius: 12px;
+  border: 1px solid var(--glass-primary-dense);
+}
+
+.titles { flex: 1; }
+
+.companyName {
+  font-size: 1.8rem;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.roleTitle {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  margin: 0.2rem 0;
+  font-weight: 600;
+}
+
+.timeTag {
+  font-size: 0.8rem;
+  font-family: monospace;
+  background: var(--glass);
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.2rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--other-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.pulseIcon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .experienceCard { padding: 1.5rem; }
+  .cardHeader { flex-direction: column; align-items: flex-start; }
+}
