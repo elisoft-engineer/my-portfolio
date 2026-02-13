@@ -34,6 +34,7 @@ const Navbar = () => {
   const togglerRef = useRef<HTMLButtonElement>(null);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -56,6 +57,10 @@ const Navbar = () => {
     };
   }, [isCollapsed]);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className={styles.navbarContainer}>
       <nav className={styles.navbar}>
@@ -66,6 +71,7 @@ const Navbar = () => {
         <div className={styles.navLinks}>
           <NavLink href="/">Home</NavLink>
           <NavLink href="/projects">Projects</NavLink>
+          <NavLink href="/experience">Experience</NavLink>
           <NavLink href="/skills">Skills</NavLink>
           <NavLink href="/certifications">Certificates</NavLink>
           <div className={styles.themeToggler} onClick={() => {setTheme(theme === "dark" ? "light" : "dark")}}>
@@ -86,9 +92,14 @@ const Navbar = () => {
           <NavLink href="/projects" onClick={() => setIsCollapsed(true)}>Projects</NavLink>
           <NavLink href="/skills" onClick={() => setIsCollapsed(true)}>Skills</NavLink>
           <NavLink href="/certifications" onClick={() => setIsCollapsed(true)}>Certificates</NavLink>
-          <div className={styles.themeToggler} onClick={() => {setTheme(theme === "dark" ? "light" : "dark")}}>
-            { theme === "light" ? <SunMedium size={20} /> : <MoonStar size={20} /> }
-            <span>{theme} theme</span>
+          <div className={styles.themeToggler} onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+            {!mounted ? (
+              <div style={{ width: 20, height: 20 }} />
+            ) : theme === "light" ? (
+              <SunMedium size={20} />
+            ) : (
+              <MoonStar size={20} />
+            )}
           </div>
         </div>
       </nav>
