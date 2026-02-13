@@ -232,21 +232,6 @@ const projects: Project[] = [
     launchingSoon: true,
   },
   {
-    title: "Ellypad",
-    description: "Ellypad is a software development firm that builds high-integrity systems to simplify business operations. By replacing manual processes with scalable digital architecture, they ensure software mirrors an organization’s unique workflow. From enterprise automation to intuitive dashboards, Ellypad delivers operational clarity through smart engineering and collaborative partnership.",
-    image: ellypadImg,
-    technologies: ["Python", "Django", "Django REST Framework", "JavaScript", "Next JS", "CSS"],
-    link: "https://ellypad.com",
-    active: true,
-  },
-  {
-    title: "Ellypad EMS (Enterprise Management Software)",
-    description: "The EMS is designed to facilitate activities carried out within any enterprise store. It comes with the following features: Inventory Management, Product management, Stock Level Alerts, User Authentication, and Customer Relationship Management.",
-    image: emsImg,
-    technologies: ["Dart", "Python", "Django REST Framework", "Flutter", "Docker", "NGINX"],
-    active: true,
-  },
-  {
     title: "YummyPoint",
     description: "A demo food ordering platform. It facilitates major actions taken in a food ordering platform such as creation and modification of menus and categories. It also features user authentication and admin dashboard.",
     image: yummypointImg,
