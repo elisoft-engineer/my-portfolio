@@ -15,17 +15,21 @@ import swagger from '../../assets/icons/swagger.svg';
 import vite from '../../assets/icons/vite.svg';
 
 import falcosendImg from '../../assets/images/falcosend.webp';
-import ellypadImg from '../../assets/images/ellypad.webp';
-import emsImg from '../../assets/images/ems.webp';
 import yummypointImg from '../../assets/images/yummypoint.webp';
 import mystudynetImg from '../../assets/images/mystudynet.webp';
 
 import ciscoIcon from "../../assets/icons/cisco.svg";
-import googleIcon from "../../assets/icons/google.svg";
 import jhuIcon from "../../assets/icons/john-hopkins-university.svg";
 import metaIcon from "../../assets/icons/meta.svg";
 import uolIcon from "../../assets/icons/university-of-london.svg";
 import umIcon from "../../assets/icons/university-of-michigan.webp";
+
+// google badges
+import applyingAIPrinciples from "@/assets/images/Applying AI Principles.webp";
+import genAIFundamentals from "@/assets/images/Generative AI Fundamentals.webp";
+import introGenAI from "@/assets/images/Introduction to GenAI.webp";
+import introLLMs from "@/assets/images/Introduction to LLMs.webp";
+import introResponsibleAI from "@/assets/images/Introduction To Responsible AI.webp";
 
 import { Bot, Cloud, CodeXml, LucideIcon, MonitorSmartphone, Server, Settings } from "lucide-react";
 import { StaticImageData } from "next/image";
@@ -304,7 +308,7 @@ const certifications: Certification[] = [
     title: "Applying AI Principles with Google Cloud",
     institution: {
       name: "Google",
-      logo: googleIcon,
+      logo: applyingAIPrinciples,
     },
     skills: ["AI", "Generative AI", "Responsible AI Principles"],
     obtainedOn: "September 2023",
@@ -347,7 +351,7 @@ const certifications: Certification[] = [
     title: "Introduction to Generative AI",
     institution: {
       name: "Google",
-      logo: googleIcon,
+      logo: introGenAI,
     },
     skills: ["AI", "Generative AI"],
     obtainedOn: "September 2023",
@@ -357,7 +361,7 @@ const certifications: Certification[] = [
     title: "Introduction to Large Language Models",
     institution: {
       name: "Google",
-      logo: googleIcon,
+      logo: introLLMs,
     },
     skills: ["AI", "Generative AI", "Large Language Models"],
     obtainedOn: "September 2023",
@@ -367,7 +371,7 @@ const certifications: Certification[] = [
     title: "Introduction to Responsible AI",
     institution: {
       name: "Google",
-      logo: googleIcon,
+      logo: introResponsibleAI,
     },
     skills: ["AI", "Generative AI", "Large Language Models"],
     obtainedOn: "September 2023",
@@ -377,7 +381,7 @@ const certifications: Certification[] = [
     title: "Generative AI Fundamentals",
     institution: {
       name: "Google",
-      logo: googleIcon,
+      logo: genAIFundamentals,
     },
     skills: ["AI", "Generative AI"],
     obtainedOn: "September 2023",
