@@ -1,27 +1,28 @@
-import css from '../../assets/icons/css.svg';
-import dart from '../../assets/icons/dart.svg';
-import django from '../../assets/icons/django.svg';
-import docker from '../../assets/icons/docker.svg';
-import fastapi from '../../assets/icons/fastapi.svg';
-import flutter from '../../assets/icons/flutter.svg';
-import html from '../../assets/icons/html.svg';
-import javascript from '../../assets/icons/javascript.svg';
-import nextjs from '../../assets/icons/nextjs.svg';
-import nodejs from '../../assets/icons/nodejs.svg';
-import python from '../../assets/icons/python.svg';
-import react from '../../assets/icons/react.svg';
-import sqlalchemy from '../../assets/icons/sqlalchemy.svg';
-import swagger from '../../assets/icons/swagger.svg';
-import vite from '../../assets/icons/vite.svg';
+import css from '@/assets/icons/css.svg';
+import dart from '@/assets/icons/dart.svg';
+import django from '@/assets/icons/django.svg';
+import docker from '@/assets/icons/docker.svg';
+import fastapi from '@/assets/icons/fastapi.svg';
+import flutter from '@/assets/icons/flutter.svg';
+import html from '@/assets/icons/html.svg';
+import javascript from '@/assets/icons/javascript.svg';
+import nextjs from '@/assets/icons/nextjs.svg';
+import nodejs from '@/assets/icons/nodejs.svg';
+import python from '@/assets/icons/python.svg';
+import react from '@/assets/icons/react.svg';
+import sqlalchemy from '@/assets/icons/sqlalchemy.svg';
+import swagger from '@/assets/icons/swagger.svg';
+import vite from '@/assets/icons/vite.svg';
 
-import falcosendImg from '../../assets/images/falcosend.webp';
-import yummypointImg from '../../assets/images/yummypoint.webp';
-import mystudynetImg from '../../assets/images/mystudynet.webp';
+import falcosendImg from '@/assets/images/falcosend.webp';
+import yummypointImg from '@/assets/images/yummypoint.webp';
+import mystudynetImg from '@/assets/images/mystudynet.webp';
 
-import jhuIcon from "../../assets/icons/john-hopkins-university.svg";
-import metaIcon from "../../assets/icons/meta.svg";
-import uolIcon from "../../assets/icons/university-of-london.svg";
-import umIcon from "../../assets/icons/university-of-michigan.webp";
+// coursera icons
+import cppCrypto from "@/assets/images/CPP.webp";
+import djangoWebFramework from "@/assets/images/Django Web Framework.webp";
+import pythonBasics from "@/assets/images/Python Basics.webp";
+import webSkills from "@/assets/images/Web Dev.webp";
 
 // google badges
 import applyingAIPrinciples from "@/assets/images/Applying AI Principles.webp";
@@ -267,7 +268,7 @@ const certifications: Certification[] = [
     title: "HTML, CSS, and Javascript for Web Developers",
     institution: {
       name: "John Hopkins University",
-      logo: jhuIcon,
+      logo: webSkills,
     },
     skills: ["Web Development", "Front-End Development", "HTML & CSS", "JavaScript", "Ajax", "Bootstrap"],
     obtainedOn: "October 2023",
@@ -277,7 +278,7 @@ const certifications: Certification[] = [
     title: "Django Web Framework",
     institution: {
       name: "Meta",
-      logo: metaIcon,
+      logo: djangoWebFramework,
     },
     skills: ["Django", "Web Servers", "Model View Controller", "Back-End Development", "Object-Relational Mapping"],
     obtainedOn: "January 2024",
@@ -307,7 +308,7 @@ const certifications: Certification[] = [
     title: "Python Basics",
     institution: {
       name: "University of Michigan",
-      logo: umIcon,
+      logo: pythonBasics,
     },
     skills: ["Python (Programming Language)", "Data Structures", "Programming Principles"],
     obtainedOn: "April 2023",
@@ -349,7 +350,7 @@ const certifications: Certification[] = [
     title: "Object Oriented Programming in C++",
     institution: {
       name: "University of London",
-      logo: uolIcon,
+      logo: cppCrypto,
     },
     skills: ["C++ (Programming Language)", "Object-Oriented Programming", "Programming Principles"],
     obtainedOn: "June 2023",
