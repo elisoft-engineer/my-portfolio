@@ -20,9 +20,11 @@
     .heading {
       display: flex;
       gap: 1rem;
+
       .icon {
         display: block;
         width: 3rem;
+        margin: 0rem 1rem 1rem 0rem;
       }
 
       .text {
