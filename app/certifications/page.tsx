@@ -13,7 +13,7 @@ const Certifications = () => {
 						<Image src={cert.institution.logo} width={48} className={styles.icon} alt={cert.institution.name + " Logo" } />
 						<div className={styles.text}>{cert.title}</div>
 					</h2>
-					<div className={styles.muted}>{cert.institution.name + " - " + cert.obtainedOn}</div>
+					<div className={styles.muted}>{cert.institution.name} <span><small>{cert.obtainedOn}</small></span></div>
 					<div className={styles.skills}>
 						{cert.skills.map((skill, index) => {
 							return <span className={styles.skill} key={index}>{skill}</span>
