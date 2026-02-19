@@ -18,7 +18,6 @@ import falcosendImg from '../../assets/images/falcosend.webp';
 import yummypointImg from '../../assets/images/yummypoint.webp';
 import mystudynetImg from '../../assets/images/mystudynet.webp';
 
-import ciscoIcon from "../../assets/icons/cisco.svg";
 import jhuIcon from "../../assets/icons/john-hopkins-university.svg";
 import metaIcon from "../../assets/icons/meta.svg";
 import uolIcon from "../../assets/icons/university-of-london.svg";
@@ -30,6 +29,16 @@ import genAIFundamentals from "@/assets/images/Generative AI Fundamentals.webp";
 import introGenAI from "@/assets/images/Introduction to GenAI.webp";
 import introLLMs from "@/assets/images/Introduction to LLMs.webp";
 import introResponsibleAI from "@/assets/images/Introduction To Responsible AI.webp";
+
+// cisco icons
+import introDataScience from "@/assets/images/IntroDataScience.webp";
+import netAddressing from "@/assets/images/Network Addressing and Troubleshooting.webp";
+import netSupport from "@/assets/images/Network Support and Security.webp";
+import netBasics from "@/assets/images/Networking Basics.webp";
+import netDevices from "@/assets/images/Networking Devices Initial Configuration.png";
+import operatingSystems from "@/assets/images/Operating Systems.webp";
+import pythonEssentials1 from "@/assets/images/Python Essentials 1.webp";
+import pythonEssentials2 from "@/assets/images/Python Essentials 2.webp";
 
 import { Bot, Cloud, CodeXml, LucideIcon, MonitorSmartphone, Server, Settings } from "lucide-react";
 import { StaticImageData } from "next/image";
@@ -278,7 +287,7 @@ const certifications: Certification[] = [
     title: "Python Essentials 1",
     institution: {
       name: "Cisco",
-      logo: ciscoIcon,
+      logo: pythonEssentials1,
     },
     skills: ["Computer Programming", "Python", "Algorithmic Thinking", "Procedural Programming"],
     obtainedOn: "September 2023",
@@ -288,7 +297,7 @@ const certifications: Certification[] = [
     title: "Python Essentials 2",
     institution: {
       name: "Cisco",
-      logo: ciscoIcon,
+      logo: pythonEssentials2,
     },
     skills: ["Python", "Object-Oriented Programming", "Generators", "Modules", "Package Management"],
     obtainedOn: "October 2023",
@@ -318,7 +327,7 @@ const certifications: Certification[] = [
     title: "Introduction to Data Science",
     institution: {
       name: "Cisco",
-      logo: ciscoIcon,
+      logo: introDataScience,
     },
     skills: ["Data Analysis", "Data Collection", "Data Validation"],
     obtainedOn: "October 2024",
@@ -329,7 +338,7 @@ const certifications: Certification[] = [
     title: "Operating Systems Basics",
     institution: {
       name: "Cisco",
-      logo: ciscoIcon,
+      logo: operatingSystems,
     },
     skills: ["Android", "Linux", "Windows", "Operating Systems Security"],
     obtainedOn: "February 2023",
@@ -393,7 +402,7 @@ const certifications: Certification[] = [
     title: "Networking Devices and Initial Configuration",
     institution: {
       name: "Cisco",
-      logo: ciscoIcon,
+      logo: netDevices,
     },
     skills: ["Cisco IOS", "ARP", "Cisco Devices", "DNS", "DHCP"],
     obtainedOn: "January 2025",
@@ -403,7 +412,7 @@ const certifications: Certification[] = [
     title: "Networking Basics",
     institution: {
       name: "Cisco",
-      logo: ciscoIcon,
+      logo: netBasics,
     },
     skills: ["Application Layer Services", "IPV4 Addresses", "Protocol Standards"],
     obtainedOn: "March 2025",
@@ -413,7 +422,7 @@ const certifications: Certification[] = [
     title: "Network Addressing and Basic Troubleshooting",
     institution: {
       name: "Cisco",
-      logo: ciscoIcon,
+      logo: netAddressing,
     },
     skills: ["Network Troubleshooting", "Cisco Routers", "Cisco Switches"],
     obtainedOn: "March 2025",
@@ -423,7 +432,7 @@ const certifications: Certification[] = [
     title: "Network Support Security",
     institution: {
       name: "Cisco",
-      logo: ciscoIcon,
+      logo: netSupport,
     },
     skills: ["Network Troubleshooting", "Documentation", "User Support"],
     obtainedOn: "April 2025",
