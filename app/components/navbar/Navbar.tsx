@@ -70,7 +70,6 @@ const Navbar = () => {
         </Link>
         <div className={styles.navLinks}>
           <NavLink href="/">Home</NavLink>
-          <NavLink href="/projects">Projects</NavLink>
           <NavLink href="/experience">Experience</NavLink>
           <NavLink href="/skills">Skills</NavLink>
           <NavLink href="/certifications">Certificates</NavLink>
@@ -89,7 +88,7 @@ const Navbar = () => {
         </button>
         <div ref={dropdownRef} className={`${styles.dropdownMenu} ${!isCollapsed ? styles.open : ""}`}>
           <NavLink href="/" onClick={() => setIsCollapsed(true)}>Home</NavLink>
-          <NavLink href="/projects" onClick={() => setIsCollapsed(true)}>Projects</NavLink>
+          <NavLink href="/experience" onClick={() => setIsCollapsed(true)}>Experience</NavLink>
           <NavLink href="/skills" onClick={() => setIsCollapsed(true)}>Skills</NavLink>
           <NavLink href="/certifications" onClick={() => setIsCollapsed(true)}>Certificates</NavLink>
           <div className={styles.themeToggler} onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
