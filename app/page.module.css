@@ -441,6 +441,10 @@
       .btnPrimary {
         background: linear-gradient(90deg, var(--primary), var(--secondary));
         color: #fff;
+        display:inline-flex;
+        gap:.6rem;
+        align-items:center;
+        cursor:pointer;
       }
 
       .muted {
@@ -451,12 +455,9 @@
         margin: 0rem 1rem;
       }
 
-      .btnContact {
+      .btnSecondary {
         padding: .6rem .9rem;
-        display:inline-flex;
-        gap:.6rem;
-        align-items:center;
-        cursor:pointer;
+        color: var(--on-background);
         border:1px solid var(--on-background);
         background:transparent;
       }
