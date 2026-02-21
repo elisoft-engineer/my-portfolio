@@ -264,15 +264,15 @@ const Home = () => {
             Like what you see <HelpCircle className={styles.icon} />
           </h3>
           <div className={styles.ctaButtons}>
-            <Link href="/projects" className={`${styles.btn} ${styles.btnPrimary}`}>
-              See Projects
-            </Link>
             <div
-              className={`${styles.btn} ${styles.btnContact}`}
+              className={`${styles.btn} ${styles.btnPrimary}`}
               onClick={() => scrollTo("contacts")}
             >
               <Phone size={18} /> Contact Me
             </div>
+            <Link href="/experience" className={`${styles.btn} ${styles.btnSecondary}`}>
+              See Experience
+            </Link>
           </div>
         </div>
       </div>
