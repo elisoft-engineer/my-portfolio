@@ -236,32 +236,6 @@ const services: Service[] = [
   }
 ]
 
-const projects: Project[] = [
-  {
-    title: "Falcosend",
-    description: "A developer-focused platform that bridges static websites with powerful backend features such as form handling, data storage, analytics, and real-time alerts.  It enables developers to handle form submissions in static websites and applications without writing server code.",
-    image: falcosendImg,
-    technologies: ["Python", "Django", "Django REST Framework", "JavaScript", "React", "CSS"],
-    active: true,
-    launchingSoon: true,
-  },
-  {
-    title: "YummyPoint",
-    description: "A demo food ordering platform. It facilitates major actions taken in a food ordering platform such as creation and modification of menus and categories. It also features user authentication and admin dashboard.",
-    image: yummypointImg,
-    technologies: ["Python", "Django", "JavaScript", "Jinja", "CSS"],
-    active: true,
-  },
-  {
-    title: "My Study Net",
-    description: "An E-Learning platform that facilitates creation of courses from PDFs. The platform enables users to register to various courses and also enables them to create their own courses by uploading PDF documents from which the platform generates a course.",
-    image: mystudynetImg,
-    technologies: ["Python", "FastAPI", "SQLAlchemy", "JavaScript", "React", "CSS"],
-    active: true,
-    launchingSoon: true,
-  }
-]
-
 const certifications: Certification[] = [
   
   {
@@ -441,4 +415,4 @@ const certifications: Certification[] = [
   },
 ]
 
-export { technologies, expertise, services, projects, certifications }
+export { technologies, expertise, services, certifications }
