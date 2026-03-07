@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
@@ -12,6 +13,7 @@ import { DialogProvider } from "./providers/Dialog";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://elkana.ellypad.com'),
   title: "Elkana Maina | Software Engineer",
   description: "Building smarter business systems and high-performance web applications. Specialized in Next.js, Django, and Enterprise automation.",
   keywords: ["Elkana Maina", "Software Engineer", "Business Automation", "Web Development Kenya", "Enterprise Software", "Ellypad", "Falcosend"],
@@ -30,8 +32,57 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://elkana.ellypad.com/#person",
+        "name": "Elkana Maina",
+        "jobTitle": "Software Engineer",
+        "url": "https://elkana.ellypad.com",
+        "sameAs": [
+          "https://github.com/elisoft-engineer",
+          "https://www.linkedin.com/in/elkana-maina-ab54851a0/",
+          "https://www.facebook.com/profile.php?id=61561212267451",
+          "https://x.com/mainakim99"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://ellypad.com/#organization",
+          "name": "Ellypad"
+        },
+        "description": "Software Engineer specializing in Next.js, Django, and Enterprise automation.",
+        "knowsAbout": ["Next.js", "Django", "React", "Software Architecture", "Enterprise Automation", "Python", "TypeScript"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://elkana.ellypad.com/#website",
+        "url": "https://elkana.ellypad.com",
+        "name": "Elkana Maina Portfolio",
+        "publisher": { "@id": "https://elkana.ellypad.com/#person" }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Portfolio Sections",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Experience", "url": "https://elkana.ellypad.com/experience" },
+          { "@type": "ListItem", "position": 2, "name": "Certifications", "url": "https://elkana.ellypad.com/certifications" },
+          { "@type": "ListItem", "position": 3, "name": "Skills", "url": "https://elkana.ellypad.com/skills" }
+        ]
+      }
+    ]
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          id="portfolio-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <DialogProvider>
