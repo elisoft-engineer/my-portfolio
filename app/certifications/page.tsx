@@ -1,8 +1,13 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { certifications } from "../constants";
 import styles from './page.module.css';
 import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Certifications & Accreditations | Elkana Maina',
+  description: 'Professional certifications in Software Engineering, Cloud Computing, and System Architecture.'
+};
 
 const Certifications = () => {
 	return (
