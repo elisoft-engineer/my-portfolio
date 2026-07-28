@@ -1,329 +1,408 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faWhatsapp, faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faLinkedin,
+  faWhatsapp,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  ArrowUpRight,
+  Mail,
+  ShieldCheck,
+  Gauge,
+  Cpu,
+  Check,
+  ExternalLink,
+} from "lucide-react";
+import Image from "next/image";
 
 import styles from "./page.module.css";
-
 import profileImg from "@/assets/images/profile.webp";
-import tshirtImg from "@/assets/images/me.webp";
-import codingImg from "@/assets/images/programming-developer.svg";
-import falcosendImg from "@/assets/images/falcosend.webp";
+import falcosendImg from "@/assets/images/falcosend.png";
 import ellypadImg from "@/assets/images/ellypad.webp";
 import BallCanvas from "./components/BallCanvas";
-import { services, technologies } from '@/app/constants';
+import { technologies } from "@/app/constants";
 
-import React from "react";
-import { Tilt } from "react-tilt";
-import { motion } from "framer-motion";
-import { ChevronDown, ExternalLink, HelpCircle, LucideIcon, Mail, Phone, Search } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+// --- DATA DEFINITIONS ---
 
-interface ServiceCardProps {
-  index: number;
-  icon: LucideIcon;
-  title: string;
-  description: string;
-}
+const valuePoints = [
+  {
+    icon: Gauge,
+    title: "High Performance",
+    subtitle: "Speed & Efficiency",
+    description:
+      "Systems engineered for high throughput and low latency under heavy load.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Robust Architecture",
+    subtitle: "Security & Stability",
+    description:
+      "Built with fault tolerance, dependable data storage, and strict access control.",
+  },
+  {
+    icon: Cpu,
+    title: "End-to-End Delivery",
+    subtitle: "Concept to Production",
+    description:
+      "Complete execution from system design and technical specs down to live deployment.",
+  },
+];
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ index, icon: Icon, title, description }) => {
-  return (
-    <Tilt 
-      className="service-card" 
-      options={{ max: 45, scale: 1, speed: 450 }}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.1, duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <article className={styles.card}>
-          <Icon size={36} className={`${styles.icon} ${styles.large}`} strokeWidth={1.5} />
-          <h3 className={styles.title}>{title}</h3>
-          <p className={styles.description}>{description}</p>
-        </article>
-      </motion.div>
-    </Tilt>
-  );
-};
+const differentiators = [
+  {
+    num: "01",
+    title: "Focus on Business Goals",
+    desc: "Code is a tool to solve problems. I build features that directly help your project launch on time, reduce costs, or acquire users.",
+  },
+  {
+    num: "02",
+    title: "Clean, Maintainable Code",
+    desc: "I write clear, well-documented code that any engineer can easily understand, maintain, or expand in the future.",
+  },
+  {
+    num: "03",
+    title: "Clear Communication",
+    desc: "No technical gatekeeping. I explain choices in plain English and keep you updated at every stage of development.",
+  },
+  {
+    num: "04",
+    title: "Full Product Ownership",
+    desc: "From database setup down to button micro-interactions, I take total responsibility for delivering a complete, polished product.",
+  },
+];
 
-const Home = () => {
-  const typingAnimationSkills = ['Software Engineer', 'Full-Stack Developer', 'Machine Learning Engineer', 'System Architect'];
-  const [currentText, setCurrentText] = useState("");
-  const skillIndexRef = useRef(0);
-  const isDeletingRef = useRef(false);
-  const currTextRef = useRef(""); 
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+const processSteps = [
+  {
+    step: "01",
+    title: "Planning & Architecture",
+    desc: "We map out what needs to be built, defining user flows and system requirements before writing any code.",
+  },
+  {
+    step: "02",
+    title: "Backend & API Building",
+    desc: "I build secure databases and fast API services that form the core engine of your application.",
+  },
+  {
+    step: "03",
+    title: "Frontend Integration",
+    desc: "Designing and connecting responsive, accessible web interfaces that feel effortless to use.",
+  },
+  {
+    step: "04",
+    title: "Testing & Launch",
+    desc: "Thorough testing for bugs, performance tuning, and smooth deployment to live production servers.",
+  },
+];
 
-  useEffect(() => {
-    const TYPING_SPEED = 100;
-    const FULL_PAUSE = 500;
-    const EMPTY_PAUSE = 200;
+const featuredItems = [
+  {
+    title: "Falcosend",
+    role: "Creator & Lead Engineer",
+    bullets: [
+      "Engineered a zero-backend form submission and management platform.",
+      "Built real-time payload routing, spam filtering, and instant notifications.",
+      "Allows developers to plug in form endpoints without writing backend code.",
+    ],
+    image: falcosendImg,
+    link: "https://falcosend.ellypad.com",
+  },
+  {
+    title: "Ellypad Tech",
+    role: "Software Engineer",
+    bullets: [
+      "Architected custom enterprise platforms, POS tools, and booking systems.",
+      "Built automated operational dashboards to digitize manual workflows.",
+      "Engineered resilient backend architecture focused on uptime and speed.",
+    ],
+    image: ellypadImg,
+    link: "https://www.ellypad.com",
+  },
+];
 
-    function tick() {
-      const idx = skillIndexRef.current;
-      const fullText = typingAnimationSkills[idx];
+// --- SECTION COMPONENTS ---
 
-      let newText = isDeletingRef.current
-        ? fullText.substring(0, Math.max(0, currTextRef.current.length - 1))
-        : fullText.substring(0, currTextRef.current.length + 1);
+export const HeroSection = ({
+  scrollTo,
+}: {
+  scrollTo: (id: string) => void;
+}) => (
+  <section className={styles.heroSection}>
+    <div className={styles.heroGrid}>
+      <div className={styles.heroContent}>
+        <h1 className={styles.heroTitle}>
+          Engineering software systems that scale.
+        </h1>
 
-      currTextRef.current = newText;
-      setCurrentText(newText);
+        <p className={styles.heroBio}>
+          Hi, I'm <strong>Elkana Maina</strong>. I'm a software engineer who
+          turns complex requirements into clean, reliable products and robust
+          backend systems.
+        </p>
 
-      let delay = isDeletingRef.current ? Math.floor(TYPING_SPEED / 2) : TYPING_SPEED;
+        <div className={styles.heroActions}>
+          <button
+            onClick={() => scrollTo("featured")}
+            className={styles.btnPrimary}
+          >
+            See My Work <ArrowUpRight size={18} />
+          </button>
+          <button
+            onClick={() => scrollTo("contact")}
+            className={styles.btnSecondary}
+          >
+            Get in Touch
+          </button>
+        </div>
 
-      if (!isDeletingRef.current && newText === fullText) {
-        isDeletingRef.current = true;
-        delay = FULL_PAUSE;
-      } else if (isDeletingRef.current && newText === "") {
-        isDeletingRef.current = false;
-        skillIndexRef.current = (skillIndexRef.current + 1) % typingAnimationSkills.length;
-        delay = EMPTY_PAUSE;
-      }
+        <div className={styles.heroTrustGrid}>
+          <div className={styles.trustCard}>
+            <span className={styles.trustVal}>Full-Stack</span>
+            <span className={styles.trustDesc}>End-to-End Delivery</span>
+          </div>
+          <div className={styles.trustCard}>
+            <span className={styles.trustVal}>Production Ready</span>
+            <span className={styles.trustDesc}>Clean, Maintainable Code</span>
+          </div>
+          <div className={styles.trustCard}>
+            <span className={styles.trustVal}>Scalable</span>
+            <span className={styles.trustDesc}>Architected for Growth</span>
+          </div>
+        </div>
+      </div>
 
-      timeoutRef.current = setTimeout(tick, delay);
-    }
+      <div className={styles.heroVisual}>
+        <div className={styles.portraitBox}>
+          <Image
+            src={profileImg}
+            alt="Elkana Maina"
+            className={styles.portraitImg}
+            priority
+            width={400}
+            height={500}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
-    timeoutRef.current = setTimeout(tick, 1500);
-    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
-  }, []);
+export const ValueSection = () => (
+  <section className={styles.sectionBlock} id="value">
+    <div className={styles.sectionHeader}>
+      <h2 className={styles.sectionTitle}>What I Bring to Your Project</h2>
+      <p className={styles.sectionDescription}>
+        Direct, reliable execution focused on performance, security, and scale.
+      </p>
+    </div>
 
+    <div className={styles.valueGrid}>
+      {valuePoints.map((item, idx) => {
+        const Icon = item.icon;
+        return (
+          <div className={styles.valueCard} key={idx}>
+            <div className={styles.valueIconBox}>
+              <Icon size={22} />
+            </div>
+            <h3 className={styles.valueTitle}>{item.title}</h3>
+            <span className={styles.valueSubtitle}>{item.subtitle}</span>
+            <p className={styles.valueText}>{item.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+);
+
+export const FeaturedSection = () => (
+  <section className={styles.sectionBlock} id="featured">
+    <div className={styles.sectionHeader}>
+      <h2 className={styles.sectionTitle}>Featured</h2>
+    </div>
+
+    <div className={styles.showcaseStack}>
+      {featuredItems.map((item, idx) => (
+        <div className={styles.showcaseCard} key={idx}>
+          <div className={styles.imageWrapper}>
+            <Image
+              src={item.image}
+              alt={item.title}
+              className={styles.projectImage}
+              priority={idx === 0}
+            />
+            <div className={styles.imageOverlay} />
+          </div>
+
+          <div className={styles.cardContent}>
+            <span className={styles.roleTag}>{item.role}</span>
+            <div className={styles.titleRow}>
+              <h3 className={styles.projectTitle}>{item.title}</h3>
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.linkIcon}
+                aria-label={`Visit ${item.title}`}
+              >
+                <ExternalLink size={18} />
+              </a>
+            </div>
+
+            <ul className={styles.bulletList}>
+              {item.bullets.map((bullet, bIdx) => (
+                <li key={bIdx} className={styles.bulletItem}>
+                  <Check size={16} className={styles.checkIcon} />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+export const WhyMeSection = () => (
+  <section className={styles.sectionBlock} id="why-me">
+    <div className={styles.sectionHeader}>
+      <h2 className={styles.sectionTitle}>Why Work With Me</h2>
+      <p className={styles.sectionDescription}>
+        What you can expect when collaborating on a project or bringing me onto
+        your engineering team.
+      </p>
+    </div>
+
+    <div className={styles.diffGrid}>
+      {differentiators.map((diff) => (
+        <div key={diff.num} className={styles.diffCard}>
+          <span className={styles.diffNum}>{diff.num}</span>
+          <h3 className={styles.diffTitle}>{diff.title}</h3>
+          <p className={styles.diffDesc}>{diff.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+export const SkillsSection = () => (
+  <section className={styles.sectionBlock} id="skills">
+    <div className={styles.sectionHeader}>
+      <h2 className={styles.sectionTitle}>Technologies & Tools</h2>
+      <p className={styles.sectionDescription}>
+        The primary frameworks, languages, and tools I use to turn ideas into
+        software.
+      </p>
+    </div>
+
+    <div className={styles.skillsPanel}>
+      <div className={styles.ballsGrid}>
+        {technologies.map((tech) => (
+          <div className={styles.ballWrapper} key={tech.name}>
+            <div className={styles.ballContainer}>
+              <BallCanvas icon={tech.icon} />
+            </div>
+            <span className={styles.ballLabel}>{tech.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export const ProcessSection = () => (
+  <section className={styles.sectionBlock} id="process">
+    <div className={styles.sectionHeader}>
+      <h2 className={styles.sectionTitle}>How I Work</h2>
+      <p className={styles.sectionDescription}>
+        A clear development process ensuring smooth execution from start to
+        finish.
+      </p>
+    </div>
+
+    <div className={styles.processGrid}>
+      {processSteps.map((step) => (
+        <div key={step.step} className={styles.processCard}>
+          <span className={styles.stepNum}>{step.step}</span>
+          <h3 className={styles.processTitle}>{step.title}</h3>
+          <p className={styles.processDesc}>{step.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+export const ContactSection = () => (
+  <section className={styles.contactSection} id="contact">
+    <div className={styles.contactCard}>
+      <h2 className={styles.contactTitle}>
+        Let's talk about your next project.
+      </h2>
+      <p className={styles.contactDesc}>
+        Whether you have an upcoming software build, need technical guidance, or
+        want to explore working together, feel free to reach out directly.
+      </p>
+
+      <div className={styles.contactButtons}>
+        <a
+          href="mailto:elisoft.engineer@gmail.com"
+          className={styles.btnPrimary}
+        >
+          <Mail size={18} /> Send an Email
+        </a>
+        <a
+          href="https://wa.me/+254757241621"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.btnSecondary}
+        >
+          <FontAwesomeIcon icon={faWhatsapp} /> Chat on WhatsApp
+        </a>
+      </div>
+
+      <div className={styles.socialRow}>
+        <a
+          href="https://github.com/elisoft-engineer/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.socialLink}
+        >
+          <FontAwesomeIcon icon={faGithub} /> GitHub
+        </a>
+        <span className={styles.dot}>•</span>
+        <a
+          href="https://www.linkedin.com/in/elkana-maina-ab54851a0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.socialLink}
+        >
+          <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+);
+
+// --- MAIN PAGE COMPONENT ---
+
+const LandingPage = () => {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <section className={styles.home} id="home">
-      <div className={styles.hero}>
-        <div className={styles.background} aria-hidden>
-          <svg className={styles.heroBlobs} viewBox="0 0 1200 600" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#ec80ff" />
-                <stop offset="100%" stopColor="#0087ff" />
-              </linearGradient>
-
-              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#ff6ec7" />
-                <stop offset="100%" stopColor="#ffa800" />
-              </linearGradient>
-            </defs>
-
-            <path className={styles.blobLeft} d="" />
-            <path className={styles.blobRight} d="" />
-          </svg>
-        </div>
-
-        <div className={styles.content}>
-          <div className={styles.left}>
-            <div className={styles.medium}>Hello, I'm</div>
-            <h1 className={styles.name}>Elkana Maina</h1>
-            <div className={styles.medium}>
-              And I'm a{" "}
-              <span className={styles.skill} aria-live="polite">
-                {currentText}
-              </span>
-            </div>
-            <div
-              className={styles.heroCta}
-              onClick={() => scrollTo("about")}
-              aria-label="Scroll to about section"
-            >
-              <Search size={18} /> Get to know me
-            </div>
-
-            <div className={styles.scrollDown} aria-hidden>
-              <span className={styles.scroller}>
-                <ChevronDown className={styles.icon} />
-              </span>
-            </div>
-          </div>
-
-          <div className={styles.right}>
-            <Image 
-              src={profileImg} 
-              alt="Elkana Maina" 
-              className={styles.image} 
-              priority 
-              width={360}
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.about} id="about">
-        <div className={styles.left}>
-          <Image src={codingImg} width={256} alt="Coding" className={styles.image} />
-        </div>
-        <div className={styles.right}>
-          <div className={styles.heading}>
-            Who am I <HelpCircle className={styles.icon} />
-          </div>
-          <div className={styles.description}>
-            I am a Software Engineer driven by a simple goal: making technology work better for people. 
-            I specialize in crafting seamless digital experiences, ranging from interactive web platforms 
-            to robust enterprise software. My focus is on building tools that automate the tedious, simplify 
-            the complex, and help businesses scale through smart engineering.
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.services} id="services">
-        <h2 className={styles.title}>What I build</h2>
-        <div className={styles.grid}>
-          {services.map((s, i) => (
-            <ServiceCard index={i} key={s.title} {...s} />
-          ))}
-        </div>
-      </div>
-
-      <div className={styles.technologiesSection}>
-        <h2 className={styles.title}>Technologies</h2>
-        <div className={styles.technologies}>
-          {technologies.map((tech) => (
-            <div className={styles.technology} key={tech.name}>
-              <BallCanvas icon={tech.icon} />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className={styles.projectsPreview} id="projects-preview">
-        <h2 className={styles.projectsTitle}>Featured</h2>
-        <div className={styles.projects}>
-          <div className={styles.card}>
-            <Image src={ellypadImg} width={600} alt="Ellypad" />
-            <div className={styles.meta}>
-              <div className={styles.top}>
-                <div className={styles.statusBadge}>
-                  <span className={styles.statusDot}></span>
-                  <span className={styles.statusText}>Systems Operational</span>
-                </div>
-                <a href="https://ellypad.com" target="_blank" className={styles.link}>
-                  <ExternalLink size={16} className={styles.icon} />
-                  Visit Website
-                </a>
-              </div>
-              <h2 className={styles.title}>Ellypad</h2>
-              <p className={styles.description}>
-                Ellypad is a software development firm that builds high-integrity systems to simplify business 
-                operations. By replacing manual processes with scalable digital architecture, they ensure software 
-                mirrors an organization’s unique workflow. From enterprise automation to intuitive dashboards, 
-                Ellypad delivers operational clarity through smart engineering and collaborative partnership.
-              </p>
-              <div className={styles.skills}>
-                <span className={styles.skill}>Python</span>
-                <span className={styles.skill}>Django</span>
-                <span className={styles.skill}>Django REST Framework</span>
-                <span className={styles.skill}>Next Js</span>
-                <span className={styles.skill}>CSS 3</span>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.card}>
-            <Image src={falcosendImg} height={337} alt="Falcosend" />
-            <div className={styles.meta}>
-              <div className={styles.top}>
-                <div className={styles.statusBadge}>
-                  <span className={styles.statusDot}></span>
-                  <span className={styles.statusText}>Launching Soon</span>
-                </div>
-              </div>
-              <h2 className={styles.title}>Falcosend</h2>
-              <p className={styles.description}>
-                A developer-focused platform that bridges static websites with powerful backend features 
-                such as form handling, data storage, analytics, and real-time alerts.  It enables 
-                developers to handle form submissions in static websites and applications without writing 
-                server code. The interface for the API is currently in development.
-              </p>
-              <div className={styles.skills}>
-                <span className={styles.skill}>Python</span>
-                <span className={styles.skill}>Django</span>
-                <span className={styles.skill}>Django REST Framework</span>
-                <span className={styles.skill}>Next Js</span>
-                <span className={styles.skill}>CSS 3</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.cta} id="cta">
-        <div className={styles.imageSection}>
-          <div className={styles.background} />
-          <Image src={tshirtImg} width={256} alt="Elkana" className={styles.image} />
-        </div>
-        <div className={styles.ctaContent}>
-          <h3 className={styles.question}>
-            Like what you see <HelpCircle className={styles.icon} />
-          </h3>
-          <div className={styles.ctaButtons}>
-            <div
-              className={`${styles.btn} ${styles.btnPrimary}`}
-              onClick={() => scrollTo("contacts")}
-            >
-              <Phone size={18} /> Contact Me
-            </div>
-            <Link href="/experience" className={`${styles.btn} ${styles.btnSecondary}`}>
-              See Experience
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* ----- CONTACT ----- */}
-      <div className={styles.contacts} id="contacts">
-        <h2 className={styles.heading}>Get in touch</h2>
-        <div className={styles.links}>
-          <a
-            href="https://wa.me/+254757241621?text=Hello!%20I%20would%20like%20to%20inquire%20about..."
-            className={`${styles.link} ${styles.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-          >
-            <FontAwesomeIcon icon={faWhatsapp} className={styles.icon} />
-            <span className={styles.text}>Whatsapp</span>
-          </a>
-          <a
-            href="mailto:elisoft.engineer@gmail.com"
-            className={`${styles.link} ${styles.email}`}
-            aria-label="Email"
-          >
-            <Mail size={20} className={styles.icon} />
-            <span className={styles.text}>Email</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/elkana-maina-ab54851a0/"
-            className={`${styles.link} ${styles.linkedin}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <FontAwesomeIcon icon={faLinkedin} className={styles.icon} />
-            <span className={styles.text}>LinkedIn</span>
-          </a>
-
-          <a
-            href="https://github.com/elisoft-engineer/"
-            className={`${styles.link} ${styles.github}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <FontAwesomeIcon icon={faGithub} className={styles.icon} />
-            <span className={styles.text}>GitHub</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <div className={styles.landingContainer}>
+      <HeroSection scrollTo={scrollTo} />
+      <ValueSection />
+      <FeaturedSection />
+      <WhyMeSection />
+      <SkillsSection />
+      <ProcessSection />
+      <ContactSection />
+    </div>
   );
 };
 
-export default Home;
+export default LandingPage;
