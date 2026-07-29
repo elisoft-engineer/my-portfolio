@@ -1,33 +1,52 @@
+/* ==========================================================================
+   THREE-PILL FLOATING DOCK NAVBAR
+   ========================================================================== */
 .navbarContainer {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: transparent;
-  backdrop-filter: blur(50px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 99;
+  padding: 1.25rem 5%;
+  z-index: 1000;
+  pointer-events: none;
 }
 
 .navbar {
-  background-color: transparent;
-  backdrop-filter: blur(50px);
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  width: 95%;
   align-items: center;
-  padding: 10px 0px;
+  pointer-events: auto;
   position: relative;
-  box-sizing: border-box;
 }
 
-.brand {
-  font-weight: 600;
-  font-size: 1.5rem;
+/* Glassmorphic Base for Pills */
+.brandPill,
+.linksPill,
+.controlsPill {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Brand Pill */
+.brandPill {
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  gap: 0.3rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.brandPill:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
 }
 
 .first {
@@ -36,110 +55,141 @@
 
 .last {
   color: var(--on-background);
-  margin-left: 0.25rem;
 }
 
-.navLinks {
+/* Dock Right Side Container */
+.dock {
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  justify-content: space-between;
   align-items: center;
-  font-family: system-ui, sans-serif;
+  gap: 0.75rem;
+}
+
+/* Navigation Links Pill */
+.linksPill {
+  padding: 0.35rem;
+  border-radius: 100px;
+  gap: 0.25rem;
 }
 
 .link {
-  color: var(--on-background);
-  font-size: 0.85rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
   font-weight: 500;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: all 0.25s ease-in-out;
+  color: var(--on-background-subtle);
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .link:hover {
-  color: var(--primary);
+  color: var(--on-background);
+  background: var(--glass);
 }
 
 .link.active {
-  color: var(--primary);
-  background-color: var(--glass-primary);
+  background: var(--primary);
+  color: var(--on-background);
+  font-weight: 600;
 }
 
-.themeToggler {
-  margin-left: 1rem;
-  cursor: pointer;
-  padding: 0.2rem 0.4rem;
+/* Controls Pill (Theme Toggle) */
+.controlsPill {
+  padding: 0.35rem;
+  border-radius: 100px;
+  gap: 0.25rem;
+}
+
+.themeToggle {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
-  transition: background-color 0.3s ease-in-out;
+  color: var(--on-background);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.themeToggler:hover {
-  background-color: var(--primary);
+.themeToggle:hover {
+  background: var(--glass);
+  color: var(--primary);
 }
 
-.navToggler, .dropdownMenu {
+.mobileToggler {
+  display: none;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--on-background);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobileToggler:hover {
+  background: var(--glass);
+  color: var(--primary);
+}
+
+.iconPlaceholder {
+  width: 18px;
+  height: 18px;
+}
+
+/* Mobile Dropdown Menu */
+.dropdownMenu {
   display: none;
 }
 
-.dropdownMenu {
-  position: absolute;
-  top: 3rem;
-  right: 0rem;
-  width: 14rem;
-  left: auto;
-  max-width: calc(100vw - 2rem);
-  flex-direction: column;
-  gap: 0.5rem;
-  background: var(--background);
-  box-shadow: 0 6px 18px rgba(3,8,20,0.18);
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-}
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .linksPill {
+    display: none;
+  }
 
-.themeToggler {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  border-radius: 4px;
-  padding: 8px 12px;
-  margin-left: 0rem;
-}
+  .mobileToggler {
+    display: flex;
+  }
 
-.dropdownMenu.open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0px);
-}
+  .dropdownMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    width: 200px;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 0.6rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    pointer-events: auto;
+  }
 
-@media screen and (max-width: 768px) {
-  .navbar {
-    .brand {
-      font-size: 1.2rem;
-    }
+  .dropdownMenu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
 
-    .navLinks {
-      display: none;
-    }
-
-    .navToggler {
-      display: block;
-    }
-
-    .dropdownMenu {
-      display: flex;
-    }
-
-    .themeToggler {
-      border: 1px solid var(--glass-primary);
-    }
-
-    .themeToggler:hover {
-      background-color: var(--background);
-    }
+  .dropdownMenu .link {
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
   }
 }

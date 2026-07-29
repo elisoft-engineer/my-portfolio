@@ -1,12 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { ReactNode, useState, useEffect, useRef } from 'react';
-import { Menu, MoonStar, SunMedium, X } from 'lucide-react';
-import styles from './navbar.module.css';
-import { useTheme } from 'next-themes';
-
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ReactNode, useState, useEffect, useRef } from "react";
+import { Menu, MoonStar, SunMedium, X } from "lucide-react";
+import { useTheme } from "next-themes";
+import styles from "./navbar.module.css";
 
 interface NavLinkProps {
   href: string;
@@ -16,18 +15,18 @@ interface NavLinkProps {
 
 const NavLink = ({ href, children, onClick }: NavLinkProps) => {
   const pathname = usePathname();
-  const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href);
+  const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <Link
       href={href}
-      className={`${styles.link} ${isActive ? styles.active : ''}`}
+      className={`${styles.link} ${isActive ? styles.active : ""}`}
       onClick={onClick}
     >
       {children}
     </Link>
   );
-}
+};
 
 const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -37,6 +36,10 @@ const Navbar = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
@@ -44,7 +47,7 @@ const Navbar = () => {
         togglerRef.current &&
         !togglerRef.current.contains(event.target as Node)
       ) {
-        setIsCollapsed(true); // collapse menu
+        setIsCollapsed(true);
       }
     };
 
@@ -57,53 +60,79 @@ const Navbar = () => {
     };
   }, [isCollapsed]);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
-    <div className={styles.navbarContainer}>
+    <header className={styles.navbarContainer}>
       <nav className={styles.navbar}>
-        <Link href="/" className={styles.brand}>
+        {/* Brand Pill (Left) */}
+        <Link href="/" className={styles.brandPill}>
           <span className={styles.first}>Elkana</span>
           <span className={styles.last}>Maina</span>
         </Link>
-        <div className={styles.navLinks}>
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/experience">Experience</NavLink>
-          <NavLink href="/skills">Skills</NavLink>
-          <NavLink href="/certifications">Certificates</NavLink>
-          <div className={styles.themeToggler} onClick={() => {setTheme(theme === "dark" ? "light" : "dark")}}>
-            { theme === "light" ? <SunMedium size={20} /> : <MoonStar size={20} /> }
+
+        {/* Right Dock: Links Pill + Controls Pill */}
+        <div className={styles.dock}>
+          {/* Links Pill (Middle/Desktop) */}
+          <div className={styles.linksPill}>
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/projects">Projects</NavLink>
+            <NavLink href="/skills">Skills</NavLink>
+            <NavLink href="/certifications">Certificates</NavLink>
+          </div>
+
+          {/* Controls Pill (Right) */}
+          <div className={styles.controlsPill}>
+            <button
+              type="button"
+              className={styles.themeToggle}
+              onClick={toggleTheme}
+              aria-label="Toggle Theme"
+            >
+              {mounted && theme === "light" ? (
+                <SunMedium size={18} />
+              ) : mounted ? (
+                <MoonStar size={18} />
+              ) : (
+                <span className={styles.iconPlaceholder} />
+              )}
+            </button>
+
+            {/* Mobile Nav Toggler */}
+            <button
+              ref={togglerRef}
+              className={styles.mobileToggler}
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              aria-label="Toggle Menu"
+            >
+              {isCollapsed ? <Menu size={18} /> : <X size={18} />}
+            </button>
           </div>
         </div>
-        <button
-          ref={togglerRef}
-          id="nav-toggler"
-          className={styles.navToggler}
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          aria-label="Toggle Menu"
+
+        {/* Mobile Dropdown Menu */}
+        <div
+          ref={dropdownRef}
+          className={`${styles.dropdownMenu} ${!isCollapsed ? styles.open : ""}`}
         >
-          {isCollapsed ? <Menu size={24} /> : <X size={24} />}
-        </button>
-        <div ref={dropdownRef} className={`${styles.dropdownMenu} ${!isCollapsed ? styles.open : ""}`}>
-          <NavLink href="/" onClick={() => setIsCollapsed(true)}>Home</NavLink>
-          <NavLink href="/experience" onClick={() => setIsCollapsed(true)}>Experience</NavLink>
-          <NavLink href="/skills" onClick={() => setIsCollapsed(true)}>Skills</NavLink>
-          <NavLink href="/certifications" onClick={() => setIsCollapsed(true)}>Certificates</NavLink>
-          <div className={styles.themeToggler} onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-            {!mounted ? (
-              <div style={{ width: 20, height: 20 }} />
-            ) : theme === "light" ? (
-              <SunMedium size={20} />
-            ) : (
-              <MoonStar size={20} />
-            )}
-          </div>
+          <NavLink href="/" onClick={() => setIsCollapsed(true)}>
+            Home
+          </NavLink>
+          <NavLink href="/projects" onClick={() => setIsCollapsed(true)}>
+            Projects
+          </NavLink>
+          <NavLink href="/skills" onClick={() => setIsCollapsed(true)}>
+            Skills
+          </NavLink>
+          <NavLink href="/certifications" onClick={() => setIsCollapsed(true)}>
+            Certificates
+          </NavLink>
         </div>
       </nav>
-    </div>
+    </header>
   );
-}
+};
 
 export default Navbar;
