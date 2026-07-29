@@ -87,7 +87,7 @@ const processSteps = [
   {
     step: "03",
     title: "Frontend Integration",
-    desc: "Designing and connecting responsive, accessible web interfaces that feel effortless to use.",
+    desc: "Designing and connecting responsive, accessible web and mobile interfaces that feel effortless to use.",
   },
   {
     step: "04",
@@ -291,8 +291,7 @@ export const SkillsSection = () => (
     <div className={styles.sectionHeader}>
       <h2 className={styles.sectionTitle}>Technologies & Tools</h2>
       <p className={styles.sectionDescription}>
-        The primary frameworks, languages, and tools I use to turn ideas into
-        software.
+        The primary frameworks, languages, and tools I use to build software.
       </p>
     </div>
 
@@ -357,7 +356,7 @@ export const ContactSection = () => (
           rel="noopener noreferrer"
           className={styles.btnSecondary}
         >
-          <FontAwesomeIcon icon={faWhatsapp} /> Chat on WhatsApp
+          <FontAwesomeIcon icon={faWhatsapp} size="lg" /> Chat on WhatsApp
         </a>
       </div>
 
