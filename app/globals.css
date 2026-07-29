@@ -11,27 +11,38 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --primary: #f47057;
-  --secondary: #16d196;
-  --other-color: #1bedf4ff;;
+  --primary: #ff6b5c;
+  --primary-hover: #e05345;
+  --secondary: #00f5d4;
+  --accent: #ffb703;
 
-  --glass-primary-dense: #f471571e;
-  --glass-secondary: #16d1960d;
-  --glass-secondary-dense: #16d1961e;
+  --glass-primary-dense: #ff6b5c38;
+  --glass-secondary: #00f5d40f;
+  --glass-secondary-dense: #00f5d429;
 }
 
 .light {
   --background: #eef5f3;
   --on-background: #303030;
-  --glass: #6161610d;
-  --glass-primary: #f4705720;
+  --on-background-subtle: #505a62;
+  --border-color: #ff6b5c26;
+  --border-hover: #ff6b5c66;
+  --card-bg: #ffffffa6;
+  --glass: #00f5d40d;
+  --glass-primary: #ff6b5c1f;
+  --image-fade-bg: #eef5f3f2;
 }
 
 .dark {
   --background: #303030;
   --on-background: #eef5f3;
+  --on-background-subtle: #a0aec0;
+  --border-color: #ffffff14;
+  --border-hover: #ff6b5c66;
+  --card-bg: #ffffff08;
   --glass: #ffffff0d;
-  --glass-primary: #f470570d;
+  --glass-primary: #ff6b5c1f;
+  --image-fade-bg: #303030f2;
 }
 
 *,
@@ -43,8 +54,7 @@
 
 .main {
   position: relative;
-  z-index: 1; /* Keeps content below fixed navbar */
+  z-index: 1;
   width: 100%;
-  /* This prevents 3D children from expanding the container */
   contain: paint;
 }
