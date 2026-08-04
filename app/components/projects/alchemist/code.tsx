@@ -93,7 +93,7 @@ export default function AlchemistShowcase() {
             rel="noreferrer"
             className={styles.pypiBtn}
           >
-            <FontAwesomeIcon icon={faPython} size="lg" /> PyPI Package
+            <FontAwesomeIcon icon={faPython} size="lg" /> View PyPI Package
           </a>
           <a
             href="https://github.com/elisoft-engineer/alchemist-shell"
@@ -101,7 +101,7 @@ export default function AlchemistShowcase() {
             rel="noreferrer"
             className={styles.githubLink}
           >
-            <FontAwesomeIcon icon={faGithub} /> View Repository
+            <FontAwesomeIcon icon={faGithub} /> Source Code
           </a>
         </div>
       </div>
