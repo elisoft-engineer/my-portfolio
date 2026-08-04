@@ -74,7 +74,7 @@ export default function FalcoSendShowcase() {
             rel="noreferrer"
             className={styles.npmBtn}
           >
-            <FontAwesomeIcon icon={faNpm} /> npm Registry
+            <FontAwesomeIcon icon={faNpm} /> View NPM Package
           </a>
           <a
             href="https://github.com/elisoft-engineer/falcosend-sdk"
@@ -82,7 +82,7 @@ export default function FalcoSendShowcase() {
             rel="noreferrer"
             className={styles.ghBtn}
           >
-            <FontAwesomeIcon icon={faGithub} /> GitHub
+            <FontAwesomeIcon icon={faGithub} /> Source Code
           </a>
         </div>
 
