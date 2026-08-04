@@ -86,7 +86,7 @@ const processSteps = [
   },
   {
     step: "03",
-    title: "Frontend Integration",
+    title: "Frontend Development",
     desc: "Designing and connecting responsive, accessible web and mobile interfaces that feel effortless to use.",
   },
   {
