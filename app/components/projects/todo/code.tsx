@@ -8,8 +8,8 @@ import styles from "./code.module.css";
 export default function TaskFlowShowcase() {
   return (
     <section className={styles.container}>
-      <span className={styles.tag}>Full-Stack System</span>
-      <h2 className={styles.title}>TaskFlow App (DRF + Flutter)</h2>
+      <span className={styles.tag}>Sample Client-Server System</span>
+      <h2 className={styles.title}>Todo App (DRF + Flutter)</h2>
       <p className={styles.desc}>
         A multi-platform task management system proving clean decoupling between
         a Django REST Framework API engine and a high-performance Flutter mobile
