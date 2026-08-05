@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { Check, Copy, Zap, ShieldCheck } from "lucide-react";
+import { Check, Copy, Zap, ShieldCheck, Terminal } from "lucide-react";
 import CodeBlock from "@/app/components/CodeBlock";
 import styles from "./code.module.css";
 
@@ -52,8 +52,9 @@ export default function FalcoSendShowcase() {
           single line of backend route logic.
         </p>
 
-        <div className={styles.actions}>
+        <div className={styles.actionBlock}>
           <div className={styles.installBar}>
+            <Terminal size={15} className={styles.termIcon} />
             <code>npm install falcosend-sdk</code>
             <button
               onClick={copyInstall}
@@ -68,30 +69,33 @@ export default function FalcoSendShowcase() {
             </button>
           </div>
 
-          <a
-            href="https://www.npmjs.com/package/falcosend-sdk"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.npmBtn}
-          >
-            <FontAwesomeIcon icon={faNpm} /> View NPM Package
-          </a>
-          <a
-            href="https://github.com/elisoft-engineer/falcosend-sdk"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.ghBtn}
-          >
-            <FontAwesomeIcon icon={faGithub} /> Source Code
-          </a>
+          <div className={styles.links}>
+            <a
+              href="https://www.npmjs.com/package/falcosend-sdk"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.npmBtn}
+            >
+              <FontAwesomeIcon icon={faNpm} /> View NPM Package
+            </a>
+            <a
+              href="https://github.com/elisoft-engineer/falcosend-sdk"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.ghBtn}
+            >
+              <FontAwesomeIcon icon={faGithub} /> View Source Code
+            </a>
+          </div>
         </div>
 
         <div className={styles.highlights}>
           <span>
-            <Zap size={14} /> Sub-millisecond latency
+            <Zap size={14} color="#11e29f" /> Sub-millisecond latency
           </span>
           <span>
-            <ShieldCheck size={14} /> Built-in bot & honeypot filtering
+            <ShieldCheck size={14} color="#1dd53f" /> Built-in bot & honeypot
+            filtering
           </span>
         </div>
       </div>
