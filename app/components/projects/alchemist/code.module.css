@@ -1,140 +1,104 @@
-.wrapper {
+/* code.module.css */
+
+.section {
+  width: 100%;
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titleMobile {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  text-align: center;
+  display: none;
+}
+
+.titleDesktop {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Left Pane Details */
+.leftPane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.description {
+  color: var(--on-background-subtle);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.featureGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3.5rem;
-  align-items: center;
-  padding: 4rem 0;
-  border-bottom: 1px solid var(--border-color);
+  gap: 0.85rem;
 }
 
-.tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.infoSide h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--on-background);
-  margin: 0.25rem 0 1rem 0;
-}
-
-.infoSide p {
-  color: var(--on-background-subtle);
-  line-height: 1.65;
-  font-size: 1rem;
-}
-
-.links {
+.featureItem {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.pypiBtn {
-  background: #3776ab0e;
-  color: #3776ab;
-  border: 1px solid #3776ab;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 600;
+  gap: 0.55rem;
   font-size: 0.85rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.githubLink {
+  font-weight: 600;
   color: var(--on-background);
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
-/* Terminal Styling */
-.window {
-  background: #0c0f12;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-  font-family: monospace;
-}
-
-.windowBar {
-  background: #060809;
-  padding: 0.5rem 0.85rem;
-  font-size: 0.75rem;
-  color: #718096;
+.checkBadge {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.windowBody {
-  padding: 1.25rem;
-  font-size: 0.825rem;
-}
-
-.promptLine {
-  color: #e2e8f0;
-  margin: 0.4rem 0;
-}
-.cmd {
-  color: var(--primary);
-  font-weight: bold;
-}
-.metaInfo {
-  color: #718096;
-  font-size: 0.775rem;
-  margin: 0.5rem 0;
-}
-
-.outputTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 0.75rem;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.outputTable th,
-.outputTable td {
-  padding: 0.4rem 0.6rem;
-  text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.outputTable th {
-  color: var(--primary);
-  font-size: 0.75rem;
-}
-.outputTable td {
-  color: #e2e8f0;
-  font-size: 0.775rem;
-}
-.highlight {
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  /* background: rgba(39, 201, 63, 0.18); */
   color: #27c93f;
-  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.featureIcon {
+  color: var(--primary);
+}
+
+/* Actions */
+.actionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .installBar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.75rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-color);
-  padding: 0.5rem 0.85rem;
-  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
   font-family: monospace;
-  font-size: 0.85rem;
-  margin-top: 1rem;
+}
+
+.termIcon {
+  color: var(--on-background-subtle);
+}
+
+.installBar code {
+  font-size: 0.875rem;
+  flex: 1;
 }
 
 .copyBtn {
@@ -144,15 +108,86 @@
   color: var(--on-background-subtle);
   display: flex;
   align-items: center;
-  padding: 0.2rem;
 }
 
 .copyBtn:hover {
   color: var(--on-background);
 }
 
+.checkIcon {
+  color: #27c93f;
+}
+
+.links {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.pypiBtn,
+.githubBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pypiBtn {
+  background: #3776ab1a;
+  color: #3776ab;
+  border: 1px solid #3776ab;
+}
+
+.githubBtn {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--on-background);
+  border: 1px solid var(--border-color);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 18px 0px 0px 18px;
+  overflow: hidden;
+  background-color: #282a36;
+  box-shadow: -10px 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.terminalImg {
+  object-fit: cover;
+  object-position: left top;
+  transform: rotate(-10deg) translateY(-40px) translateX(40px);
+}
+
+/* Responsive Overrides */
 @media (max-width: 850px) {
-  .wrapper {
+  .titleDesktop {
+    display: none;
+  }
+
+  .titleMobile {
+    display: block;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .imageWrapper {
+    height: 320px;
+    border-radius: 18px 18px 0px 0px;
+  }
+
+  .terminalImg {
+    transform: rotate(-15deg) translateY(-100px) translateX(40px);
+  }
+
+  .featureGrid {
     grid-template-columns: 1fr;
   }
 }
