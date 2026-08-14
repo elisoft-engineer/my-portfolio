@@ -8,8 +8,7 @@ export default function ProjectsPage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <h1>Projects</h1>
-        <p>Things I've built, open-source packages, and developer tools.</p>
+        <h1 className={styles.heading}>My Projects</h1>
       </header>
 
       {/* Independent Showcase Components */}
