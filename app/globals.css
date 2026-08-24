@@ -1,5 +1,9 @@
 :root {
-  font-family: system-ui, sans-serif;
+  font-family:
+    "Space Grotesk",
+    system-ui,
+    -apple-system,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
   background-color: var(--background);
@@ -11,38 +15,83 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --primary: #ff6b5c;
-  --primary-hover: #e05345;
-  --secondary: #00f5d4;
-  --accent: #ffb703;
+  --bg-base: #f1f5f9;
+  --bg-secondary: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
 
-  --glass-primary-dense: #ff6b5c38;
-  --glass-secondary: #00f5d40f;
-  --glass-secondary-dense: #00f5d429;
+  --accent-cyan: #0284c7;
+  --accent-indigo: #4f46e5;
+  --accent-purple: #7c3aed;
+  --accent-emerald: #059669;
 }
 
 .light {
-  --background: #eef5f3;
-  --on-background: #303030;
-  --on-background-subtle: #505a62;
-  --border-color: #ff6b5c26;
-  --border-hover: #ff6b5c66;
-  --card-bg: #ffffffa6;
-  --glass: #00f5d40d;
-  --glass-primary: #ff6b5c1f;
-  --image-fade-bg: #eef5f3f2;
+  /* Glassmorphism System - Light */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-hover: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-border-highlight: rgba(255, 255, 255, 1);
+  --glass-shadow:
+    0 20px 40px -15px rgba(15, 23, 42, 0.08),
+    0 0 15px rgba(255, 255, 255, 0.5) inset;
+  --glass-blur: blur(20px) saturate(190%);
+
+  /* Neomorphism System - Light */
+  --neo-bg: #e2e8f0;
+  --neo-shadow-out-1: 9px 9px 18px #cbd5e1;
+  --neo-shadow-out-2: -9px -9px 18px #ffffff;
+  --neo-shadow-in-1: inset 4px 4px 8px #cbd5e1;
+  --neo-shadow-in-2: inset -4px -4px 8px #ffffff;
+
+  /* Dot Matrix & Mesh Gradients - Light */
+  --dot-color: rgba(15, 23, 42, 0.12);
+  --mesh-gradient-1: rgba(2, 132, 199, 0.12);
+  --mesh-gradient-2: rgba(99, 102, 241, 0.12);
+  --mesh-gradient-3: rgba(124, 58, 237, 0.08);
+
+  /* Fonts */
+  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-display: "Space Grotesk", sans-serif;
 }
 
 .dark {
-  --background: #303030;
-  --on-background: #eef5f3;
-  --on-background-subtle: #a0aec0;
-  --border-color: #ffffff14;
-  --border-hover: #ff6b5c66;
-  --card-bg: #ffffff08;
-  --glass: #ffffff0d;
-  --glass-primary: #ff6b5c1f;
-  --image-fade-bg: #303030f2;
+  /* Color Palette - Dark Theme */
+  --bg-base: #07090e;
+  --bg-secondary: #0f172a;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+
+  --accent-cyan: #38bdf8;
+  --accent-indigo: #6366f1;
+  --accent-purple: #a855f7;
+  --accent-emerald: #10b981;
+
+  /* Glassmorphism System - Dark */
+  --glass-bg: rgba(15, 23, 42, 0.45);
+  --glass-bg-hover: rgba(30, 41, 59, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-highlight: rgba(255, 255, 255, 0.25);
+  --glass-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.03) inset;
+  --glass-blur: blur(24px) saturate(200%);
+
+  /* Neomorphism System - Dark */
+  --neo-bg: #0d1322;
+  --neo-shadow-out-1: 8px 8px 18px #04060a;
+  --neo-shadow-out-2: -8px -8px 18px #16203a;
+  --neo-shadow-in-1: inset 4px 4px 8px #04060a;
+  --neo-shadow-in-2: inset -4px -4px 8px #16203a;
+
+  /* Dot Matrix & Mesh Gradients - Dark */
+  --dot-color: rgba(255, 255, 255, 0.08);
+  --mesh-gradient-1: rgba(56, 189, 248, 0.15);
+  --mesh-gradient-2: rgba(99, 102, 241, 0.18);
+  --mesh-gradient-3: rgba(168, 85, 247, 0.12);
 }
 
 *,
@@ -50,6 +99,10 @@
 *::after {
   box-sizing: border-box;
   text-decoration: none;
+}
+
+body {
+  font-family: var(--font-sans);
 }
 
 .main {
