@@ -1,0 +1,387 @@
+/* ==========================================================================
+   HERO SECTION STYLES (FIRA CODE TYPOGRAPHY & INTERACTIVE CTA ANIMATIONS)
+   ========================================================================== */
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+  padding-top: 2rem;
+  min-height: calc(100vh - 100px);
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+/* --- Subtle Modern Status Tag --- */
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.statusBadge:hover {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.statusText {
+  font-family: "Fira Code", var(--font-mono), monospace;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+}
+
+.radarContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+.radarDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-emerald, #10b981);
+  position: relative;
+  z-index: 2;
+}
+
+.radarPulse {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--accent-emerald, #10b981);
+  opacity: 0.5;
+  animation: ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  z-index: 1;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* --- Headline & Fira Code Accents --- */
+
+.statementWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.25rem;
+}
+
+.greetingText {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.statementHeadline {
+  font-size: clamp(2.6rem, 4.3vw, 4.1rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.nameHighlight {
+  color: var(--text-primary);
+}
+
+.roleLine {
+  display: inline;
+}
+
+/* Fira Code - Outlined "Software" with Cyan Accent Stroke */
+.codeSoftware {
+  font-family: "Fira Code", monospace;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accent-cyan);
+  letter-spacing: -0.03em;
+}
+
+/* Fira Code - Vibrant Indigo "Engineer" with subtle text glow */
+.codeEngineer {
+  font-family: "Fira Code", monospace;
+  font-weight: 700;
+  color: var(--accent-indigo);
+  letter-spacing: -0.03em;
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+/* --- Bio --- */
+
+.heroParagraph {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0.25rem 0 0 0;
+}
+
+/* --- Interactive CTAs with Unique Icon Animations --- */
+
+.heroCTA {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* Primary Button - Terminal Bracket Pulse Animation */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.65rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.925rem;
+  box-shadow: 0 8px 25px -5px rgba(2, 132, 199, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(2, 132, 199, 0.6);
+}
+
+.codeIconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.btnPrimary:hover .codeIconWrapper {
+  animation: codeTerminalPulse 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    infinite alternate;
+}
+
+@keyframes codeTerminalPulse {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  100% {
+    transform: scale(1.25) translateX(2px);
+  }
+}
+
+/* Secondary Button - Phone Vibration Ring Animation */
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.65rem;
+  border-radius: 0.9rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.925rem;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btnSecondary:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.phoneIconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transition: transform 0.25s ease;
+}
+
+.btnSecondary:hover .phoneIconWrapper {
+  animation: phoneRingShake 0.45s ease-in-out infinite;
+}
+
+@keyframes phoneRingShake {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-16deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(16deg) scale(1.1);
+  }
+  60% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  80% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* --- Right Column & Glass Frame --- */
+
+.heroRight {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.imageGlassFrame {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  height: 470px;
+  border-radius: 2.25rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.imageGlassFrame:hover .profileImage {
+  transform: scale(1.02);
+}
+
+/* --- SVG Brand Floating Chips --- */
+
+.floatingChip {
+  position: absolute;
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  font-size: 0.825rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.chipIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 0.55rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.brandSvg {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.chipTopRight {
+  top: 15px;
+  right: -15px;
+  animation: floatChip 5s ease-in-out infinite alternate;
+}
+
+.chipBottomLeft {
+  bottom: 20px;
+  left: -15px;
+  animation: floatChip 6s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatChip {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-7px);
+  }
+}
+
+/* --- Responsive Layout --- */
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 1rem 0;
+    min-height: auto;
+  }
+
+  .heroRight {
+    order: -1;
+  }
+
+  .imageGlassFrame {
+    max-width: 310px;
+    height: 370px;
+  }
+
+  .chipTopRight {
+    right: 0;
+  }
+
+  .chipBottomLeft {
+    left: 0;
+  }
+}
