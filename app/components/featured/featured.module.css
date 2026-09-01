@@ -1,0 +1,333 @@
+/* Layout Container */
+.venturesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.headerTitle {
+  font-family: var(--font-display, var(--font-sans));
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.venturesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+/* Glassmorphic Venture Card */
+.ventureCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur, blur(20px));
+  -webkit-backdrop-filter: var(--glass-blur, blur(20px));
+  border: 1px solid var(--glass-border);
+  border-radius: 1.75rem;
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+  width: 100%;
+  min-height: 400px;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Card Content & Brand Typography */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 2.5rem;
+  z-index: 2;
+}
+
+.cardTopMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.logoFrame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 0.85rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+}
+
+.falcosendLogoBg {
+  background: rgba(2, 132, 199, 0.12);
+}
+
+.ellypadLogoBg {
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.ventureName {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 0.15rem 0;
+}
+
+.roleBadgePrimary,
+.roleBadgeIndigo {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.4rem;
+}
+
+.roleBadgePrimary {
+  color: var(--accent-cyan);
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+}
+
+.roleBadgeIndigo {
+  color: var(--accent-indigo);
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.ventureSummary {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Highlights Grid */
+.highlightsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.highlightItem div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.highlightItem strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.highlightItem span {
+  color: var(--text-secondary);
+}
+
+.highlightIconCyan,
+.highlightIconIndigo {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.highlightIconCyan {
+  color: var(--accent-cyan);
+}
+
+.highlightIconIndigo {
+  color: var(--accent-indigo);
+}
+
+/* Card Footer & Tech Tags */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.tagGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.codeTag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.4rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.codeTag:hover {
+  transform: translateY(-1px);
+  border-color: var(--glass-border-highlight);
+}
+
+.linkGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Buttons */
+.btnLaunch,
+.btnLaunchIndigo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 0.65rem;
+  color: #ffffff;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.btnLaunch {
+  background: var(--accent-cyan);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+}
+
+.btnLaunchIndigo {
+  background: var(--accent-indigo);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
+}
+
+.btnSubtle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 0.65rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.775rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btnLaunch svg,
+.btnLaunchIndigo svg,
+.btnSubtle svg {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.btnLaunch:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
+}
+
+.btnLaunchIndigo:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.35);
+}
+
+.btnSubtle:hover {
+  border-color: var(--glass-border-highlight);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.btnLaunch:hover svg,
+.btnLaunchIndigo:hover svg,
+.btnSubtle:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Media/Preview Frame */
+.cardPreviewWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.previewImage {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.ventureCard:hover .previewImage {
+  transform: scale(1.05);
+}
+
+/* Responsive Rules */
+@media (max-width: 900px) {
+  .ventureCard {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .cardPreviewWrapper {
+    min-height: 240px;
+    height: 240px;
+  }
+
+  .ellypadPreviewWrapper {
+    order: 2;
+  }
+
+  .cardContent {
+    padding: 1.75rem;
+  }
+}
