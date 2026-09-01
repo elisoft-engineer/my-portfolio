@@ -1,0 +1,280 @@
+.openSourceSection {
+  padding: 5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.sectionHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.25rem auto;
+}
+
+.headerTitle {
+  font-family: var(--font-display, var(--font-sans));
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.gradientText {
+  background: linear-gradient(
+    135deg,
+    var(--accent-cyan),
+    var(--accent-indigo),
+    var(--accent-purple)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headerSubtext {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 960px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fully Theme-Responsive Card using Glassmorphism Variables */
+.osCard {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur, blur(20px));
+  -webkit-backdrop-filter: var(--glass-blur, blur(20px));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.osCard:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-highlight);
+  transform: translateY(-4px);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.brandContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.iconBadge {
+  width: 44px;
+  height: 44px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  flex-shrink: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.projectName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-mono, monospace);
+}
+
+/* Version Pill Badges tied to Theme Accents */
+.pythonBadge,
+.npmBadge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.4rem;
+}
+
+.pythonBadge {
+  background: rgba(2, 132, 199, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+.npmBadge {
+  background: rgba(217, 119, 6, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.projectTagline {
+  font-size: 0.825rem;
+  color: var(--text-tertiary);
+  margin-top: 0.15rem;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.iconBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  transition: all 0.2s ease;
+}
+
+.iconBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--glass-border-highlight);
+}
+
+/* Install Command Pill */
+.installPillContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.installCode {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.825rem;
+  color: var(--accent-cyan);
+  font-weight: 500;
+}
+
+.copyBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.2rem;
+  transition: color 0.2s ease;
+}
+
+.copyBtn:hover {
+  color: var(--text-primary);
+}
+
+.copiedIcon {
+  color: var(--accent-emerald);
+}
+
+.description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+/* Feature Badges */
+.featurePills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.featurePills span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 0.35rem 0.7rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+}
+
+/* Image Preview Container */
+.imageContainer {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: var(--bg-secondary);
+  margin-top: auto;
+}
+
+.previewImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Code Snippet Display */
+.codeContainer {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: var(--bg-secondary);
+  margin-top: auto;
+}
+
+.codeBlock {
+  padding: 1.1rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.775rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin: 0;
+  overflow-x: auto;
+}
+
+.kw {
+  color: var(--accent-purple);
+  font-weight: 600;
+}
+.str {
+  color: var(--accent-emerald);
+}
+.fn {
+  color: var(--accent-cyan);
+}
+.cmt {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
