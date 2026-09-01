@@ -1,622 +1,171 @@
 /* ==========================================================================
-   GLOBAL LAYOUT & RESET
+   1. VIEWPORT & CONTAINER LAYOUT
    ========================================================================== */
-.landingContainer {
+
+.viewport {
+  position: relative;
   width: 100%;
-  max-width: 1140px;
+  min-height: 100vh;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  padding: 4rem 0rem 6rem 0rem;
+  overflow-x: hidden;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+.layoutWrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem 4rem 1.5rem;
-  color: var(--on-background);
-}
-
-.sectionBlock {
-  padding: 4rem 0;
-}
-
-.sectionHeader {
-  margin-bottom: 2.75rem;
-  max-width: 640px;
-}
-
-.sectionTitle {
-  font-size: 2.1rem;
-  font-weight: 800;
-  color: var(--on-background);
-  letter-spacing: -0.025em;
-  margin: 0 0 0.6rem 0;
-}
-
-.sectionDescription {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--on-background-subtle);
-  margin: 0;
-}
-
-/* Button Styling */
-.btnPrimary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  background: var(--primary);
-  color: #ffffff;
-  font-size: 0.925rem;
-  font-weight: 600;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition:
-    opacity 0.2s ease,
-    transform 0.15s ease;
-}
-
-.btnPrimary:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-.btnSecondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  background: transparent;
-  color: var(--on-background);
-  font-size: 0.925rem;
-  font-weight: 500;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-hover);
-  cursor: pointer;
-  text-decoration: none;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.btnSecondary:hover {
-  background: var(--glass);
-  border-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
 
 /* ==========================================================================
-   SECTION 1: HERO
+   2. AMBIENT BACKGROUNDS & OVERLAYS
    ========================================================================== */
-.heroSection {
-  padding: 8rem 0 5rem 0;
-}
 
-.heroGrid {
-  display: grid;
-  grid-template-columns: 1.25fr 0.85fr;
-  gap: 3.5rem;
-  align-items: center;
-}
-
-.heroContent {
-  display: flex;
-  flex-direction: column;
-}
-
-.heroTitle {
-  font-size: 2.85rem;
-  font-weight: 800;
-  line-height: 1.18;
-  color: var(--on-background);
-  letter-spacing: -0.025em;
-  margin: 0 0 1.25rem 0;
-}
-
-.heroBio {
-  font-size: 1.1rem;
-  line-height: 1.65;
-  color: var(--on-background-subtle);
-  margin-bottom: 2rem;
-  max-width: 580px;
-}
-
-.heroBio strong {
-  color: var(--on-background);
-}
-
-.heroActions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-
-.heroTrustGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-color);
-}
-
-.trustCard {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.trustVal {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--on-background);
-}
-
-.trustDesc {
-  font-size: 0.8rem;
-  color: var(--on-background-subtle);
-  line-height: 1.4;
-}
-
-.heroVisual {
-  display: flex;
-  justify-content: center;
-}
-
-.portraitBox {
-  position: relative;
-  width: 100%;
-  max-width: 340px;
-  aspect-ratio: 4 / 5;
-  border-radius: 20px;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border-hover);
-}
-
-.portraitImg {
-  width: 95%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 0%;
-  display: block;
-}
-
-/* ==========================================================================
-   SECTION 2: WHAT I DO / VALUE
-   ========================================================================== */
-.valueGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.valueCard {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-  padding: 1.5rem;
-  transition: border-color 0.2s ease;
-}
-
-.valueCard:hover {
-  border-color: var(--border-hover);
-}
-
-.valueIconBox {
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
-  background: var(--glass-secondary-dense);
-  color: var(--secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
-}
-
-.valueTitle {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--on-background);
-  margin: 0 0 0.2rem 0;
-}
-
-.valueSubtitle {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--secondary);
-  display: block;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.01em;
-}
-
-.valueText {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--on-background-subtle);
-  margin: 0;
-}
-
-/* ==========================================================================
-   SECTION 3: FEATURED SHOWCASE
-   ========================================================================== */
-.showcaseStack {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.showcaseCard {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 18px;
-  overflow: hidden;
-  min-height: 320px;
-}
-
-.imageWrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: var(--background);
-  overflow: hidden;
-}
-
-.projectImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top left;
-  opacity: 0.9;
-}
-
-.imageOverlay {
+.ambientContainer {
   position: absolute;
   inset: 0;
-  /* background: linear-gradient(
-    to right,
-    transparent 60%,
-    var(--image-fade-bg) 100%
-  ); */
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.cardContent {
-  padding: 2.5rem 2.5rem 2.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.blob1,
+.blob2,
+.blob3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.85;
+  animation: floatMesh 14s infinite alternate ease-in-out;
 }
 
-.roleTag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 0.35rem;
+.blob1 {
+  top: -5%;
+  left: 20%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, var(--mesh-gradient-1), transparent 70%);
 }
 
-.titleRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
+.blob2 {
+  top: 25%;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--mesh-gradient-2), transparent 70%);
+  animation-delay: -5s;
 }
 
-.projectTitle {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--on-background);
-  margin: 0;
+.blob3 {
+  bottom: 10%;
+  left: 15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--mesh-gradient-3), transparent 70%);
+  animation-delay: -9s;
 }
 
-.linkIcon {
-  color: var(--on-background-subtle);
-  transition: color 0.2s ease;
+@keyframes floatMesh {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+  100% {
+    transform: translate(-30px, 40px) scale(0.95);
+  }
 }
 
-.linkIcon:hover {
-  color: var(--primary);
-}
-
-.bulletList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.bulletItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--on-background-subtle);
-}
-
-.checkIcon {
-  color: var(--secondary);
-  flex-shrink: 0;
-  margin-top: 0.2rem;
+.dotMatrixOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--dot-color) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.9) 0%,
+    transparent 85%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ==========================================================================
-   SECTION 4: WHY WORK WITH ME
+   3. REUSABLE GLASS & SECTION UI COMPONENTS
    ========================================================================== */
-.diffGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+
+.glassPanel {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
-.diffCard {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-  padding: 1.75rem;
+.glassPanel:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-highlight);
+  transform: translateY(-2px);
 }
 
-.diffNum {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary);
-  display: block;
-  margin-bottom: 0.8rem;
-}
-
-.diffTitle {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--on-background);
-  margin: 0 0 0.5rem 0;
-}
-
-.diffDesc {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--on-background-subtle);
-  margin: 0;
-}
-
-/* ==========================================================================
-   SECTION 5: INTERACTIVE SKILLS
-   ========================================================================== */
-.skillsPanel {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 2.5rem 1.5rem;
-}
-
-.ballsGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.ballWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.ballContainer {
-  width: 6rem;
-  height: 6rem;
-}
-
-.ballLabel {
-  font-size: 0.825rem;
-  font-weight: 600;
-  color: var(--on-background);
-}
-
-/* ==========================================================================
-   SECTION 6: HOW I WORK
-   ========================================================================== */
-.processGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.processCard {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-  padding: 1.5rem;
-}
-
-.stepNum {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--secondary);
-  background: var(--glass-secondary-dense);
-  padding: 0.2rem 0.55rem;
-  border-radius: 6px;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-.processTitle {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--on-background);
-  margin: 0 0 0.5rem 0;
-}
-
-.processDesc {
-  font-size: 0.885rem;
-  line-height: 1.55;
-  color: var(--on-background-subtle);
-  margin: 0;
-}
-
-/* ==========================================================================
-   SECTION 7: CONTACT / CTA (Electric Cyan Accents)
-   ========================================================================== */
-.contactSection {
-  margin-top: 2rem;
-}
-
-.contactCard {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 3.5rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 0 35px -10px var(--glass-secondary-dense);
-  transition: border-color 0.25s ease;
-}
-
-.contactCard:hover {
-  border-color: #00f5d466;
-}
-
-.contactTitle {
-  font-size: 2.1rem;
-  font-weight: 800;
-  color: var(--on-background);
-  margin: 0 0 0.8rem 0;
-  max-width: 580px;
-  letter-spacing: -0.02em;
-}
-
-.contactDesc {
-  font-size: 1.025rem;
-  color: var(--on-background-subtle);
-  max-width: 540px;
-  margin: 0 0 2rem 0;
-  line-height: 1.6;
-}
-
-.contactButtons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-/* Accent override for the primary email button using electric cyan */
-.contactButtons .btnPrimary {
-  background: var(--secondary);
-  color: #0f172a;
-}
-
-.contactButtons .btnPrimary:hover {
-  background: #00d8bc;
-  transform: translateY(-1px);
-}
-
-/* Secondary WhatsApp button hover highlight */
-.contactButtons .btnSecondary:hover {
-  border-color: var(--secondary);
-  color: var(--secondary);
-}
-
-.socialRow {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--border-color);
-  width: 100%;
-  max-width: 400px;
-  justify-content: center;
-}
-
-.socialLink {
-  color: var(--on-background-subtle);
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
+.glassBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  transition: color 0.2s ease;
+  gap: 0.6rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: var(--glass-shadow);
 }
 
-.socialLink:hover {
-  color: var(--secondary);
+.glassBtn:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
 }
 
-.dot {
-  color: var(--border-color);
-  font-size: 0.8rem;
+.sectionTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.75rem;
 }
 
-.contactSection .btnSecondary {
-  border: 1px solid #25d366;
-  color: #25d366;
+.sectionTagline {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.775rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-cyan);
+  font-weight: 700;
 }
 
-.contactSection .btnSecondary:hover {
-  border: 1px solid #075e54;
-  color: #075e54;
-}
-
-.contactSection .btnSecondary .icon {
-  border: 1px solid #25d366;
-  color: #25d366;
-}
-
-/* ==========================================================================
-   RESPONSIVE BREAKPOINTS
-   ========================================================================== */
-@media screen and (max-width: 960px) {
-  .heroGrid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-}
-
-@media screen and (max-width: 868px) {
-  .showcaseCard {
-    grid-template-columns: 1fr;
-  }
-
-  .imageWrapper {
-    height: 220px;
-  }
-
-  .cardContent {
-    padding: 1.5rem;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .heroTitle {
-    font-size: 2.15rem;
-  }
-
-  .heroTrustGrid {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-
-  .heroActions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .contactCard {
-    padding: 2.5rem 1.25rem;
-  }
-
-  .contactTitle {
-    font-size: 1.65rem;
-  }
-
-  .contactButtons {
-    flex-direction: column;
-    width: 100%;
-  }
+.sectionHeading {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
