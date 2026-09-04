@@ -5,6 +5,8 @@ import { HeroSection } from "./components/hero/Hero";
 import { FeaturedSection } from "./components/featured/Featured";
 import { ContactSection } from "./components/contact/Contact";
 import { OpenSourceSection } from "./components/open-source/OpenSource";
+import { SkillsSection } from "./components/skills/Skills";
+import { CertificationsSection } from "./components/certifications/Certifications";
 
 // Section Sub-Components
 const AmbientBackground = () => (
@@ -26,6 +28,8 @@ const Home = () => {
         <HeroSection />
         <FeaturedSection />
         <OpenSourceSection />
+        <SkillsSection />
+        <CertificationsSection />
         <ContactSection />
       </div>
     </div>
