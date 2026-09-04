@@ -2,18 +2,26 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import {
   FiPackage,
   FiGithub,
-  FiExternalLink,
   FiCopy,
   FiCheck,
   FiZap,
   FiTerminal,
   FiCpu,
   FiLayers,
+  FiArrowUpRight,
 } from "react-icons/fi";
 import styles from "./open-source.module.css";
+
+import {
+  fadeInUp,
+  staggerContainer,
+  highlightListVariants,
+  highlightItemVariants,
+} from "@/app/constants/animations";
 
 import alchemistIcon from "@/assets/icons/alchemist-shell.svg";
 import alchemistTerminalPreview from "@/assets/images/alchemist shell.png";
@@ -29,22 +37,29 @@ export const OpenSourceSection: React.FC = () => {
   };
 
   return (
-    <section className={styles.openSourceSection} id="open-source">
-      <div className={styles.sectionHeader}>
+    <motion.section
+      className={styles.openSourceSection}
+      id="open-source"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+    >
+      <motion.div className={styles.sectionHeader} variants={fadeInUp}>
         <h2 className={styles.headerTitle}>
-          In the <span className={styles.gradientText}>OpenSource</span> world
+          My <span className={styles.gradientText}>OpenSource</span> Impact
         </h2>
         <p className={styles.headerSubtext}>
           Tools engineered to reduce boilerplate, automate database interaction,
           and streamline client API integrations.
         </p>
-      </div>
+      </motion.div>
 
-      <div className={styles.cardsGrid}>
-        {/* PROJECT 1: ALCHEMIST SHELL */}
-        <article className={styles.osCard}>
-          <div className={styles.cardHeader}>
-            <div className={styles.brandContainer}>
+      <div className={styles.toolList}>
+        {/* ITEM 1: ALCHEMIST SHELL */}
+        <motion.div className={styles.toolRow} variants={fadeInUp}>
+          <div className={styles.storyColumn}>
+            <div className={styles.brandRow}>
               <div className={styles.iconBadge}>
                 <Image
                   src={alchemistIcon}
@@ -53,90 +68,114 @@ export const OpenSourceSection: React.FC = () => {
                   height={28}
                 />
               </div>
-              <div>
-                <div className={styles.titleRow}>
-                  <h3 className={styles.projectName}>alchemist-shell</h3>
-                  <span className={styles.pythonBadge}>PyPI v0.1.13</span>
-                </div>
-                <p className={styles.projectTagline}>
-                  Interactive database workbench for SQLAlchemy
-                </p>
+              <div className={styles.nameGroup}>
+                <h3 className={styles.projectName}>alchemist-shell</h3>
+                <span className={styles.pythonBadge}>PyPI v0.1.13</span>
               </div>
             </div>
 
-            <div className={styles.actionButtons}>
-              <a
-                href="https://github.com/elisoft-engineer/alchemist-shell"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.iconBtn}
-                title="GitHub Repository"
+            <div className={styles.taglineCallout}>
+              Interactive database workbench for SQLAlchemy
+            </div>
+
+            <p className={styles.narrative}>
+              Inspecting SQLAlchemy models in standard Python REPLs requires
+              tedious manual imports and session setup. Alchemist Shell
+              auto-discovers your project models and renders query outputs
+              directly as readable terminal tables.
+            </p>
+
+            {/* LIGHTWEIGHT FEATURE HIGHLIGHTS */}
+            <motion.div
+              className={styles.featureList}
+              variants={highlightListVariants}
+            >
+              <motion.div
+                className={styles.featureItem}
+                variants={highlightItemVariants}
               >
-                <FiGithub />
-              </a>
-              <a
-                href="https://pypi.org/project/alchemist-shell/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.iconBtn}
-                title="PyPI Package"
+                <FiZap className={styles.featureIcon} />
+                <span>Auto-Discovery</span>
+              </motion.div>
+              <motion.div
+                className={styles.featureItem}
+                variants={highlightItemVariants}
               >
-                <FiExternalLink />
-              </a>
+                <FiTerminal className={styles.featureIcon} />
+                <span>Auto-Awaiting</span>
+              </motion.div>
+              <motion.div
+                className={styles.featureItem}
+                variants={highlightItemVariants}
+              >
+                <FiCpu className={styles.featureIcon} />
+                <span>Rich REPL Tables</span>
+              </motion.div>
+            </motion.div>
+
+            <div className={styles.actionToolbar}>
+              {/* DARK TERMINAL SNIPPET */}
+              <div className={styles.terminalBox}>
+                <span className={styles.promptSymbol}>$</span>
+                <code className={styles.installCode}>
+                  pip install alchemist-shell
+                </code>
+                <button
+                  onClick={() => handleCopy("pip install alchemist-shell", 1)}
+                  className={styles.copyBtn}
+                  aria-label="Copy install command"
+                >
+                  {copiedIndex === 1 ? (
+                    <FiCheck className={styles.copiedIcon} />
+                  ) : (
+                    <FiCopy />
+                  )}
+                </button>
+              </div>
+
+              {/* ACTION LINKS */}
+              <div className={styles.externalLinks}>
+                <a
+                  href="https://github.com/elisoft-engineer/alchemist-shell"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.githubBtn}
+                >
+                  <FiGithub />
+                  <span>View on GitHub</span>
+                </a>
+                <a
+                  href="https://pypi.org/project/alchemist-shell/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.primaryCtaBtn}
+                >
+                  <span>View on PyPI</span>
+                  <FiArrowUpRight />
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className={styles.installPillContainer}>
-            <code className={styles.installCode}>
-              pip install alchemist-shell
-            </code>
-            <button
-              onClick={() => handleCopy("pip install alchemist-shell", 1)}
-              className={styles.copyBtn}
-              aria-label="Copy install command"
-            >
-              {copiedIndex === 1 ? (
-                <FiCheck className={styles.copiedIcon} />
-              ) : (
-                <FiCopy />
-              )}
-            </button>
-          </div>
+          <motion.div className={styles.artifactColumn} variants={fadeInUp}>
+            <div className={styles.mediaCard}>
+              <Image
+                src={alchemistTerminalPreview}
+                alt="Alchemist Shell terminal execution preview"
+                width={800}
+                height={460}
+                className={styles.previewImage}
+              />
+            </div>
+          </motion.div>
+        </motion.div>
 
-          <p className={styles.description}>
-            Inspecting SQLAlchemy models in standard Python REPLs requires
-            tedious manual imports and session setup. Alchemist Shell
-            auto-discovers your project models and renders query outputs
-            directly as readable terminal tables.
-          </p>
+        <hr className={styles.sectionDivider} />
 
-          <div className={styles.featurePills}>
-            <span>
-              <FiZap /> Auto-Discovery
-            </span>
-            <span>
-              <FiTerminal /> Auto-Awaiting
-            </span>
-            <span>
-              <FiCpu /> Rich REPL Tables
-            </span>
-          </div>
-
-          <div className={styles.imageContainer}>
-            <Image
-              src={alchemistTerminalPreview}
-              alt="Alchemist Shell terminal execution preview"
-              width={800}
-              height={420}
-              className={styles.previewImage}
-            />
-          </div>
-        </article>
-
-        {/* PROJECT 2: FALCOSEND SDK */}
-        <article className={styles.osCard}>
-          <div className={styles.cardHeader}>
-            <div className={styles.brandContainer}>
+        {/* ITEM 2: FALCOSEND SDK */}
+        <motion.div className={styles.toolRow} variants={fadeInUp}>
+          <div className={styles.storyColumn}>
+            <div className={styles.brandRow}>
               <div className={styles.iconBadge}>
                 <Image
                   src={falcosendSdkIcon}
@@ -145,113 +184,140 @@ export const OpenSourceSection: React.FC = () => {
                   height={28}
                 />
               </div>
-              <div>
-                <div className={styles.titleRow}>
-                  <h3 className={styles.projectName}>falcosend-sdk</h3>
-                  <span className={styles.npmBadge}>NPM v1.0.8</span>
-                </div>
-                <p className={styles.projectTagline}>
-                  Client-side library for Falcosend API integrations
-                </p>
+              <div className={styles.nameGroup}>
+                <h3 className={styles.projectName}>falcosend-sdk</h3>
+                <span className={styles.npmBadge}>NPM v1.0.8</span>
               </div>
             </div>
 
-            <div className={styles.actionButtons}>
-              <a
-                href="https://github.com/elisoft-engineer/falcosend-sdk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.iconBtn}
-                title="GitHub Repository"
+            <div className={styles.taglineCallout}>
+              Client-side library for Falcosend API integrations
+            </div>
+
+            <p className={styles.narrative}>
+              Lightweight client package for submitting web form payloads to
+              Falcosend endpoints directly from frontend applications without
+              extra backend server code.
+            </p>
+
+            {/* LIGHTWEIGHT FEATURE HIGHLIGHTS */}
+            <motion.div
+              className={styles.featureList}
+              variants={highlightListVariants}
+            >
+              <motion.div
+                className={styles.featureItem}
+                variants={highlightItemVariants}
               >
-                <FiGithub />
-              </a>
-              <a
-                href="https://www.npmjs.com/package/falcosend-sdk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.iconBtn}
-                title="NPM Package"
+                <FiPackage className={styles.featureIcon} />
+                <span>Zero Dependencies</span>
+              </motion.div>
+              <motion.div
+                className={styles.featureItem}
+                variants={highlightItemVariants}
               >
-                <FiExternalLink />
-              </a>
+                <FiLayers className={styles.featureIcon} />
+                <span>TypeScript Native</span>
+              </motion.div>
+              <motion.div
+                className={styles.featureItem}
+                variants={highlightItemVariants}
+              >
+                <FiArrowUpRight className={styles.featureIcon} />
+                <span>Direct Submissions</span>
+              </motion.div>
+            </motion.div>
+
+            <div className={styles.actionToolbar}>
+              {/* DARK TERMINAL SNIPPET */}
+              <div className={styles.terminalBox}>
+                <span className={styles.promptSymbol}>$</span>
+                <code className={styles.installCode}>
+                  npm install falcosend-sdk
+                </code>
+                <button
+                  onClick={() => handleCopy("npm install falcosend-sdk", 2)}
+                  className={styles.copyBtn}
+                  aria-label="Copy install command"
+                >
+                  {copiedIndex === 2 ? (
+                    <FiCheck className={styles.copiedIcon} />
+                  ) : (
+                    <FiCopy />
+                  )}
+                </button>
+              </div>
+
+              {/* ACTION LINKS */}
+              <div className={styles.externalLinks}>
+                <a
+                  href="https://github.com/elisoft-engineer/falcosend-sdk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.githubBtn}
+                >
+                  <FiGithub />
+                  <span>View on GitHub</span>
+                </a>
+                <a
+                  href="https://www.npmjs.com/package/falcosend-sdk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.primaryCtaBtn}
+                >
+                  <span>View on NPM</span>
+                  <FiArrowUpRight />
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className={styles.installPillContainer}>
-            <code className={styles.installCode}>npm i falcosend-sdk</code>
-            <button
-              onClick={() => handleCopy("npm i falcosend-sdk", 2)}
-              className={styles.copyBtn}
-              aria-label="Copy install command"
-            >
-              {copiedIndex === 2 ? (
-                <FiCheck className={styles.copiedIcon} />
-              ) : (
-                <FiCopy />
-              )}
-            </button>
-          </div>
-
-          <p className={styles.description}>
-            Lightweight client package for submitting web form payloads to
-            Falcosend endpoints directly from frontend applications without
-            extra backend server code.
-          </p>
-
-          <div className={styles.featurePills}>
-            <span>
-              <FiPackage /> Zero Dependencies
-            </span>
-            <span>
-              <FiLayers /> TypeScript Native
-            </span>
-            <span>
-              <FiExternalLink /> Direct Submissions
-            </span>
-          </div>
-
-          <div className={styles.codeContainer}>
-            <pre className={styles.codeBlock}>
-              <code>
-                <span className={styles.kw}>import</span> &#123; FalcoSend
-                &#125; <span className={styles.kw}>from</span>{" "}
-                <span className={styles.str}>'falcosend-sdk'</span>;<br />
-                <br />
-                <span className={styles.kw}>const</span> sdk ={" "}
-                <span className={styles.kw}>new</span>{" "}
-                <span className={styles.fn}>FalcoSend</span>(&#123;
-                <br />
-                &nbsp;&nbsp;url:{" "}
-                <span className={styles.str}>
-                  'https://api.falcosend.ellypad.com/submissions/create/'
-                </span>
-                ,<br />
-                &nbsp;&nbsp;submissionKey:{" "}
-                <span className={styles.str}>'myKey...'</span>
-                <br />
-                &#125;);
-                <br />
-                <br />
-                <span className={styles.cmt}>
-                  // Direct frontend submission without backend server
-                </span>
-                <br />
-                <span className={styles.kw}>await</span> sdk.
-                <span className={styles.fn}>submit</span>(&#123;
-                <br />
-                &nbsp;&nbsp;form_name:{" "}
-                <span className={styles.str}>'Contact Form'</span>,<br />
-                &nbsp;&nbsp;data: &#123; name:{" "}
-                <span className={styles.str}>'Dev'</span>, email:{" "}
-                <span className={styles.str}>'dev@example.com'</span> &#125;
-                <br />
-                &#125;);
-              </code>
-            </pre>
-          </div>
-        </article>
+          <motion.div className={styles.artifactColumn} variants={fadeInUp}>
+            <div className={styles.codeCard}>
+              <div className={styles.codeHeaderLabel}>
+                <code>index.ts — implementation</code>
+              </div>
+              <pre className={styles.codeBlock}>
+                <code>
+                  <span className={styles.kw}>import</span> &#123; FalcoSend
+                  &#125; <span className={styles.kw}>from</span>{" "}
+                  <span className={styles.str}>'falcosend-sdk'</span>;<br />
+                  <br />
+                  <span className={styles.kw}>const</span> sdk ={" "}
+                  <span className={styles.kw}>new</span>{" "}
+                  <span className={styles.fn}>FalcoSend</span>(&#123;
+                  <br />
+                  &nbsp;&nbsp;url:{" "}
+                  <span className={styles.str}>
+                    'https://api.falcosend.ellypad.com/submissions/create/'
+                  </span>
+                  ,<br />
+                  &nbsp;&nbsp;submissionKey:{" "}
+                  <span className={styles.str}>'myKey...'</span>
+                  <br />
+                  &#125;);
+                  <br />
+                  <br />
+                  <span className={styles.cmt}>
+                    // Direct frontend submission without backend server
+                  </span>
+                  <br />
+                  <span className={styles.kw}>await</span> sdk.
+                  <span className={styles.fn}>submit</span>(&#123;
+                  <br />
+                  &nbsp;&nbsp;form_name:{" "}
+                  <span className={styles.str}>'Contact Form'</span>,<br />
+                  &nbsp;&nbsp;data: &#123; name:{" "}
+                  <span className={styles.str}>'Dev'</span>, email:{" "}
+                  <span className={styles.str}>'dev@example.com'</span> &#125;
+                  <br />
+                  &#125;);
+                </code>
+              </pre>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
