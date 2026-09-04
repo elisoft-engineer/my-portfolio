@@ -1,9 +1,16 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import {
+  FiChevronLeft,
+  FiChevronRight,
+  FiLayout,
+  FiServer,
+  FiCpu,
+  FiCloud,
+} from "react-icons/fi";
 import {
   SiTypescript,
   SiExpress,
@@ -52,6 +59,7 @@ type CategoryCard = {
   id: string;
   title: string;
   subtitle: string;
+  icon: React.ReactNode;
   cardThemeClass: string;
   titleFontClass: string;
   skills: SkillItem[];
@@ -61,6 +69,7 @@ const SKILL_CATEGORIES: CategoryCard[] = [
   {
     id: "frontend",
     title: "Frontend Engineering",
+    icon: <FiLayout />,
     subtitle:
       "Focusing on performance, responsive design, and fluid user interactions.",
     cardThemeClass: styles.frontendTheme,
@@ -86,6 +95,7 @@ const SKILL_CATEGORIES: CategoryCard[] = [
   {
     id: "backend",
     title: "Backend Systems",
+    icon: <FiServer />,
     subtitle:
       "Architecting resilient APIs, microservices, and high-throughput data pipelines.",
     cardThemeClass: styles.backendTheme,
@@ -128,6 +138,7 @@ const SKILL_CATEGORIES: CategoryCard[] = [
   {
     id: "ml",
     title: "AI & Machine Learning",
+    icon: <FiCpu />,
     subtitle:
       "Training models, processing data, and serving inference endpoints at scale.",
     cardThemeClass: styles.mlTheme,
@@ -165,6 +176,7 @@ const SKILL_CATEGORIES: CategoryCard[] = [
   {
     id: "devops",
     title: "DevOps & Cloud",
+    icon: <FiCloud />,
     subtitle:
       "Streamlining CI/CD pipelines, container orchestration, and server reliability.",
     cardThemeClass: styles.devopsTheme,
@@ -194,10 +206,12 @@ export const SkillsSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const viewportRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isProgrammaticScroll = useRef(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Track manual scroll position to update active index dynamically
   const handleScroll = () => {
-    if (!viewportRef.current) return;
+    if (isProgrammaticScroll.current || !viewportRef.current) return;
+
     const viewport = viewportRef.current;
     const viewportCenter = viewport.scrollLeft + viewport.clientWidth / 2;
 
@@ -221,25 +235,43 @@ export const SkillsSection: React.FC = () => {
 
   const scrollToCard = (index: number) => {
     setActiveIndex(index);
+    isProgrammaticScroll.current = true;
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    const viewport = viewportRef.current;
     const card = cardRefs.current[index];
-    if (card) {
-      card.scrollIntoView({
+
+    if (viewport && card) {
+      const targetLeft =
+        card.offsetLeft - (viewport.clientWidth - card.clientWidth) / 2;
+
+      viewport.scrollTo({
+        left: targetLeft,
         behavior: "smooth",
-        inline: "center",
-        block: "nearest",
       });
     }
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 500);
   };
 
   return (
     <section className={styles.skillsSection} id="skills">
+      {/* Section Header */}
       <div className={styles.sectionHeader}>
-        <div className={styles.headerTitle}>Technologies & Stack</div>
+        <h2 className={styles.headerTitle}>
+          My <span className={styles.titleHighlight}>Technical Repertoire</span>
+        </h2>
         <p className={styles.headerSubtitle}>
           The tools, frameworks, and environments I work with daily.
         </p>
       </div>
 
+      {/* Workspace Track Slider */}
       <div className={styles.workspaceWrapper}>
         <button
           className={`${styles.navButton} ${styles.navLeft}`}
@@ -275,12 +307,12 @@ export const SkillsSection: React.FC = () => {
                   ref={(el) => {
                     cardRefs.current[idx] = el;
                   }}
-                  className={`${styles.workspaceCard} ${category.cardThemeClass} ${
-                    isActive ? styles.activeCard : styles.inactiveCard
-                  }`}
+                  className={`${styles.workspaceCard} ${
+                    category.cardThemeClass
+                  } ${isActive ? styles.activeCard : styles.inactiveCard}`}
                   animate={{
-                    scale: isActive ? 1 : 0.9,
-                    opacity: isActive ? 1 : 0.4,
+                    scale: isActive ? 1 : 0.92,
+                    opacity: isActive ? 1 : 0.45,
                   }}
                   transition={{ duration: 0.3 }}
                   onClick={() => scrollToCard(idx)}
@@ -325,16 +357,34 @@ export const SkillsSection: React.FC = () => {
         </div>
       </div>
 
-      <div className={styles.paginationTrack}>
-        {SKILL_CATEGORIES.map((cat, idx) => (
-          <button
-            key={cat.id}
-            className={`${styles.pagePill} ${activeIndex === idx ? styles.activePill : ""}`}
-            onClick={() => scrollToCard(idx)}
-          >
-            <span>{cat.title}</span>
-          </button>
-        ))}
+      {/* Dock Navigation Control Bar */}
+      <div className={styles.dockWrapper}>
+        <div className={styles.filterDock}>
+          {SKILL_CATEGORIES.map((cat, idx) => {
+            const isActive = activeIndex === idx;
+            return (
+              <button
+                key={cat.id}
+                className={`${styles.dockButton} ${
+                  isActive ? styles.activeButton : ""
+                }`}
+                onClick={() => scrollToCard(idx)}
+                aria-label={cat.title}
+                title={cat.title}
+              >
+                <span className={styles.dockIcon}>{cat.icon}</span>
+                <span className={styles.dockButtonLabel}>{cat.title}</span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeDockTab"
+                    className={styles.dockActiveBg}
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
