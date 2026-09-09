@@ -1,19 +1,3 @@
-import css from "@/assets/icons/css.png";
-import dart from "@/assets/icons/dart.png";
-import django from "@/assets/icons/django.png";
-import docker from "@/assets/icons/docker.png";
-import fastapi from "@/assets/icons/fastapi.png";
-import flutter from "@/assets/icons/flutter.png";
-import html from "@/assets/icons/html.png";
-import javascript from "@/assets/icons/javascript.png";
-import nextjs from "@/assets/icons/nextjs.png";
-import nodejs from "@/assets/icons/nodejs.png";
-import python from "@/assets/icons/python.png";
-import react from "@/assets/icons/react.png";
-import sqlalchemy from "@/assets/icons/sqlalchemy.png";
-import swagger from "@/assets/icons/swagger.png";
-import vite from "@/assets/icons/vite.png";
-
 // coursera icons
 import cppCrypto from "@/assets/images/CPP.webp";
 import djangoWebFramework from "@/assets/images/Django Web Framework.webp";
@@ -37,38 +21,13 @@ import operatingSystems from "@/assets/images/Operating Systems.webp";
 import pythonEssentials1 from "@/assets/images/Python Essentials 1.webp";
 import pythonEssentials2 from "@/assets/images/Python Essentials 2.webp";
 
-import {
-  Bot,
-  Cloud,
-  CodeXml,
-  LucideIcon,
-  MonitorSmartphone,
-  Server,
-  Settings,
-} from "lucide-react";
+// ibm icons
+import machineLearningPython from "@/assets/images/machine learning with python - level 1.png";
+import deepLearning from "@/assets/images/deep learning.png";
+import deepLearningEssentials from "@/assets/images/deep learning essentials.png";
+import deepLearningTensorflow from "@/assets/images/deep learning with tensorflow.png";
+
 import { StaticImageData } from "next/image";
-
-interface Technology {
-  name: string;
-  icon: StaticImageData | string;
-}
-
-interface Skill {
-  name: string;
-  percentage: number;
-}
-
-interface Expertise {
-  name: string;
-  icon: LucideIcon;
-  skills: Skill[];
-}
-
-interface Service {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-}
 
 interface Certification {
   title: string;
@@ -80,159 +39,6 @@ interface Certification {
   obtainedOn: string;
   url: string;
 }
-
-const technologies: Technology[] = [
-  {
-    name: "Python",
-    icon: python,
-  },
-  {
-    name: "Django",
-    icon: django,
-  },
-  {
-    name: "FastAPI",
-    icon: fastapi,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "HTML5",
-    icon: html,
-  },
-  {
-    name: "CSS3",
-    icon: css,
-  },
-  {
-    name: "Dart",
-    icon: dart,
-  },
-  {
-    name: "Flutter",
-    icon: flutter,
-  },
-  {
-    name: "React",
-    icon: react,
-  },
-  {
-    name: "NextJS",
-    icon: nextjs,
-  },
-  {
-    name: "Node Js",
-    icon: nodejs,
-  },
-  {
-    name: "SQLAlchemy",
-    icon: sqlalchemy,
-  },
-  {
-    name: "Swagger",
-    icon: swagger,
-  },
-  {
-    name: "Docker",
-    icon: docker,
-  },
-  {
-    name: "Vite",
-    icon: vite,
-  },
-];
-
-const expertise: Expertise[] = [
-  {
-    name: "Programming Languages",
-    icon: CodeXml,
-    skills: [
-      { name: "Python", percentage: 95 },
-      { name: "JavaScript", percentage: 90 },
-      { name: "TypeScript", percentage: 85 },
-      { name: "Dart", percentage: 90 },
-      { name: "Kotlin", percentage: 85 },
-      { name: "C++", percentage: 90 },
-      { name: "HTML5", percentage: 95 },
-      { name: "CSS3", percentage: 95 },
-    ],
-  },
-  {
-    name: "Frontend Technologies",
-    icon: MonitorSmartphone,
-    skills: [
-      { name: "React", percentage: 90 },
-      { name: "Next.js", percentage: 85 },
-      { name: "Tailwind CSS", percentage: 85 },
-      { name: "Flutter", percentage: 90 },
-      { name: "Material UI", percentage: 90 },
-    ],
-  },
-  {
-    name: "Backend Technologies",
-    icon: Server,
-    skills: [
-      { name: "Django", percentage: 95 },
-      { name: "FastAPI", percentage: 95 },
-      { name: "SQLAlchemy", percentage: 90 },
-      { name: "Node.js", percentage: 90 },
-      { name: "Express.js", percentage: 90 },
-      { name: "PostgresSQL", percentage: 90 },
-      { name: "MongoDB", percentage: 85 },
-    ],
-  },
-  {
-    name: "AI & Machine Learning",
-    icon: Bot,
-    skills: [
-      { name: "TensorFlow", percentage: 85 },
-      { name: "Keras", percentage: 85 },
-      { name: "ScikitLearn", percentage: 85 },
-      { name: "Pandas", percentage: 90 },
-      { name: "Numpy", percentage: 90 },
-    ],
-  },
-  {
-    name: "DevOps",
-    icon: Cloud,
-    skills: [
-      { name: "Git", percentage: 90 },
-      { name: "Docker", percentage: 85 },
-      { name: "GHCR", percentage: 85 },
-      { name: "CI/CD", percentage: 85 },
-      { name: "NGINX", percentage: 85 },
-    ],
-  },
-];
-
-const services: Service[] = [
-  {
-    icon: MonitorSmartphone,
-    title: "Business Websites",
-    description:
-      "Creating a 24/7 digital storefront for your brand, ensuring your business is accessible to a global market through fast, responsive web design.",
-  },
-  {
-    icon: Settings,
-    title: "Enterprise Software",
-    description:
-      "Custom-built systems for inventory, billing, and workflow. I help organizations reduce human error and save time through automated dashboards.",
-  },
-  {
-    icon: Server,
-    title: "Backend & API Development",
-    description:
-      "Designing the 'brain' of your application—secure, high-performance servers that ensure your data stays safe and your software runs smoothly.",
-  },
-  {
-    icon: Cloud,
-    title: "Deployment & DevOps",
-    description:
-      "Handling the technical heavy lifting of taking software live, ensuring your systems are monitored, maintained, and always available.",
-  },
-];
 
 const certifications: Certification[] = [
   {
@@ -445,6 +251,51 @@ const certifications: Certification[] = [
     obtainedOn: "Apr 2025",
     url: "https://www.credly.com/badges/c65f2ea0-9a93-4048-8f78-d8dbab5e40f8/public_url",
   },
+  {
+    title: "Deep Learning",
+    institution: {
+      name: "IBM",
+      logo: deepLearning,
+    },
+    skills: ["Deep Learning", "Neural Networks", "Tensorflow"],
+    obtainedOn: "July 2026",
+    url: "https://www.credly.com/badges/406732ca-d16f-4458-9b2d-3142a13003e4/public_url",
+  },
+  {
+    title: "Deep Learning Essentials",
+    institution: {
+      name: "IBM",
+      logo: deepLearningEssentials,
+    },
+    skills: ["Deep Learning", "Data Science", "Statistical Programming", "CNN"],
+    obtainedOn: "March 2026",
+    url: "https://www.credly.com/badges/b5031750-e435-479f-81fe-645e42f6ff8c/public_url",
+  },
+  {
+    title: "Deep Learning with Tensorflow",
+    institution: {
+      name: "IBM",
+      logo: deepLearningTensorflow,
+    },
+    skills: ["Deep Learning", "Tensorflow", "Autoencoders", "CNN", "RNN"],
+    obtainedOn: "July 2026",
+    url: "https://www.credly.com/badges/b5031750-e435-479f-81fe-645e42f6ff8c/public_url",
+  },
+  {
+    title: "Machine Learning with Python - Level 1",
+    institution: {
+      name: "IBM",
+      logo: machineLearningPython,
+    },
+    skills: [
+      "Recommender Systems",
+      "Supervised Learning",
+      "Unsupervised Learning",
+      "Classification",
+      "Clustering",
+      "Regression",
+    ],
+    obtainedOn: "March 2026",
+    url: "https://www.credly.com/badges/d85a1219-6725-49c7-87e8-5ce6d4a303c4/public_url",
+  },
 ];
-
-export { technologies, expertise, services, certifications };
