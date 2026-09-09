@@ -141,13 +141,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <DialogProvider>
             <Navbar />
             <main className="main">{children}</main>
             <Dialog />
-            <Footer />
+            {/* <Footer /> */}
           </DialogProvider>
         </ThemeProvider>
       </body>
