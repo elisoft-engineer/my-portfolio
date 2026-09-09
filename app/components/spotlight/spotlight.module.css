@@ -1,0 +1,532 @@
+.spotlightSection {
+  padding: 5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Header with Glass Capsule Container */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.headerTitleContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  margin-bottom: 0.85rem;
+}
+
+.titleIconBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--glass-bg, rgba(255, 255, 255, 0.1));
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.15));
+  color: var(--accent-cyan, #06b6d4);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.headerTitle {
+  font-family: var(--font-display, var(--font-sans));
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.gradientText {
+  background: linear-gradient(
+    135deg,
+    var(--accent-cyan, #06b6d4),
+    var(--accent-indigo, #6366f1),
+    var(--accent-purple, #a855f7)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headerSubtext {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Layout */
+.spotlightContainer {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Narrative Column */
+.narrativeColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.degreeHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.universityRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.825rem;
+  color: var(--text-tertiary);
+  flex-wrap: wrap;
+}
+
+.universityName,
+.timelineTag {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 500;
+}
+
+.degreeTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0.25rem 0;
+}
+
+.honorsBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--accent-emerald, #10b981);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.3rem 0.85rem;
+  border-radius: 0.5rem;
+}
+
+.storyText {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Curriculum Section */
+.curriculumBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.blockTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent-indigo, #6366f1);
+  padding-left: 0.75rem;
+  margin: 0;
+}
+
+.pillarList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.pillarItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: var(--glass-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+}
+
+.pillarIcon {
+  color: var(--accent-cyan, #06b6d4);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.pillarItem strong {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.pillarItem p {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Bento Gallery Grid */
+.galleryColumn {
+  width: 100%;
+  min-width: 0;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.bentoCard {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--glass-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.bentoCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--glass-border-highlight, rgba(255, 255, 255, 0.2));
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.heroCard {
+  grid-column: span 1;
+  min-height: 520px;
+  height: 100%;
+}
+
+.subGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  grid-column: span 1;
+}
+
+.landscapeCard {
+  grid-column: span 2;
+  height: 155px;
+}
+
+.portraitCard {
+  grid-column: span 1;
+  height: 180px;
+}
+
+.galleryImage {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bentoCard:hover .galleryImage {
+  transform: scale(1.04);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.88) 0%,
+    rgba(15, 23, 42, 0.15) 60%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  opacity: 0.95;
+}
+
+.heroTag {
+  align-self: flex-start;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--accent-cyan, #06b6d4);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  margin-bottom: auto;
+}
+
+.cardCaption {
+  font-size: 0.775rem;
+  color: #f8fafc;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.35;
+  padding-right: 1.25rem;
+}
+
+.expandIcon {
+  position: absolute;
+  bottom: 0.85rem;
+  right: 0.85rem;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.bentoCard:hover .expandIcon {
+  opacity: 1;
+}
+
+/* Modal Lightbox - Seamless Borderless Overlay */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modalContent {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 1.25rem;
+  width: fit-content;
+  max-width: 90vw;
+  max-height: 85dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: var(--accent-indigo);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.modalImageWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  max-height: 85dvh;
+  max-width: 90vw;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+.modalImage {
+  max-height: 85dvh;
+  max-width: 90vw;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 1.25rem;
+}
+
+.modalFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3.5rem 1.5rem 1.25rem 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.45) 60%,
+    transparent 100%
+  );
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  border-bottom-left-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
+  pointer-events: none;
+}
+
+/* Responsive Mobile Adaptations */
+@media (max-width: 640px) {
+  .modalBackdrop {
+    padding: 0.75rem;
+  }
+
+  .modalContent {
+    max-width: 95vw;
+    max-height: 90dvh;
+  }
+
+  .modalImageWrapper,
+  .modalImage {
+    max-height: 90dvh;
+    max-width: 95vw;
+  }
+
+  .modalFooter {
+    padding: 2.5rem 1rem 1rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .closeBtn {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 640px) {
+  .modalBackdrop {
+    padding: 0.5rem;
+  }
+
+  .modalContent {
+    max-height: 90dvh;
+    border-radius: 0.75rem;
+  }
+
+  .modalImageWrapper {
+    height: clamp(220px, 55dvh, 450px);
+  }
+
+  .modalFooter {
+    padding: 0.875rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .closeBtn {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 34px;
+    height: 34px;
+  }
+}
+/* Responsiveness */
+@media (max-width: 960px) {
+  .spotlightContainer {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .heroCard {
+    height: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  .spotlightSection {
+    padding: 3.5rem 1rem;
+  }
+
+  .headerTitle {
+    font-size: 1.5rem;
+  }
+
+  .titleIconBadge {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .bentoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCard {
+    height: 360px;
+  }
+
+  .subGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .landscapeCard {
+    grid-column: span 2;
+    height: 160px;
+  }
+
+  .portraitCard {
+    grid-column: span 1;
+    height: 180px;
+  }
+}
+
+@media (max-width: 420px) {
+  .subGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .portraitCard {
+    grid-column: span 2;
+    height: 200px;
+  }
+}

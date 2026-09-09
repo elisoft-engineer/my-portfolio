@@ -7,6 +7,7 @@ import { ContactSection } from "./components/contact/Contact";
 import { OpenSourceSection } from "./components/open-source/OpenSource";
 import { SkillsSection } from "./components/skills/Skills";
 import { CertificationsSection } from "./components/certifications/Certifications";
+import { SpotlightSection } from "./components/spotlight/Spotlight";
 
 // Section Sub-Components
 const AmbientBackground = () => (
@@ -30,6 +31,7 @@ const Home = () => {
         <OpenSourceSection />
         <SkillsSection />
         <CertificationsSection />
+        <SpotlightSection />
         <ContactSection />
       </div>
     </div>
