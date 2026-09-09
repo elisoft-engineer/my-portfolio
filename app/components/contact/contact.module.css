@@ -181,7 +181,7 @@
   background: #2563eb;
 }
 
-/* Social Grid */
+/* Social Grid & Transparent Base Buttons */
 .socialGrid {
   display: flex;
   align-items: center;
@@ -190,39 +190,96 @@
   flex-wrap: wrap;
 }
 
+/* Brand Theme Definitions */
+.linkedin {
+  --brand-color: #0a66c2;
+  --brand-border: rgba(10, 102, 194, 0.3);
+}
+
+.github {
+  --brand-color: #0f172a;
+  --brand-border: rgba(15, 23, 42, 0.25);
+}
+
+.whatsapp {
+  --brand-color: #16a34a;
+  --brand-border: rgba(22, 163, 74, 0.3);
+}
+
 .socialChip {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.1rem;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
   border-radius: 9999px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  color: #475569;
+  background: transparent;
+  border: 1px solid var(--brand-border);
+  color: var(--brand-color);
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.25s ease;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    border-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
 
+/* Foreground Content */
+.chipContent {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.socialIcon {
+  font-size: 1.05rem;
+  transition: transform 0.3s ease;
+}
+
+/* Liquid Fill Layer with Wave SVG */
+.waveFill {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--brand-color);
+  z-index: 1;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.waveSvg {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  fill: var(--brand-color);
+}
+
+/* Hover State */
 .socialChip:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: var(--brand-color);
+  box-shadow: 0 6px 16px -2px var(--brand-border);
 }
 
-.linkedin:hover {
-  border-color: #0a66c2;
-  color: #0a66c2;
+.socialChip:hover .waveFill {
+  transform: translateY(-100%);
 }
 
-.github:hover {
-  border-color: #181717;
-  color: #181717;
+.socialChip:hover .chipContent {
+  color: #ffffff;
 }
 
-.whatsapp:hover {
-  border-color: #25d366;
-  color: #16a34a;
+.socialChip:hover .socialIcon {
+  transform: scale(1.1);
 }
 
 @media (max-width: 640px) {

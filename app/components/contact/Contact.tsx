@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { FiMail, FiCopy, FiCheck, FiSend } from "react-icons/fi";
 import styles from "./contact.module.css";
 
@@ -21,7 +21,7 @@ export const ContactSection: React.FC = () => {
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/elkana-maina-ab54851a0/",
-      icon: FaLinkedin,
+      icon: FaLinkedinIn,
       brandClass: styles.linkedin,
     },
     {
@@ -51,10 +51,10 @@ export const ContactSection: React.FC = () => {
             <span className={styles.beaconPing} />
             <span className={styles.beaconDot} />
           </span>
-          <span>AVAILABLE FOR NEW ROLES & CONTRACTS</span>
+          <span>Available for new roles and contracts</span>
         </motion.div>
 
-        {/* Unique Headline */}
+        {/* Headline */}
         <motion.h2
           className={styles.title}
           initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ export const ContactSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Brand Connect Chips */}
+        {/* Social Chips with Wave Fill Effect */}
         <motion.div
           className={styles.socialGrid}
           initial={{ opacity: 0, y: 20 }}
@@ -122,8 +122,22 @@ export const ContactSection: React.FC = () => {
                 rel="noopener noreferrer"
                 className={`${styles.socialChip} ${item.brandClass}`}
               >
-                <Icon className={styles.socialIcon} />
-                <span>{item.name}</span>
+                {/* Wave liquid background element */}
+                <div className={styles.waveFill}>
+                  <svg
+                    className={styles.waveSvg}
+                    viewBox="0 0 120 28"
+                    preserveAspectRatio="none"
+                  >
+                    <path d="M0,15 C30,5 60,25 90,15 C105,10 115,18 120,20 L120,28 L0,28 Z" />
+                  </svg>
+                </div>
+
+                {/* Foreground icon & label */}
+                <span className={styles.chipContent}>
+                  <Icon className={styles.socialIcon} />
+                  <span>{item.name}</span>
+                </span>
               </a>
             );
           })}
