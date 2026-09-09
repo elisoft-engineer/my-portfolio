@@ -62,10 +62,10 @@ export const FeaturedSection: React.FC = () => {
             </div>
 
             <p className={styles.narrativeSummary}>
-              An API-first platform built to eliminate custom backend form code
-              across web and mobile applications. Engineered with multi-tenant
-              workspace isolation, payload transformation pipeline, and
-              automated data export engines.
+              A multi-tenant form processing API that lets developers collect
+              submission data from static and client apps. Built with team
+              workspaces, app service routing, built-in submission analytics,
+              and flexible export engines for external analysis.
             </p>
 
             <motion.div
@@ -78,10 +78,10 @@ export const FeaturedSection: React.FC = () => {
               >
                 <FiPackage className={styles.highlightIconCyan} />
                 <div className={styles.highlightText}>
-                  <strong>Custom NPM SDK Package</strong>
+                  <strong>Lightweight NPM SDK</strong>
                   <span>
-                    Zero-dependency client SDK for lightweight, single-line form
-                    connectivity.
+                    Add form handling to client apps with a single line of code
+                    — no bloated dependencies.
                   </span>
                 </div>
               </motion.div>
@@ -94,8 +94,8 @@ export const FeaturedSection: React.FC = () => {
                 <div className={styles.highlightText}>
                   <strong>Team & Workspace Isolation</strong>
                   <span>
-                    Multi-tenant architecture with granular service scopes and
-                    API key management.
+                    Manage team members, map distinct app services, and issue
+                    separate API keys per environment.
                   </span>
                 </div>
               </motion.div>
@@ -106,10 +106,10 @@ export const FeaturedSection: React.FC = () => {
               >
                 <FiTerminal className={styles.highlightIconCyan} />
                 <div className={styles.highlightText}>
-                  <strong>Data Export Pipeline</strong>
+                  <strong>Analytics & Export Engine</strong>
                   <span>
-                    Real-time payload parsing with instant XLSX and CSV
-                    reporting utilities.
+                    Track submission metrics directly in the dashboard and
+                    export structured data into CSV or XLSX.
                   </span>
                 </div>
               </motion.div>
@@ -151,7 +151,8 @@ export const FeaturedSection: React.FC = () => {
             <div className={styles.tagGroup}>
               <span className={styles.codeTag}>REST API</span>
               <span className={styles.codeTag}>NPM SDK</span>
-              <span className={styles.codeTag}>Next.js 14</span>
+              <span className={styles.codeTag}>Next.js</span>
+              <span className={styles.codeTag}>DRF</span>
               <span className={styles.codeTag}>Multi-tenant</span>
             </div>
             <div className={`${styles.ambientGlow} ${styles.glowCyan}`} />
@@ -203,10 +204,9 @@ export const FeaturedSection: React.FC = () => {
             </div>
 
             <p className={styles.narrativeSummary}>
-              A full-spectrum software agency engineering modern web
-              applications, mobile platforms, and cloud infrastructure. We
-              partner with companies to modernize technical operations and
-              deploy scalable digital systems.
+              A software agency that builds modern web apps, mobile platforms,
+              and scalable cloud backends. We work alongside companies to
+              upgrade their tech stack and automate daily operations.
             </p>
 
             <motion.div
@@ -219,10 +219,10 @@ export const FeaturedSection: React.FC = () => {
               >
                 <FiCode className={styles.highlightIconIndigo} />
                 <div className={styles.highlightText}>
-                  <strong>Bespoke Software Engineering</strong>
+                  <strong>Custom Web & Mobile Apps</strong>
                   <span>
-                    Architecting high-conversion web, mobile, and cloud-native
-                    applications.
+                    High-performance applications built for conversion, speed,
+                    and long-term reliability.
                   </span>
                 </div>
               </motion.div>
@@ -233,10 +233,10 @@ export const FeaturedSection: React.FC = () => {
               >
                 <FiCpu className={styles.highlightIconIndigo} />
                 <div className={styles.highlightText}>
-                  <strong>Enterprise Architecture & APIs</strong>
+                  <strong>APIs & Workflow Automation</strong>
                   <span>
-                    Modernizing workflows with secure API gateways, automation,
-                    and cloud services.
+                    Connect your tools with secure API backends and cloud
+                    services to eliminate manual tasks.
                   </span>
                 </div>
               </motion.div>

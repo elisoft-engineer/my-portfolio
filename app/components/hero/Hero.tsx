@@ -60,17 +60,16 @@ export const HeroSection = () => {
 
         {/* Bio Paragraph */}
         <motion.p className={styles.heroParagraph} variants={fadeInUp}>
-          I build reliable web applications, high-performance mobile platforms,
-          distributed backend systems, and practical machine learning models.
-          Focused on replacing complex operational bottlenecks with clean,
-          scalable software.
+          I build web apps, high-performance mobile software, backends, and
+          practical ML models that turn messy operations into smooth and
+          scalable systems.
         </motion.p>
 
         {/* Animated Smooth-Scroll CTAs with Unique Icon Animations */}
         <motion.div className={styles.heroCTA} variants={fadeInUp}>
           <a
-            href="#projects"
-            onClick={(e) => scrollToSection(e, "#projects")}
+            href="#ventures"
+            onClick={(e) => scrollToSection(e, "#ventures")}
             className={styles.btnPrimary}
           >
             <span className={styles.codeIconWrapper}>
