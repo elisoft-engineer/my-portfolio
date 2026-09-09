@@ -143,12 +143,9 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <DialogProvider>
-            <Navbar />
-            <main className="main">{children}</main>
-            <Dialog />
-            {/* <Footer /> */}
-          </DialogProvider>
+          <Navbar />
+          <main className="main">{children}</main>
+          {/* <Footer /> */}
         </ThemeProvider>
       </body>
     </html>
