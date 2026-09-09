@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   padding: 3rem 1.5rem;
-  background: var(--bg-base, #f8fafc);
-  color: var(--text-primary, #0f172a);
+  background: var(--bg-base);
+  color: var(--text-primary);
 }
 
 .wrapper {
@@ -24,12 +24,12 @@
   gap: 0.6rem;
   padding: 0.4rem 1rem;
   border-radius: 9999px;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--accent-emerald);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #059669;
+  color: var(--accent-emerald);
   margin-bottom: 1.75rem;
 }
 
@@ -46,7 +46,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #10b981;
+  background-color: var(--accent-emerald);
 }
 
 .beaconPing {
@@ -54,7 +54,8 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.4);
+  background-color: var(--accent-emerald);
+  opacity: 0.4;
   animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
@@ -72,27 +73,27 @@
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.025em;
-  color: #0f172a;
+  color: var(--text-primary);
   margin: 0 0 1rem 0;
 }
 
 .accentSwe {
-  color: #3b82f6;
+  color: var(--accent-cyan);
   text-decoration: underline;
-  text-decoration-color: rgba(59, 130, 246, 0.3);
+  text-decoration-color: var(--accent-cyan);
   text-underline-offset: 6px;
 }
 
 .accentMl {
-  color: #8b5cf6;
+  color: var(--accent-purple);
   text-decoration: underline;
-  text-decoration-color: rgba(139, 92, 246, 0.3);
+  text-decoration-color: var(--accent-purple);
   text-underline-offset: 6px;
 }
 
 .subtitle {
   font-size: 1.05rem;
-  color: #64748b;
+  color: var(--text-secondary);
   margin: 0 0 2.5rem 0;
 }
 
@@ -104,10 +105,11 @@
   width: 100%;
   max-width: 620px;
   padding: 0.6rem 0.6rem 0.6rem 1.25rem;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
   border-radius: 1rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-blur);
   margin-bottom: 2rem;
   gap: 1rem;
 }
@@ -121,15 +123,15 @@
 
 .mailIcon {
   font-size: 1.1rem;
-  color: #64748b;
+  color: var(--text-tertiary);
   flex-shrink: 0;
 }
 
 .emailAddress {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #1e293b;
-  font-family: monospace;
+  color: var(--text-primary);
+  font-family: var(--font-mono, monospace);
 }
 
 .buttonGroup {
@@ -145,9 +147,9 @@
   gap: 0.4rem;
   padding: 0.55rem 0.9rem;
   border-radius: 0.6rem;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  color: #475569;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-secondary);
   font-size: 0.825rem;
   font-weight: 600;
   cursor: pointer;
@@ -155,12 +157,12 @@
 }
 
 .copyBtn:hover {
-  background: #f1f5f9;
-  color: #0f172a;
+  background: var(--glass-bg-hover);
+  color: var(--text-primary);
 }
 
 .checkIcon {
-  color: #10b981;
+  color: var(--accent-emerald);
 }
 
 .sendBtn {
@@ -169,8 +171,8 @@
   gap: 0.4rem;
   padding: 0.55rem 1.1rem;
   border-radius: 0.6rem;
-  background: #0f172a;
-  color: #ffffff;
+  background: var(--text-primary);
+  color: var(--bg-base);
   font-size: 0.825rem;
   font-weight: 600;
   text-decoration: none;
@@ -178,7 +180,8 @@
 }
 
 .sendBtn:hover {
-  background: #2563eb;
+  background: var(--accent-indigo);
+  color: #ffffff;
 }
 
 /* Social Grid & Transparent Base Buttons */
@@ -190,20 +193,20 @@
   flex-wrap: wrap;
 }
 
-/* Brand Theme Definitions */
+/* Brand Theme Variable Definitions */
 .linkedin {
   --brand-color: #0a66c2;
-  --brand-border: rgba(10, 102, 194, 0.3);
+  --brand-border: rgba(10, 102, 194, 0.4);
 }
 
 .github {
-  --brand-color: #0f172a;
-  --brand-border: rgba(15, 23, 42, 0.25);
+  --brand-color: var(--text-primary);
+  --brand-border: var(--glass-border);
 }
 
 .whatsapp {
-  --brand-color: #16a34a;
-  --brand-border: rgba(22, 163, 74, 0.3);
+  --brand-color: var(--accent-emerald);
+  --brand-border: rgba(16, 185, 129, 0.4);
 }
 
 .socialChip {
@@ -232,7 +235,7 @@
   position: relative;
   z-index: 2;
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
   transition: color 0.3s ease;
 }
@@ -248,7 +251,7 @@
   top: 100%;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 110%;
   background-color: var(--brand-color);
   z-index: 1;
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
@@ -275,7 +278,7 @@
 }
 
 .socialChip:hover .chipContent {
-  color: #ffffff;
+  color: var(--bg-base);
 }
 
 .socialChip:hover .socialIcon {
