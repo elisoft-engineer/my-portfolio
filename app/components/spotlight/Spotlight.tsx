@@ -21,7 +21,7 @@ import styles from "./spotlight.module.css";
 import { fadeInUp, staggerContainer } from "@/app/constants/animations";
 
 import gradHero from "@/assets/images/graduation-hero.jpg";
-import gradLand1 from "@/assets/images/graduation-landscape-1.png";
+import gradLand1 from "@/assets/images/graduation-landscape-1.jpg";
 import gradLand2 from "@/assets/images/graduation-landscape-2.jpg";
 import gradPort1 from "@/assets/images/graduation-portrait-1.jpg";
 import gradPort2 from "@/assets/images/graduation-portrait-2.jpg";
@@ -79,6 +79,18 @@ export const SpotlightSection: React.FC = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Prevent background body scrolling when lightbox is active
+  useEffect(() => {
+    if (selectedPhoto) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedPhoto]);
 
   return (
     <>
@@ -283,20 +295,22 @@ export const SpotlightSection: React.FC = () => {
 
       {mounted &&
         createPortal(
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             {selectedPhoto && (
               <motion.div
                 className={styles.modalBackdrop}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
                 onClick={() => setSelectedPhoto(null)}
               >
                 <motion.div
                   className={styles.modalContent}
-                  initial={{ scale: 0.9, opacity: 0 }}
+                  initial={{ scale: 0.95, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.9, opacity: 0 }}
+                  exit={{ scale: 0.95, opacity: 0 }}
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <button

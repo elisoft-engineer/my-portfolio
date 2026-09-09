@@ -312,18 +312,23 @@
   opacity: 1;
 }
 
-/* Modal Lightbox - Seamless Borderless Overlay */
+/* Modal Lightbox - Glitch-Free Accelerated Layer */
 .modalBackdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+  isolation: isolate;
+  will-change: opacity;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .modalContent {
@@ -337,7 +342,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: var(--glass-shadow);
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .closeBtn {
@@ -345,10 +351,10 @@
   top: 0.75rem;
   right: 0.75rem;
   z-index: 20;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff;
   width: 36px;
   height: 36px;
@@ -361,7 +367,7 @@
 }
 
 .closeBtn:hover {
-  background: var(--accent-indigo);
+  background: var(--accent-indigo, #6366f1);
   color: #ffffff;
   transform: scale(1.08);
 }
@@ -396,7 +402,7 @@
   padding: 3.5rem 1.5rem 1.25rem 1.5rem;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.9) 0%,
     rgba(0, 0, 0, 0.45) 60%,
     transparent 100%
   );
@@ -413,63 +419,6 @@
   pointer-events: none;
 }
 
-/* Responsive Mobile Adaptations */
-@media (max-width: 640px) {
-  .modalBackdrop {
-    padding: 0.75rem;
-  }
-
-  .modalContent {
-    max-width: 95vw;
-    max-height: 90dvh;
-  }
-
-  .modalImageWrapper,
-  .modalImage {
-    max-height: 90dvh;
-    max-width: 95vw;
-  }
-
-  .modalFooter {
-    padding: 2.5rem 1rem 1rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  .closeBtn {
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 32px;
-    height: 32px;
-  }
-}
-
-/* Mobile & Tablet Responsiveness */
-@media (max-width: 640px) {
-  .modalBackdrop {
-    padding: 0.5rem;
-  }
-
-  .modalContent {
-    max-height: 90dvh;
-    border-radius: 0.75rem;
-  }
-
-  .modalImageWrapper {
-    height: clamp(220px, 55dvh, 450px);
-  }
-
-  .modalFooter {
-    padding: 0.875rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  .closeBtn {
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 34px;
-    height: 34px;
-  }
-}
 /* Responsiveness */
 @media (max-width: 960px) {
   .spotlightContainer {
@@ -517,6 +466,34 @@
   .portraitCard {
     grid-column: span 1;
     height: 180px;
+  }
+
+  .modalBackdrop {
+    padding: 0.75rem;
+  }
+
+  .modalContent {
+    max-width: 95vw;
+    max-height: 90dvh;
+    border-radius: 0.75rem;
+  }
+
+  .modalImageWrapper,
+  .modalImage {
+    max-height: 90dvh;
+    max-width: 95vw;
+  }
+
+  .modalFooter {
+    padding: 2.5rem 1rem 1rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .closeBtn {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 34px;
+    height: 34px;
   }
 }
 
