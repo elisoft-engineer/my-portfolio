@@ -8,10 +8,10 @@ import {
 
 import "./globals.css";
 import ThemeProvider from "./providers/Theme";
-import Navbar from "@/app/components/navbar/Navbar";
 import Footer from "@/app/components/footer/Footer";
 import Dialog from "./components/dialog/Dialog";
 import { DialogProvider } from "./providers/Dialog";
+import { Navbar } from "./components/navbar/Navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://elkana.ellypad.com"),
