@@ -16,24 +16,21 @@
 .headerTitle {
   font-family: var(--font-display, var(--font-sans));
   font-size: 2.25rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
   margin-bottom: 0.75rem;
 }
 
+/* Gradient pulled from the two registries themselves: PyPI blue -> npm red */
 .gradientText {
-  background: linear-gradient(
-    135deg,
-    var(--accent-cyan),
-    var(--accent-indigo),
-    var(--accent-purple)
-  );
+  background: linear-gradient(135deg, #3775a9, #cb3837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .headerSubtext {
+  font-family: var(--font-sans);
   font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -42,30 +39,38 @@
 .toolList {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2.5rem;
 }
 
-.toolRow {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 3.5rem;
-  align-items: center;
-  width: 100%;
+.entryCard {
+  position: relative;
+  background-color: var(--glass-bg);
+  background-image:
+    radial-gradient(circle at 15% 15%, var(--mesh-gradient-1), transparent 55%),
+    radial-gradient(circle at 90% 85%, var(--mesh-gradient-2), transparent 55%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-.sectionDivider {
-  border: 0;
-  height: 1px;
-  background: var(--glass-border);
-  margin: 0;
+.entryGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
 }
 
 .storyColumn {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  min-width: 0; /* Prevents flex children from pushing beyond viewport width */
+  gap: 1.15rem;
+  min-width: 0;
 }
 
 .brandRow {
@@ -75,16 +80,16 @@
   flex-wrap: wrap;
 }
 
+/* Neomorphic raised icon chip */
 .iconBadge {
-  width: 48px;
-  height: 48px;
-  border-radius: 0.85rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-secondary);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: var(--neo-bg);
+  box-shadow: var(--neo-shadow-out-1), var(--neo-shadow-out-2);
   flex-shrink: 0;
 }
 
@@ -96,76 +101,119 @@
 }
 
 .projectName {
-  font-size: 1.4rem;
-  font-weight: 800;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--text-primary);
   font-family: var(--font-mono, monospace);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin: 0;
   word-break: break-word;
 }
 
-.pythonBadge,
-.npmBadge {
+/* Shields.io-style split badge: grey label + colored value, exactly like a
+   real PyPI/npm version badge. Used both as the static version tag and,
+   larger, as the clickable registry links below. */
+.regBadge {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: 0.3rem;
+  overflow: hidden;
   font-family: var(--font-mono, monospace);
-  font-size: 0.7rem;
   font-weight: 600;
-  padding: 0.2rem 0.65rem;
-  border-radius: 0.4rem;
+  line-height: 1;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-.pythonBadge {
-  background: rgba(2, 132, 199, 0.1);
-  color: var(--accent-cyan);
-  border: 1px solid rgba(2, 132, 199, 0.25);
+.regLabel,
+.regValue {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #ffffff;
 }
 
-.npmBadge {
-  background: rgba(217, 119, 6, 0.1);
-  color: #d97706;
-  border: 1px solid rgba(217, 119, 6, 0.25);
+.regLabel {
+  background: #4a4a4a;
+}
+
+.regValuePython {
+  background: #3775a9;
+}
+
+.regValueNpm {
+  background: #cb3837;
+}
+
+.regValueGithub {
+  background: #181717;
+}
+
+/* Static version tag, sized small */
+.versionBadge {
+  font-size: 0.7rem;
+  height: 20px;
+}
+
+.versionBadge .regLabel,
+.versionBadge .regValue {
+  padding: 0 0.5rem;
+}
+
+/* Clickable registry link, sized larger with a hover brighten */
+.linkBadge {
+  font-size: 0.78rem;
+  height: 30px;
+  transition: filter 0.15s ease;
+}
+
+.linkBadge .regLabel,
+.linkBadge .regValue {
+  padding: 0 0.75rem;
+}
+
+.linkBadge:hover {
+  filter: brightness(1.18);
 }
 
 .taglineCallout {
   display: inline-block;
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
   font-weight: 600;
   color: var(--text-primary);
-  border-left: 3px solid var(--accent-cyan);
+  border-left: 3px solid #3775a9;
   padding-left: 0.85rem;
   line-height: 1.4;
 }
 
+.entryCardNpm .taglineCallout {
+  border-left-color: #cb3837;
+}
+
 .narrative {
+  font-family: var(--font-sans);
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.65;
   margin: 0;
 }
 
-/* Feature list wrapping fix */
-.featureList {
+.keywordList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.25rem;
-  margin: 0.25rem 0;
-  width: 100%;
+  gap: 0.5rem;
+  margin: 0.1rem 0;
 }
 
-.featureItem {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.825rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.featureIcon {
-  color: var(--accent-cyan);
-  font-size: 1rem;
-  flex-shrink: 0;
+.keywordTag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border-highlight);
+  border-radius: 0.35rem;
+  padding: 0.2rem 0.55rem;
 }
 
 .actionToolbar {
@@ -176,7 +224,6 @@
   width: 100%;
 }
 
-/* Responsive Terminal Snippet Box */
 .terminalBox {
   display: flex;
   align-items: center;
@@ -185,7 +232,7 @@
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0.6rem 1rem;
-  border-radius: 0.65rem;
+  border-radius: 0.75rem;
   width: fit-content;
   max-width: 100%;
   box-sizing: border-box;
@@ -223,7 +270,7 @@
   align-items: center;
   justify-content: center;
   padding: 0.35rem;
-  border-radius: 0.4rem;
+  border-radius: 0.45rem;
   flex-shrink: 0;
   transition: all 0.2s ease;
 }
@@ -240,47 +287,9 @@
 .externalLinks {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
   width: 100%;
-}
-
-.githubBtn,
-.primaryCtaBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.15rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 0.65rem;
-  text-decoration: none;
-  box-sizing: border-box;
-  transition: all 0.2s ease;
-}
-
-.githubBtn {
-  color: var(--text-primary);
-  background: transparent;
-  border: 1px solid var(--glass-border);
-}
-
-.githubBtn:hover {
-  border-color: var(--text-primary);
-  background: var(--bg-secondary);
-}
-
-.primaryCtaBtn {
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
-  border: none;
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
-}
-
-.primaryCtaBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
 }
 
 .artifactColumn {
@@ -288,17 +297,19 @@
   min-width: 0;
 }
 
-.mediaCard,
-.codeCard {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur, blur(20px));
-  -webkit-backdrop-filter: var(--glass-blur, blur(20px));
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  border-radius: 1.25rem;
+/* Neomorphic inset "screen" — recessed into the card */
+.mediaFrame,
+.codeFrame {
+  background: var(--neo-bg);
+  box-shadow: var(--neo-shadow-in-1), var(--neo-shadow-in-2);
+  border-radius: 1rem;
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
+}
+
+.mediaFrame {
+  padding: 0.6rem;
 }
 
 .previewImage {
@@ -306,11 +317,10 @@
   height: auto;
   display: block;
   object-fit: cover;
+  border-radius: 0.6rem;
 }
 
 .codeHeaderLabel {
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--glass-border);
   padding: 0.6rem 1rem;
   font-size: 0.75rem;
   color: var(--text-tertiary);
@@ -318,7 +328,7 @@
 }
 
 .codeBlock {
-  padding: 1.25rem;
+  padding: 0 1.25rem 1.25rem 1.25rem;
   font-family: var(--font-mono, monospace);
   font-size: 0.8rem;
   line-height: 1.65;
@@ -343,11 +353,15 @@
   font-style: italic;
 }
 
-/* Responsive Media Queries */
+/* Responsive */
 @media (max-width: 960px) {
-  .toolRow {
+  .entryGrid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.25rem;
+  }
+
+  .entryCard {
+    padding: 2rem;
   }
 }
 
@@ -360,8 +374,13 @@
     font-size: 1.75rem;
   }
 
+  .entryCard {
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+  }
+
   .projectName {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .terminalBox {
@@ -369,38 +388,22 @@
   }
 
   .externalLinks {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-  }
-
-  .githubBtn,
-  .primaryCtaBtn {
     width: 100%;
-    padding: 0.65rem 0.5rem;
-    font-size: 0.8rem;
   }
 
-  .featureList {
-    gap: 0.6rem 1rem;
-  }
-
-  .featureItem {
-    font-size: 0.775rem;
+  .linkBadge {
+    flex: 1;
+    justify-content: center;
   }
 }
 
 @media (max-width: 420px) {
-  .externalLinks {
-    grid-template-columns: 1fr;
-  }
-
   .taglineCallout {
     font-size: 0.95rem;
   }
 
   .codeBlock {
     font-size: 0.725rem;
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
   }
 }
