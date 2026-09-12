@@ -111,10 +111,6 @@ export const SpotlightSection: React.FC = () => {
               Academic <span className={styles.gradientText}>Spotlight</span>
             </h2>
           </div>
-          <p className={styles.headerSubtext}>
-            A celebration of academic excellence, technical mastery, and
-            undergraduate engineering milestones.
-          </p>
         </motion.div>
 
         <div className={styles.spotlightContainer}>
@@ -137,10 +133,9 @@ export const SpotlightSection: React.FC = () => {
             </div>
 
             <p className={styles.storyText}>
-              I earned my First Class Honours degree at Murang'a University of
-              Technology, where I spent my time diving deep into modern software
-              development, AI & machine learning, networking, and practical tech
-              research.
+              I graduated with First Class Honours in Software Engineering from
+              Murang'a University of Technology, focusing on modern software
+              development, AI, networking, and practical research.
             </p>
 
             <div className={styles.curriculumBlock}>
@@ -149,7 +144,7 @@ export const SpotlightSection: React.FC = () => {
                 <div className={styles.pillarItem}>
                   <FiCode className={styles.pillarIcon} />
                   <div>
-                    <strong>Software Engineering & Quality Architecture</strong>
+                    <strong>Core Software Engineering</strong>
                     <p>
                       Object-oriented analysis & design, Agile TDD, Distributed
                       systems, Software quality assurance.
