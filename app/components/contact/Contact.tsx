@@ -3,18 +3,23 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
-import { FiMail, FiCopy, FiCheck, FiSend } from "react-icons/fi";
+import { FiArrowUpRight, FiCheck, FiCopy, FiMail } from "react-icons/fi";
 import styles from "./contact.module.css";
+
+const reveal = {
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.35 },
+};
 
 export const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const email = "elisoft.engineer@gmail.com";
 
-  const handleCopy = (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(email);
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(email);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    window.setTimeout(() => setCopied(false), 2000);
   };
 
   const socials = [
@@ -22,127 +27,84 @@ export const ContactSection: React.FC = () => {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/elkana-maina-ab54851a0/",
       icon: FaLinkedinIn,
-      brandClass: styles.linkedin,
     },
     {
       name: "GitHub",
       href: "https://github.com/elisoft-engineer",
       icon: FaGithub,
-      brandClass: styles.github,
     },
-    {
-      name: "WhatsApp",
-      href: "https://wa.me/254757241621",
-      icon: FaWhatsapp,
-      brandClass: styles.whatsapp,
-    },
+    { name: "WhatsApp", href: "https://wa.me/254757241621", icon: FaWhatsapp },
   ];
 
   return (
-    <section className={styles.contactSection} id="contact">
-      <div className={styles.wrapper}>
-        {/* Availability Status */}
-        <motion.div
-          className={styles.statusBadge}
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <span className={styles.beacon}>
-            <span className={styles.beaconPing} />
-            <span className={styles.beaconDot} />
-          </span>
-          <span>Available for new roles and contracts</span>
-        </motion.div>
-
-        {/* Headline */}
-        <motion.h2
-          className={styles.title}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-        >
-          Hiring for{" "}
-          <span className={styles.accentSwe}>Software Engineering</span> or{" "}
-          <span className={styles.accentMl}>Machine Learning</span>?
-        </motion.h2>
-
-        <motion.p
-          className={styles.subtitle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          Feel free to reach out directly or connect via my socials below.
-        </motion.p>
-
-        {/* Email Bar */}
-        <motion.div
-          className={styles.emailBar}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <div className={styles.emailTextGroup}>
-            <FiMail className={styles.mailIcon} />
-            <span className={styles.emailAddress}>{email}</span>
+    <section
+      className={styles.contactSection}
+      id="contact"
+      aria-labelledby="contact-title"
+    >
+      <motion.div
+        className={styles.contactCard}
+        {...reveal}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+      >
+        <div className={styles.intro}>
+          <div className={styles.eyebrow}>
+            <span className={styles.statusDot} />
+            Available for new opportunities
           </div>
+          <h2 id="contact-title" className={styles.title}>
+            Let&apos;s make the next <span>good idea</span> real.
+          </h2>
+          <p className={styles.description}>
+            Have a product to build, a difficult system to untangle, or a role
+            where I can make an impact? I&apos;d love to hear about it.
+          </p>
+        </div>
 
-          <div className={styles.buttonGroup}>
+        <div className={styles.connectPanel}>
+          <p className={styles.panelLabel}>Start a conversation</p>
+          <a href={`mailto:${email}`} className={styles.emailLink}>
+            <FiMail aria-hidden="true" />
+            <span>{email}</span>
+            <FiArrowUpRight className={styles.arrow} aria-hidden="true" />
+          </a>
+          <div className={styles.panelFooter}>
             <button
               onClick={handleCopy}
-              className={styles.copyBtn}
+              className={styles.copyButton}
               type="button"
-              aria-label="Copy email"
+              aria-label="Copy email address"
             >
-              {copied ? <FiCheck className={styles.checkIcon} /> : <FiCopy />}
-              <span>{copied ? "Copied" : "Copy"}</span>
+              {copied ? (
+                <FiCheck aria-hidden="true" />
+              ) : (
+                <FiCopy aria-hidden="true" />
+              )}
+              {copied ? "Copied" : "Copy email"}
             </button>
-
-            <a href={`mailto:${email}`} className={styles.sendBtn}>
-              <span>Send Message</span>
-              <FiSend />
-            </a>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Social Chips with Wave Fill Effect */}
-        <motion.div
-          className={styles.socialGrid}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          {socials.map((item) => {
-            const Icon = item.icon;
-            return (
+        <div className={styles.socialRow} aria-label="More ways to connect">
+          <span className={styles.socialLabel}>Or find me on</span>
+          <div className={styles.socialLinks}>
+            {socials.map(({ name, href, icon: Icon }) => (
               <a
-                key={item.name}
-                href={item.href}
+                key={name}
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.socialChip} ${item.brandClass}`}
+                className={styles.socialLink}
+                aria-label={name}
               >
-                {/* Wave liquid background element */}
-                <div className={styles.waveFill}>
-                  <svg
-                    className={styles.waveSvg}
-                    viewBox="0 0 120 28"
-                    preserveAspectRatio="none"
-                  >
-                    <path d="M0,15 C30,5 60,25 90,15 C105,10 115,18 120,20 L120,28 L0,28 Z" />
-                  </svg>
-                </div>
-
-                {/* Foreground icon & label */}
-                <span className={styles.chipContent}>
-                  <Icon className={styles.socialIcon} />
-                  <span>{item.name}</span>
-                </span>
+                <Icon aria-hidden="true" />
+                <span>{name}</span>
+                <FiArrowUpRight aria-hidden="true" />
               </a>
-            );
-          })}
-        </motion.div>
-      </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 };
