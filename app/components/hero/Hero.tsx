@@ -5,26 +5,13 @@ import { motion } from "framer-motion";
 import { FiCode, FiPhoneCall } from "react-icons/fi";
 import styles from "./hero.module.css";
 
-import profileImg from "@/assets/images/profile.webp";
+import profileImg from "@/assets/images/profile.jpg";
 import falcosendIcon from "@/assets/icons/falcosend.svg";
 import ellypadIcon from "@/assets/icons/ellypad.svg";
 import { fadeInUp, staggerContainer } from "../../constants/animations";
+import { scrollToSection } from "@/app/utils/scroller";
 
 export const HeroSection = () => {
-  const scrollToSection = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string,
-  ) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
   return (
     <section className={styles.heroGrid} id="hero">
       {/* Left Column: Statement Intro */}
@@ -47,7 +34,7 @@ export const HeroSection = () => {
 
         {/* Connected Statement Headline */}
         <motion.div className={styles.statementWrapper} variants={fadeInUp}>
-          <p className={styles.greetingText}>Hi, I'm</p>
+          <p className={styles.greetingText}>Hi, I&apos;m</p>
           <h1 className={styles.statementHeadline}>
             <span className={styles.nameHighlight}>Elkana Maina</span>,
             <span className={styles.roleLine}>
