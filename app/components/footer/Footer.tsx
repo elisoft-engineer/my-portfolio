@@ -1,141 +1,108 @@
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faWhatsapp,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
-import { Mail } from "lucide-react";
+"use client";
 
+import { motion } from "framer-motion";
+import { FiGithub, FiLinkedin, FiArrowUp } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import styles from "./footer.module.css";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className={styles.footer} role="contentinfo">
-      <div className={styles.container}>
-        {/* Main Columns Grid */}
-        <div className={styles.grid}>
-          {/* Brand & Bio Column */}
-          <div className={styles.brandCol}>
-            <Link href="/" className={styles.brand}>
-              <span className={styles.first}>Elkana</span>
-              <span className={styles.last}>Maina</span>
-            </Link>
-            <p className={styles.tagline}>
-              Engineering software systems that scale. Turning complex
-              requirements into clean, reliable products.
-            </p>
+    <footer className={styles.footerWrapper}>
+      <motion.div
+        className={styles.footerCard}
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
+        {/* SVG Container: Hand-crafted wavy path handling both fill & stroke */}
+        <svg
+          className={styles.wavyBgSvg}
+          viewBox="0 0 1000 120"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M 28,12 
+               Q 250,2 500,12 
+               T 972,12 
+               Q 988,12 988,32 
+               Q 980,60 988,88 
+               Q 988,108 972,108 
+               Q 750,118 500,108 
+               T 28,108 
+               Q 12,108 12,88 
+               Q 20,60 12,32 
+               Q 12,12 28,12 Z"
+            className={styles.wavyPath}
+          />
+        </svg>
+
+        {/* Content Container with interior padding safety zone */}
+        <div className={styles.content}>
+          <div className={styles.brandMeta}>
             <div className={styles.statusBadge}>
               <span className={styles.statusDot} />
-              Available for new projects
+              <span className={styles.statusText}>Available for projects</span>
             </div>
+            <p className={styles.copyright}>
+              © {new Date().getFullYear()} Elkana Maina. All rights reserved.
+            </p>
           </div>
 
-          {/* Navigation Column */}
-          <div className={styles.navCol}>
-            <h4 className={styles.colTitle}>Navigation</h4>
-            <ul className={styles.linkList}>
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/projects">Projects</Link>
-              </li>
-              <li>
-                <Link href="/skills">Skills</Link>
-              </li>
-              <li>
-                <Link href="/certifications">Licenses & Certifications</Link>
-              </li>
-            </ul>
-          </div>
+          <div className={styles.actions}>
+            <div className={styles.socials}>
+              <motion.a
+                href="https://github.com/elisoft-engineer"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className={styles.socialLink}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FiGithub />
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/elkana-maina-ab54851a0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className={styles.socialLink}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FiLinkedin />
+              </motion.a>
+              <motion.a
+                href="https://wa.me/254757241621"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className={styles.socialLink}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaWhatsapp />
+              </motion.a>
+            </div>
 
-          {/* Connect Column */}
-          <div className={styles.navCol}>
-            <h4 className={styles.colTitle}>Connect</h4>
-            <ul className={styles.linkList}>
-              <li>
-                <a href="mailto:elisoft.engineer@gmail.com">Email Direct</a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/+254757241621"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  WhatsApp
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/elisoft-engineer/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub Profile
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/elkana-maina-ab54851a0/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
+            <motion.button
+              onClick={scrollToTop}
+              aria-label="Scroll to top"
+              className={styles.backToTop}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
+            >
+              <FiArrowUp />
+            </motion.button>
           </div>
         </div>
-
-        {/* Bottom Sub-Footer Bar */}
-        <div className={styles.bottomBar}>
-          <p className={styles.copyright}>
-            &copy; {new Date().getFullYear()} <strong>Elkana Maina</strong>. All
-            rights reserved.
-          </p>
-
-          <div className={styles.socialIcons} aria-label="social links">
-            <a
-              href="mailto:elisoft.engineer@gmail.com"
-              className={styles.iconLink}
-              aria-label="Email"
-            >
-              <Mail size={16} />
-            </a>
-
-            <a
-              href="https://wa.me/+254757241621?text=Hello!%20I%20would%20like%20to%20inquire%20about..."
-              className={styles.iconLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-            >
-              <FontAwesomeIcon icon={faWhatsapp} />
-            </a>
-
-            <a
-              href="https://github.com/elisoft-engineer/"
-              className={styles.iconLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              <FontAwesomeIcon icon={faGithub} />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/elkana-maina-ab54851a0/"
-              className={styles.iconLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <FontAwesomeIcon icon={faLinkedin} />
-            </a>
-          </div>
-        </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }
