@@ -2,12 +2,32 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { FiGithub, FiCopy, FiCheck } from "react-icons/fi";
+import { motion, Variants } from "framer-motion";
+import {
+  FiGithub,
+  FiCopy,
+  FiCheck,
+  FiExternalLink,
+  FiBox,
+} from "react-icons/fi";
 import styles from "./open-source.module.css";
 
 import alchemistIcon from "@/assets/icons/alchemist-shell.svg";
 import alchemistTerminalPreview from "@/assets/images/alchemist shell.png";
 import falcosendSdkIcon from "@/assets/icons/falcosend.svg";
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 45, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
+  },
+};
 
 export const OpenSourceSection: React.FC = () => {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
@@ -20,7 +40,13 @@ export const OpenSourceSection: React.FC = () => {
 
   return (
     <section className={styles.openSourceSection} id="open-source">
-      <div className={styles.sectionHeader}>
+      <motion.div
+        className={styles.sectionHeader}
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+      >
         <h2 className={styles.headerTitle}>
           My <span className={styles.gradientText}>OpenSource</span> Impact
         </h2>
@@ -28,11 +54,17 @@ export const OpenSourceSection: React.FC = () => {
           Tools engineered to reduce boilerplate, automate database interaction,
           and streamline client API integrations.
         </p>
-      </div>
+      </motion.div>
 
       <div className={styles.toolList}>
         {/* ITEM 1: ALCHEMIST SHELL */}
-        <div className={`${styles.entryCard} ${styles.entryCardPython}`}>
+        <motion.div
+          className={`${styles.entryCard} ${styles.entryCardPython}`}
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className={styles.entryGrid}>
             <div className={styles.storyColumn}>
               <div className={styles.brandRow}>
@@ -98,30 +130,21 @@ export const OpenSourceSection: React.FC = () => {
                     href="https://github.com/elisoft-engineer/alchemist-shell"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${styles.regBadge} ${styles.linkBadge}`}
+                    className={`${styles.actionBtn} ${styles.btnGithub}`}
                   >
-                    <span className={styles.regLabel}>
-                      <FiGithub size={13} />
-                      source
-                    </span>
-                    <span
-                      className={`${styles.regValue} ${styles.regValueGithub}`}
-                    >
-                      github
-                    </span>
+                    <FiGithub className={styles.btnIcon} />
+                    <span>GitHub</span>
+                    <FiExternalLink className={styles.arrowIcon} />
                   </a>
                   <a
                     href="https://pypi.org/project/alchemist-shell/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${styles.regBadge} ${styles.linkBadge}`}
+                    className={`${styles.actionBtn} ${styles.btnPypi}`}
                   >
-                    <span className={styles.regLabel}>install</span>
-                    <span
-                      className={`${styles.regValue} ${styles.regValuePython}`}
-                    >
-                      pypi
-                    </span>
+                    <FiBox className={styles.btnIcon} />
+                    <span>PyPI Package</span>
+                    <FiExternalLink className={styles.arrowIcon} />
                   </a>
                 </div>
               </div>
@@ -139,10 +162,16 @@ export const OpenSourceSection: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* ITEM 2: FALCOSEND SDK */}
-        <div className={`${styles.entryCard} ${styles.entryCardNpm}`}>
+        <motion.div
+          className={`${styles.entryCard} ${styles.entryCardNpm}`}
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className={styles.entryGrid}>
             <div className={styles.storyColumn}>
               <div className={styles.brandRow}>
@@ -207,30 +236,21 @@ export const OpenSourceSection: React.FC = () => {
                     href="https://github.com/elisoft-engineer/falcosend-sdk"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${styles.regBadge} ${styles.linkBadge}`}
+                    className={`${styles.actionBtn} ${styles.btnGithub}`}
                   >
-                    <span className={styles.regLabel}>
-                      <FiGithub size={13} />
-                      source
-                    </span>
-                    <span
-                      className={`${styles.regValue} ${styles.regValueGithub}`}
-                    >
-                      github
-                    </span>
+                    <FiGithub className={styles.btnIcon} />
+                    <span>GitHub</span>
+                    <FiExternalLink className={styles.arrowIcon} />
                   </a>
                   <a
                     href="https://www.npmjs.com/package/falcosend-sdk"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${styles.regBadge} ${styles.linkBadge}`}
+                    className={`${styles.actionBtn} ${styles.btnNpm}`}
                   >
-                    <span className={styles.regLabel}>install</span>
-                    <span
-                      className={`${styles.regValue} ${styles.regValueNpm}`}
-                    >
-                      npm
-                    </span>
+                    <FiBox className={styles.btnIcon} />
+                    <span>npm Registry</span>
+                    <FiExternalLink className={styles.arrowIcon} />
                   </a>
                 </div>
               </div>
@@ -245,7 +265,8 @@ export const OpenSourceSection: React.FC = () => {
                   <code>
                     <span className={styles.kw}>import</span> &#123; FalcoSend
                     &#125; <span className={styles.kw}>from</span>{" "}
-                    <span className={styles.str}>'falcosend-sdk'</span>;<br />
+                    <span className={styles.str}>{"'falcosend-sdk'"}</span>;
+                    <br />
                     <br />
                     <span className={styles.kw}>const</span> sdk ={" "}
                     <span className={styles.kw}>new</span>{" "}
@@ -253,27 +274,31 @@ export const OpenSourceSection: React.FC = () => {
                     <br />
                     &nbsp;&nbsp;url:{" "}
                     <span className={styles.str}>
-                      'https://api.falcosend.ellypad.com/submissions/create/'
+                      {
+                        "'https://api.falcosend.ellypad.com/submissions/create/'"
+                      }
                     </span>
                     ,<br />
                     &nbsp;&nbsp;submissionKey:{" "}
-                    <span className={styles.str}>'myKey...'</span>
+                    <span className={styles.str}>{"'myKey...'"}</span>
                     <br />
                     &#125;);
                     <br />
                     <br />
                     <span className={styles.cmt}>
-                      // Direct frontend submission without backend server
+                      {"// Direct frontend submission without backend server"}
                     </span>
                     <br />
                     <span className={styles.kw}>await</span> sdk.
                     <span className={styles.fn}>submit</span>(&#123;
                     <br />
                     &nbsp;&nbsp;form_name:{" "}
-                    <span className={styles.str}>'Contact Form'</span>,<br />
+                    <span className={styles.str}>{"'Contact Form'"}</span>,
+                    <br />
                     &nbsp;&nbsp;data: &#123; name:{" "}
-                    <span className={styles.str}>'Dev'</span>, email:{" "}
-                    <span className={styles.str}>'dev@example.com'</span> &#125;
+                    <span className={styles.str}>{"'Dev'"}</span>, email:{" "}
+                    <span className={styles.str}>{"'dev@example.com'"}</span>{" "}
+                    &#125;
                     <br />
                     &#125;);
                   </code>
@@ -281,7 +306,7 @@ export const OpenSourceSection: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
