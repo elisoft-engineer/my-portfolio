@@ -22,7 +22,6 @@
   margin-bottom: 0.75rem;
 }
 
-/* Gradient pulled from the two registries themselves: PyPI blue -> npm red */
 .gradientText {
   background: linear-gradient(135deg, #3775a9, #cb3837);
   -webkit-background-clip: text;
@@ -80,7 +79,6 @@
   flex-wrap: wrap;
 }
 
-/* Neomorphic raised icon chip */
 .iconBadge {
   width: 46px;
   height: 46px;
@@ -110,9 +108,6 @@
   word-break: break-word;
 }
 
-/* Shields.io-style split badge: grey label + colored value, exactly like a
-   real PyPI/npm version badge. Used both as the static version tag and,
-   larger, as the clickable registry links below. */
 .regBadge {
   display: inline-flex;
   align-items: stretch;
@@ -145,11 +140,6 @@
   background: #cb3837;
 }
 
-.regValueGithub {
-  background: #181717;
-}
-
-/* Static version tag, sized small */
 .versionBadge {
   font-size: 0.7rem;
   height: 20px;
@@ -158,22 +148,6 @@
 .versionBadge .regLabel,
 .versionBadge .regValue {
   padding: 0 0.5rem;
-}
-
-/* Clickable registry link, sized larger with a hover brighten */
-.linkBadge {
-  font-size: 0.78rem;
-  height: 30px;
-  transition: filter 0.15s ease;
-}
-
-.linkBadge .regLabel,
-.linkBadge .regValue {
-  padding: 0 0.75rem;
-}
-
-.linkBadge:hover {
-  filter: brightness(1.18);
 }
 
 .taglineCallout {
@@ -284,6 +258,7 @@
   color: var(--accent-emerald);
 }
 
+/* External Action Buttons */
 .externalLinks {
   display: flex;
   align-items: center;
@@ -292,12 +267,53 @@
   width: 100%;
 }
 
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.btnIcon {
+  font-size: 1rem;
+}
+
+.arrowIcon {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* GitHub Button */
+.btnGithub {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border-highlight);
+}
+
+/* PyPI Button */
+.btnPypi {
+  background: rgba(55, 117, 169, 0.15);
+  color: #5da0d6;
+  border: 1px solid rgba(55, 117, 169, 0.4);
+}
+
+/* NPM Button */
+.btnNpm {
+  background: rgba(203, 56, 55, 0.15);
+  color: #f26867;
+  border: 1px solid rgba(203, 56, 55, 0.4);
+}
+
 .artifactColumn {
   width: 100%;
   min-width: 0;
 }
 
-/* Neomorphic inset "screen" — recessed into the card */
 .mediaFrame,
 .codeFrame {
   background: var(--neo-bg);
@@ -367,7 +383,7 @@
 
 @media (max-width: 640px) {
   .openSourceSection {
-    padding: 3.5rem 1rem;
+    padding: 3.5rem 0rem;
   }
 
   .headerTitle {
@@ -391,7 +407,7 @@
     width: 100%;
   }
 
-  .linkBadge {
+  .actionBtn {
     flex: 1;
     justify-content: center;
   }
