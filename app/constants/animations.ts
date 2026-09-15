@@ -41,3 +41,32 @@ export const highlightItemVariants: Variants = {
     transition: { duration: 0.35, ease: "easeOut" },
   },
 };
+
+export const gridContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.98,
+    transition: { duration: 0.15 },
+  },
+};
+
+export const cardItemVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.92, y: 12 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 280,
+      damping: 22,
+    },
+  },
+};
