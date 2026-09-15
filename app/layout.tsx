@@ -8,33 +8,56 @@ import {
 
 import "./globals.css";
 import ThemeProvider from "./providers/Theme";
-import Footer from "@/app/components/footer/Footer";
-import Dialog from "./components/dialog/Dialog";
-import { DialogProvider } from "./providers/Dialog";
 import { Navbar } from "./components/navbar/Navbar";
 
+const SITE_URL = "https://elkana.ellypad.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elkana.ellypad.com"),
+  metadataBase: new URL(SITE_URL),
   title: "Elkana Maina | Software Engineer",
   description:
-    "Building smarter business systems and high-performance web applications. Specialized in Next.js, Django, and Enterprise automation.",
+    "Software Engineer building web apps, high-performance mobile software, backends, and practical ML models — turning messy operations into smooth, scalable systems.",
   keywords: [
     "Elkana Maina",
     "Software Engineer",
+    "Full-Stack Developer",
+    "Machine Learning Engineer",
+    "Deep Learning",
+    "PyTorch",
+    "TensorFlow",
+    "Data Science",
     "Business Automation",
     "Web Development Kenya",
     "Enterprise Software",
     "Ellypad",
     "Falcosend",
   ],
+  alternates: {
+    canonical: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
     title: "Elkana Maina | Software Engineer",
     description:
-      "Turning complex ideas into powerful, user-friendly digital experiences.",
-    url: "https://elkana.ellypad.com",
+      "Turning complex ideas into powerful, user-friendly digital experiences — from full-stack web platforms to practical ML models.",
+    url: SITE_URL,
     siteName: "Elkana Maina Portfolio",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elkana Maina | Software Engineer",
+    description:
+      "Turning complex ideas into powerful, user-friendly digital experiences — from full-stack web platforms to practical ML models.",
+    creator: "@mainakim99",
   },
 };
 
@@ -67,61 +90,182 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://elkana.ellypad.com/#person",
+        "@id": `${SITE_URL}/#person`,
         name: "Elkana Maina",
         jobTitle: "Software Engineer",
-        url: "https://elkana.ellypad.com",
+        url: SITE_URL,
         sameAs: [
           "https://github.com/elisoft-engineer",
           "https://www.linkedin.com/in/elkana-maina-ab54851a0/",
           "https://www.facebook.com/profile.php?id=61561212267451",
           "https://x.com/mainakim99",
         ],
-        worksFor: {
-          "@type": "Organization",
-          "@id": "https://ellypad.com/#organization",
-          name: "Ellypad",
+        worksFor: [
+          { "@id": "https://falcosend.ellypad.com/#organization" },
+          { "@id": "https://ellypad.com/#organization" },
+        ],
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Murang'a University of Technology",
         },
         description:
-          "Software Engineer specializing in Next.js, Django, and Enterprise automation.",
+          "Software Engineer building web apps, mobile software, backends, and practical ML models that turn messy operations into smooth, scalable systems.",
         knowsAbout: [
-          "Next.js",
-          "Django",
+          // Frontend
           "React",
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Flutter",
+          // Backend
+          "Node.js",
+          "Django",
+          "FastAPI",
+          "PostgreSQL",
+          "MongoDB",
+          "Redis",
+          // AI & Machine Learning
+          "Machine Learning",
+          "Deep Learning",
+          "PyTorch",
+          "TensorFlow",
+          "Data Science",
+          "Generative AI",
+          // DevOps & Cloud
+          "Docker",
+          "Linux",
+          // General
           "Software Architecture",
           "Enterprise Automation",
-          "Python",
-          "TypeScript",
+        ],
+        hasCredential: [
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "degree",
+            about: "Software Engineering",
+            educationalLevel: "Bachelor's degree",
+            name: "Bachelor of Science in Software Engineering (First Class Honours)",
+            recognizedBy: {
+              "@type": "CollegeOrUniversity",
+              name: "Murang'a University of Technology",
+            },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "badge",
+            name: "Machine Learning with Python - Level 1",
+            recognizedBy: { "@type": "Organization", name: "IBM" },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "badge",
+            name: "Deep Learning",
+            recognizedBy: { "@type": "Organization", name: "IBM" },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "badge",
+            name: "Deep Learning Essentials",
+            recognizedBy: { "@type": "Organization", name: "IBM" },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "badge",
+            name: "Deep Learning with TensorFlow",
+            recognizedBy: { "@type": "Organization", name: "IBM" },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "badge",
+            name: "Introduction to Data Science",
+            recognizedBy: {
+              "@type": "Organization",
+              name: "Cisco Networking Academy",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://falcosend.ellypad.com/#organization",
+        name: "Falcosend",
+        url: "https://falcosend.ellypad.com",
+        description:
+          "A multi-tenant form processing API enabling developers to collect submissions directly from static and client applications with zero backend configuration.",
+        founder: { "@id": `${SITE_URL}/#person` },
+      },
+      {
+        "@type": "Person",
+        "@id": "https://peter.ellypad.com/#person",
+        name: "Peter Ngare",
+        url: "https://peter.ellypad.com",
+        worksFor: { "@id": "https://ellypad.com/#organization" },
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://ellypad.com/#organization",
+        name: "Ellypad Tech",
+        url: "https://ellypad.com",
+        description:
+          "A software development firm crafting full-stack web platforms, mobile products, and automated cloud infrastructure for growing enterprises.",
+        founder: [
+          { "@id": `${SITE_URL}/#person` },
+          { "@id": "https://peter.ellypad.com/#person" },
         ],
       },
       {
         "@type": "WebSite",
-        "@id": "https://elkana.ellypad.com/#website",
-        url: "https://elkana.ellypad.com",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
         name: "Elkana Maina Portfolio",
-        publisher: { "@id": "https://elkana.ellypad.com/#person" },
+        inLanguage: "en-US",
+        publisher: { "@id": `${SITE_URL}/#person` },
       },
       {
         "@type": "ItemList",
         name: "Portfolio Sections",
         itemListElement: [
           {
-            "@type": "ListItem",
+            "@type": "SiteNavigationElement",
             position: 1,
-            name: "Projects",
-            url: "https://elkana.ellypad.com/projects",
+            name: "Who am I?",
+            url: `${SITE_URL}/#hero`,
           },
           {
-            "@type": "ListItem",
+            "@type": "SiteNavigationElement",
             position: 2,
-            name: "Certifications",
-            url: "https://elkana.ellypad.com/certifications",
+            name: "Featured Work",
+            url: `${SITE_URL}/#ventures`,
           },
           {
-            "@type": "ListItem",
+            "@type": "SiteNavigationElement",
             position: 3,
-            name: "Skills",
-            url: "https://elkana.ellypad.com/skills",
+            name: "Open Source",
+            url: `${SITE_URL}/#open-source`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 4,
+            name: "Tech Stack",
+            url: `${SITE_URL}/#skills`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 5,
+            name: "Credentials",
+            url: `${SITE_URL}/#certifications`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 6,
+            name: "Highlights",
+            url: `${SITE_URL}/#spotlight`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 7,
+            name: "Let's Connect",
+            url: `${SITE_URL}/#contact`,
           },
         ],
       },
@@ -145,7 +289,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <main className="main">{children}</main>
-          {/* <Footer /> */}
         </ThemeProvider>
       </body>
     </html>
