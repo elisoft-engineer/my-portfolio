@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useSyncExternalStore,
+} from "react";
 import {
   motion,
   useMotionValue,
@@ -41,17 +46,21 @@ const BASE_STRING_LEN = 40;
 const SVG_CENTER_X = 20;
 const MAX_STRETCH = 20;
 
+const emptySubscribe = () => () => {};
+const useIsMounted = () =>
+  useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
+
 export const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("hero");
-  const [mounted, setMounted] = useState<boolean>(false);
+  const mounted = useIsMounted();
   const { resolvedTheme, setTheme } = useTheme();
 
   const isClickScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,7 +94,7 @@ export const Navbar: React.FC = () => {
   const springWiggle = useSpring(stringWiggle, { stiffness: 450, damping: 12 });
 
   const stringPath = useTransform(
-    [springY, stringWiggle],
+    [springY, springWiggle],
     ([yVal, wiggleVal]) => {
       const totalLen = BASE_STRING_LEN + (yVal as number);
       const midY = totalLen / 2;
