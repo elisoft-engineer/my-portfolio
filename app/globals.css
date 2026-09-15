@@ -125,7 +125,8 @@ body {
 
 @media (max-width: 1023px) {
   .main {
-    padding-left: 0;
-    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
   }
 }
