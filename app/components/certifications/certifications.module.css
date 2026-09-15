@@ -69,6 +69,7 @@
 }
 
 .dockButton {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -82,13 +83,19 @@
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
 }
 
 .dockIcon {
   display: flex;
   align-items: center;
   font-size: 0.9rem;
+  z-index: 2;
+}
+
+.dockLabel {
+  z-index: 2;
 }
 
 .dockBadge {
@@ -99,26 +106,29 @@
   background: rgba(100, 116, 139, 0.15);
   color: var(--text-tertiary);
   transition: all 0.2s ease;
+  z-index: 2;
 }
 
 .dockButton:hover {
   color: var(--text-primary);
-  background: rgba(0, 0, 0, 0.04);
-}
-
-:global(.dark) .dockButton:hover {
-  background: rgba(255, 255, 255, 0.06);
 }
 
 .activeButton {
-  background: var(--accent-indigo) !important;
   color: #ffffff !important;
-  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
 }
 
 .activeButton .dockBadge {
   background: rgba(255, 255, 255, 0.25);
   color: #ffffff;
+}
+
+.dockActiveBg {
+  position: absolute;
+  inset: 0;
+  background: var(--accent-indigo);
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+  z-index: 0;
 }
 
 /* Grid Container */
@@ -144,14 +154,12 @@
   backdrop-filter: var(--glass-blur);
   padding: 1.25rem;
   transition:
-    transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
   box-sizing: border-box;
 }
 
 .card:hover {
-  transform: translateY(-4px);
   border-color: var(--glass-border-highlight);
 }
 
@@ -231,7 +239,7 @@
   text-overflow: ellipsis;
 }
 
-/* Skills List with Translucent Pill Backgrounds */
+/* Skills List */
 .skillsList {
   display: flex;
   flex-wrap: wrap;
