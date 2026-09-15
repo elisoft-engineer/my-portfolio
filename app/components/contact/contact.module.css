@@ -268,7 +268,7 @@
 
 @media (max-width: 640px) {
   .contactSection {
-    padding: 0 0.8rem 1.5rem;
+    padding: 0.8rem 0rem;
   }
   .contactCard {
     gap: 1.75rem;
