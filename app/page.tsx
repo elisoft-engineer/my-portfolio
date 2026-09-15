@@ -8,6 +8,7 @@ import { OpenSourceSection } from "./components/open-source/OpenSource";
 import { SkillsSection } from "./components/skills/Skills";
 import { CertificationsSection } from "./components/certifications/Certifications";
 import { SpotlightSection } from "./components/spotlight/Spotlight";
+import Footer from "./components/footer/Footer";
 
 // Section Sub-Components
 const AmbientBackground = () => (
@@ -17,7 +18,6 @@ const AmbientBackground = () => (
       <div className={styles.blob2} />
       <div className={styles.blob3} />
     </div>
-    <div className={styles.dotMatrixOverlay} />
   </>
 );
 
@@ -33,6 +33,7 @@ const Home = () => {
         <CertificationsSection />
         <SpotlightSection />
         <ContactSection />
+        <Footer />
       </div>
     </div>
   );
