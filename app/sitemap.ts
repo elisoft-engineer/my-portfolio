@@ -1,32 +1,12 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://elkana.ellypad.com';
-
   return [
     {
-      url: baseUrl,
+      url: "https://elkana.ellypad.com",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 1,
-    },
-    {
-      url: `${baseUrl}/experience`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/skills`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/certifications`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
   ];
 }
