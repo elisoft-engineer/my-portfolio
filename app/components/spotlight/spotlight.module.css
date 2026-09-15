@@ -1,5 +1,5 @@
 .spotlightSection {
-  padding: 5rem 1.5rem;
+  padding: 5rem 0rem;
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -433,7 +433,7 @@
 
 @media (max-width: 640px) {
   .spotlightSection {
-    padding: 3.5rem 1rem;
+    padding: 3.5rem 0rem;
   }
 
   .headerTitle {
