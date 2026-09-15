@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FiAward,
@@ -28,7 +28,7 @@ import gradPort2 from "@/assets/images/graduation-portrait-2.jpg";
 
 interface PhotoItem {
   id: number;
-  src: any;
+  src: StaticImageData | string;
   alt: string;
   caption: string;
   type: "hero" | "landscape" | "portrait";
@@ -72,13 +72,17 @@ const galleryPhotos: PhotoItem[] = [
   },
 ];
 
+const emptySubscribe = () => () => {};
+const useIsMounted = () =>
+  useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
+
 export const SpotlightSection: React.FC = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<PhotoItem | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useIsMounted();
 
   // Prevent background body scrolling when lightbox is active
   useEffect(() => {
@@ -118,7 +122,7 @@ export const SpotlightSection: React.FC = () => {
             <div className={styles.degreeHeader}>
               <div className={styles.universityRow}>
                 <span className={styles.universityName}>
-                  <FiMapPin /> Murang'a University of Technology
+                  <FiMapPin /> Murang&apos;a University of Technology
                 </span>
                 <span className={styles.timelineTag}>
                   <FiCalendar /> Aug 2026
@@ -134,8 +138,8 @@ export const SpotlightSection: React.FC = () => {
 
             <p className={styles.storyText}>
               I graduated with First Class Honours in Software Engineering from
-              Murang'a University of Technology, focusing on modern software
-              development, AI, networking, and practical research.
+              Murang&apos;a University of Technology, focusing on modern
+              software development, AI, networking, and practical research.
             </p>
 
             <div className={styles.curriculumBlock}>
@@ -316,6 +320,7 @@ export const SpotlightSection: React.FC = () => {
                     <FiX />
                   </button>
                   <div className={styles.modalImageWrapper}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={
                         typeof selectedPhoto.src === "string"
