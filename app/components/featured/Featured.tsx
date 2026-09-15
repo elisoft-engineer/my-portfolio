@@ -45,7 +45,7 @@ export const FeaturedSection: React.FC = () => {
   return (
     <section className={styles.venturesSection} id="ventures">
       <div className={styles.sectionHeader}>
-        <h2 className={styles.headerTitle}>What I've Built</h2>
+        <h2 className={styles.headerTitle}>What I&apos;ve Built</h2>
       </div>
 
       <div className={styles.venturesList}>
